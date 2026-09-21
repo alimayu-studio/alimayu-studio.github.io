@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alimayu Studio</title>
-  <meta name="description" content="Request Dr. Allison Alimayu for a keynote, workshop, training, or panel.">
+  <title>Book Dr. Allison Alimayu</title>
+  <meta name="description" content="Book Dr. Allison Alimayu for a keynote, workshop, training, or panel.">
   <link rel="icon" href="alimayu-seal.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,32 +26,38 @@
       font-family: 'Source Sans 3', sans-serif;
       font-size: 18px;
       line-height: 1.6;
+    }
+    .topbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 48px 16px;
+      gap: 10px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 18px 16px;
+    }
+    .topbar img { width: 36px; height: auto; }
+    .topbar span {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--navy);
     }
     main {
-      width: 100%;
-      max-width: 640px;
-      background: #FFFFFF;
-      border: 1px solid rgba(176, 141, 87, .35);
-      border-top: 5px solid var(--navy);
-      box-shadow: 0 18px 50px rgba(30, 35, 70, .10);
-      padding: 48px 40px;
+      max-width: 760px;
+      margin: 24px auto 64px;
+      padding: 0 16px;
       text-align: center;
     }
-    .seal { width: 140px; height: auto; }
     h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 600;
-      font-size: 44px;
+      font-size: 52px;
       line-height: 1.1;
       color: var(--navy);
-      margin: 20px 0 6px;
+      margin: 0 0 6px;
     }
     .star { color: var(--gold); font-size: 14px; }
-    p { color: var(--muted); margin: 18px auto 0; max-width: 46ch; }
+    p { color: var(--muted); margin: 18px auto 0; max-width: 48ch; }
     .button {
       display: inline-block;
       margin-top: 30px;
@@ -67,18 +73,21 @@
     .contact { font-size: 15px; margin-top: 28px; }
     .contact a { color: var(--navy); }
     @media (max-width: 600px) {
-      main { padding: 36px 20px; }
-      h1 { font-size: 34px; }
+      h1 { font-size: 38px; }
       .button { width: 100%; }
     }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <img src="alimayu-seal.png" alt="">
+    <span>Alimayu Studio</span>
+  </header>
+
   <main>
-    <img class="seal" src="alimayu-seal.png" alt="Alimayu Studio seal">
-    <h1>Alimayu Studio</h1>
+    <h1>Book Dr. Allison Alimayu</h1>
     <div class="star" aria-hidden="true">&#10022;</div>
-    <p>Request Dr. Allison Alimayu for a keynote, workshop, training, or panel. Pia, the Alimayu Studio assistant, walks event organizers through each detail, and a response follows within two business days.</p>
+    <p>Keynotes, workshops, trainings, and panels. Pia, the Alimayu Studio assistant, walks event organizers through each detail, and a response follows within two business days.</p>
     <a class="button" href="https://agent.jotform.com/01a0c235f070700082ffa4bbe5702f0b80e3">Request a speaking engagement</a>
     <p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
   </main>
