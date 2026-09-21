@@ -72,6 +72,34 @@
     .button:hover, .button:focus-visible { background: var(--gold); color: #FFFFFF; }
     .contact { font-size: 15px; margin-top: 28px; }
     .contact a { color: var(--navy); }
+    .reel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 26px 0 4px;
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      overflow: hidden;
+    }
+    .reel iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .sound {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--navy);
+      color: #E7DBC5;
+      font: 600 15px 'Source Sans 3', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
+    .sound:hover, .sound:focus-visible { background: var(--gold); color: #FFFFFF; }
+    .sound[hidden] { display: none; }
     @media (max-width: 600px) {
       h1 { font-size: 38px; }
       .button { width: 100%; }
@@ -87,10 +115,24 @@
   <main>
     <h1>Book Dr. Allison Alimayu</h1>
     <div class="star" aria-hidden="true">&#10022;</div>
+    <div class="reel">
+      <iframe id="reel" src="https://www.youtube-nocookie.com/embed/HT1tzhjJ0gk?autoplay=1&amp;mute=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1" title="Dr. Allison Alimayu speaker reel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      <button class="sound" id="sound" type="button">&#128264; Tap for sound</button>
+    </div>
     <p>Keynotes, workshops, trainings, and panels. Pia, the Alimayu Studio assistant, walks event organizers through each detail, and a response follows within two business days.</p>
     <a class="button" href="https://agent.jotform.com/01a0c235f070700082ffa4bbe5702f0b80e3">Request a speaking engagement</a>
     <p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
   </main>
+
+  <script>
+    document.getElementById('sound').addEventListener('click', function () {
+      var f = document.getElementById('reel').contentWindow;
+      f.postMessage(JSON.stringify({ event: 'command', func: 'unMute', args: [] }), '*');
+      f.postMessage(JSON.stringify({ event: 'command', func: 'setVolume', args: [100] }), '*');
+      f.postMessage(JSON.stringify({ event: 'command', func: 'playVideo', args: [] }), '*');
+      this.hidden = true;
+    });
+  </script>
 
   <!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
   <script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
