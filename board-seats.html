@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Board &amp; Advisory | Allison Alimayu, PhD</title>
+<meta name="description" content="Allison Alimayu, PhD — board director candidate: governance, financial oversight, and regulatory affairs, across public, federal, national, and nonprofit boards.">
+<link rel="icon" href="alimayu-seal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #1E2346;
+--gold: #B08D57;
+--cream: #EFE8DA;
+--ink: #171717;
+--muted: #4A4F63;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+min-height: 100vh;
+background: var(--cream);
+color: var(--ink);
+font-family: 'Source Sans 3', sans-serif;
+font-size: 18px;
+line-height: 1.6;
+}
+a { color: inherit; }
+.topbar {
+display: flex;
+align-items: center;
+gap: 10px;
+max-width: 960px;
+margin: 0 auto;
+padding: 18px 16px;
+}
+.topbar img { width: 36px; height: auto; }
+.topbar span.brand {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 18px;
+color: var(--navy);
+}
+.nav {
+margin-left: auto;
+display: flex;
+gap: 26px;
+}
+.nav a {
+text-decoration: none;
+font-weight: 600;
+font-size: 15px;
+color: var(--navy);
+}
+.nav a:hover, .nav a:focus-visible { color: var(--gold); }
+.nav a.current { color: var(--gold); }
+
+/* Hero */
+.hero {
+max-width: 760px;
+margin: 24px auto 8px;
+padding: 0 16px;
+text-align: center;
+}
+.hero h1 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 52px;
+line-height: 1.1;
+color: var(--navy);
+margin: 0 0 6px;
+}
+.star { color: var(--gold); font-size: 14px; }
+.hero p.tagline {
+color: var(--muted);
+margin: 18px auto 0;
+max-width: 52ch;
+}
+.hero-cta { margin-top: 30px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.button {
+display: inline-block;
+padding: 15px 36px;
+background: var(--navy);
+color: #E7DBC5;
+font-weight: 600;
+text-decoration: none;
+border-radius: 2px;
+transition: background .2s ease;
+}
+.button:hover, .button:focus-visible { background: var(--gold); color: #FFFFFF; }
+.button-outline {
+display: inline-block;
+padding: 13px 34px;
+background: transparent;
+color: var(--navy);
+font-weight: 600;
+text-decoration: none;
+border-radius: 2px;
+border: 2px solid var(--navy);
+transition: background .2s ease, color .2s ease;
+}
+.button-outline:hover, .button-outline:focus-visible { background: var(--navy); color: #E7DBC5; }
+
+/* Stats */
+.stats {
+max-width: 960px;
+margin: 56px auto 0;
+padding: 40px 16px;
+background: var(--navy);
+border-radius: 4px;
+}
+.stats-grid {
+max-width: 760px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 24px;
+text-align: center;
+}
+.stat-num {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 36px;
+font-weight: 600;
+color: var(--gold);
+}
+.stat-label {
+font-size: 13px;
+color: #E7DBC5;
+margin-top: 8px;
+line-height: 1.4;
+}
+
+/* Section */
+.section {
+max-width: 760px;
+margin: 0 auto;
+padding: 64px 16px;
+}
+.section-intro { text-align: center; margin-bottom: 40px; }
+.section h2 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 34px;
+color: var(--navy);
+margin: 0 0 12px;
+}
+.section-intro p { color: var(--muted); max-width: 52ch; margin: 0 auto; }
+
+/* Accordion */
+.cards { display: flex; flex-direction: column; gap: 12px; }
+.card {
+border: 1px solid rgba(30,35,70,0.15);
+border-radius: 4px;
+overflow: hidden;
+background: #ffffff;
+}
+.card-head {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+padding: 20px 24px;
+cursor: pointer;
+user-select: none;
+}
+.card-head:hover { background: rgba(176,141,87,0.08); }
+.card-title {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 21px;
+color: var(--navy);
+}
+.card-sub {
+font-size: 13px;
+color: var(--gold);
+font-weight: 600;
+margin-top: 3px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+.card-icon {
+flex: 0 0 auto;
+width: 26px;
+height: 26px;
+border-radius: 50%;
+background: var(--navy);
+color: var(--gold);
+font-size: 17px;
+font-weight: 700;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform .2s ease;
+}
+.card.open .card-icon { transform: rotate(45deg); }
+.card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.card-body-inner { padding: 4px 24px 22px; color: var(--ink); font-size: 16px; }
+.card-body-inner p { margin: 0 0 14px; }
+.card-body-inner p:last-child { margin-bottom: 0; }
+.card-body-inner .highlight { color: var(--navy); font-weight: 700; }
+
+/* Resources */
+.resources { background: var(--navy); }
+.resources .section-inner { max-width: 760px; margin: 0 auto; padding: 64px 16px; }
+.resources h2 { color: #ffffff; }
+.resources .section-intro p { color: #C9CBDA; }
+.res-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+max-width: 620px;
+margin: 0 auto;
+}
+.res-card {
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(176,141,87,0.35);
+border-radius: 4px;
+padding: 30px 24px;
+text-align: center;
+}
+.res-card h3 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 20px;
+color: var(--gold);
+margin: 0 0 10px;
+}
+.res-card p { font-size: 14px; color: #C9CBDA; margin-bottom: 20px; min-height: 40px; }
+
+.contact { font-size: 15px; text-align: center; margin-top: 24px; color: var(--muted); }
+.contact a { color: var(--navy); }
+
+footer {
+text-align: center;
+padding: 32px 16px 64px;
+font-size: 13px;
+color: var(--muted);
+}
+
+@media (max-width: 700px) {
+.hero h1 { font-size: 38px; }
+.stats-grid { grid-template-columns: repeat(2, 1fr); }
+.res-grid { grid-template-columns: 1fr; }
+.nav { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+<img src="alimayu-seal.png" alt="">
+<span class="brand">Alimayu Studio</span>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="speaking.html">Speaking</a>
+<a href="board-seats.html" class="current">Board &amp; Advisory</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Board &amp; Advisory</h1>
+<div class="star" aria-hidden="true">&#10022;</div>
+<p class="tagline">Allison Alimayu, PhD — board director candidate: governance, financial oversight, and regulatory affairs, with a fiduciary record spanning public, federal, national, and nonprofit boards.</p>
+<div class="hero-cta">
+<a class="button" href="#resources">View Board Bio &amp; Deck</a>
+<a class="button-outline" href="#connect">Start a Conversation</a>
+</div>
+</div>
+
+<div class="stats">
+<div class="stats-grid">
+<div>
+<div class="stat-num">6</div>
+<div class="stat-label">Governance appointments across public, federal, national, and nonprofit institutions</div>
+</div>
+<div>
+<div class="stat-num">$25M</div>
+<div class="stat-label">Operating Pool Reserve distribution directed as Audit &amp; Compliance Committee Chair</div>
+</div>
+<div>
+<div class="stat-num">68%</div>
+<div class="stat-label">Reduction in open audit exceptions under her committee leadership</div>
+</div>
+<div>
+<div class="stat-num">2013&ndash;Present</div>
+<div class="stat-label">More than a decade of continuous board and committee service</div>
+</div>
+</div>
+</div>
+
+<section class="section" id="experience">
+<div class="section-intro">
+<h2>A Governance Record Across Six Institutions</h2>
+<p>Every seat below carried fiduciary oversight of executive leadership &mdash; the core function of a corporate board. Select a category to see the record.</p>
+</div>
+
+<div class="cards" id="accordion">
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">Audit &amp; Finance Leadership</div>
+<div class="card-sub">Nevada System of Higher Education Board of Regents &middot; 2013&ndash;2019</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>Elected to the Nevada System of Higher Education Board of Regents in 2013, Allison served as <span class="highlight">Vice Chair of the Board</span> and <span class="highlight">Chair of the Audit and Compliance Committee</span> through 2019. In that role, she held the board's fiduciary oversight of the Chancellor and system executive leadership &mdash; a governance function she has exercised on every board she has served.</p>
+<p>She led a redesign of NSHE's audit and enterprise risk management framework, directed a <span class="highlight">$25 million distribution</span> from the Operating Pool Reserve to clear a backlog of internal audit follow-up, and reduced open audit exceptions by <span class="highlight">68 percent</span>, earning the Distinguished Public Service Award in 2019.</p>
+<p>She published on audit committee governance in the <em>College and University Auditor Journal</em> and <em>Trustee Quarterly</em>, and presented at the Association of College and University Auditors' national conference.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">Federal Regulatory Experience</div>
+<div class="card-sub">Medicare Evidence Development &amp; Coverage Advisory Committee &middot; 2019&ndash;2027</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>Appointed by the Secretary of Health and Human Services to the <span class="highlight">Medicare Evidence Development and Coverage Advisory Committee (MEDCAC)</span>, a federal advisory body that reviews clinical evidence to guide national Medicare coverage policy.</p>
+<p>This appointment brings direct experience with federal regulatory process, evidence review at scale, and the kind of independent judgment boards rely on when evaluating complex, high-stakes decisions.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">Energy &amp; Environmental Regulation</div>
+<div class="card-sub">North Carolina Oil and Gas Commission &middot; 2026</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>Appointed to a four-year term on the <span class="highlight">North Carolina Oil and Gas Commission</span> in 2026, and serves as an Expert Reviewer for the Intergovernmental Panel on Climate Change (2026) &mdash; pairing state regulatory experience with international scientific-review work on climate and environmental policy.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">National Organizational Governance</div>
+<div class="card-sub">Democratic National Committee &middot; Two Elected Terms</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>Elected to <span class="highlight">two terms on the Democratic National Committee</span>, the national governing body of the Democratic Party, where she served as Secretary of the Black Caucus and directed the Environmental and Climate Crisis Council &mdash; focusing on inclusion and climate policy and advocating for grassroots engagement.</p>
+<p>Her national organizational service has been recognized with the <span class="highlight">Urban Chamber of Commerce Women in Politics Lifetime Achievement Award (2016)</span>, a Congressional Commendation for Political and Community Engagement from US Representative Dina Titus (2016), and induction into Distinguished Women of Nevada (2014).</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">Nonprofit Board Governance</div>
+<div class="card-sub">EnergyFit Nevada &middot; Nevada PEP</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>Beyond public and federal appointments, Allison has served in fiduciary board roles across the nonprofit sector: as <span class="highlight">Secretary of the Board of Directors for EnergyFit Nevada (2012&ndash;2014)</span>, and as a <span class="highlight">Board Member of Nevada PEP (2017&ndash;2020)</span>.</p>
+<p>Governance experience spanning public, federal, national party, and nonprofit institutions &mdash; across multiple organizations and sectors &mdash; reflects the breadth of oversight a corporate board seat requires.</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-head">
+<div>
+<div class="card-title">Strategic Advisory</div>
+<div class="card-sub">Fulbright US Scholar &middot; Color Lens Consulting</div>
+</div>
+<div class="card-icon">+</div>
+</div>
+<div class="card-body">
+<div class="card-body-inner">
+<p>As a 2025&ndash;2026 <span class="highlight">Fulbright US Scholar</span> at Research Ireland, the country's national research funding agency, Allison advised first on the design of mission-oriented funding programs and later advised the CEO directly on organizational and international strategy &mdash; translating research-policy expertise into executive-level counsel.</p>
+<p>Since 2018, she has also run <span class="highlight">Color Lens Consulting</span>, an independent healthcare and policy advisory practice. Within it, she serves as Strategic Initiatives Director for Nevada PEP (2021&ndash;present) and Vice President of Project Development for Periwinkle Group (2018&ndash;present) &mdash; a standing advisory practice, not a single engagement.</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="resources" id="resources">
+<div class="section-inner">
+<div class="section-intro">
+<h2>Board Materials</h2>
+<p>The full record, formatted for board search committees and governance recruiters.</p>
+</div>
+<div class="res-grid">
+<div class="res-card">
+<h3>Board Bio</h3>
+<p>A one-page governance biography summarizing fiduciary experience, awards, and credentials.</p>
+<a class="button" href="https://www.canva.com/d/kIZx58akqBequmC" target="_blank" rel="noopener">View &amp; Download</a>
+</div>
+<div class="res-card">
+<h3>Board-Ready Deck</h3>
+<p>A ten-slide governance presentation covering every category of board and regulatory experience.</p>
+<a class="button" href="https://www.canva.com/d/5wGA3h2ztmkfsRr" target="_blank" rel="noopener">View &amp; Download</a>
+</div>
+</div>
+</div>
+</section>
+
+<div class="hero" id="connect" style="margin-top:64px;">
+<h2 style="font-family:'Cormorant Garamond', Georgia, serif; font-weight:600; font-size:34px; color:var(--navy); margin:0 0 12px;">Ready to Discuss Board Service</h2>
+<p class="tagline">Allison Alimayu, PhD, is currently open to conversations with search committees and governance recruiters about corporate board opportunities.</p>
+<div class="hero-cta">
+<a class="button" href="mailto:allison.alimayu@gmail.com">Start a Conversation</a>
+</div>
+<p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
+</div>
+
+<footer>
+&copy; <span id="year"></span> Allison Alimayu, PhD &middot; Alimayu Studio
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('.card-head').forEach(function(head){
+head.addEventListener('click', function(){
+var card = head.closest('.card');
+var body = card.querySelector('.card-body');
+var isOpen = card.classList.contains('open');
+document.querySelectorAll('.card').forEach(function(c){
+if(c !== card){
+c.classList.remove('open');
+c.querySelector('.card-body').style.maxHeight = null;
+}
+});
+if(isOpen){
+card.classList.remove('open');
+body.style.maxHeight = null;
+} else {
+card.classList.add('open');
+body.style.maxHeight = body.scrollHeight + 'px';
+}
+});
+});
+</script>
+
+<!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
+<script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
+</body>
+</html>
