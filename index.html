@@ -1,98 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Allison Alimayu</title>
-  <meta name="description" content="Dr. Allison Alimayu: speaking, masterclasses, podcast, board and advisory work, and Alimayu Studio.">
-  <link rel="icon" href="alimayu-seal.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #1E2346;
-      --gold: #B08D57;
-      --cream: #EFE8DA;
-      --ink: #171717;
-      --muted: #4A4F63;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    .topbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 18px 16px;
-    }
-    .topbar img { width: 36px; height: auto; }
-    .topbar span {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 600;
-      font-size: 18px;
-      color: var(--navy);
-    }
-    main {
-      max-width: 760px;
-      margin: 24px auto 64px;
-      padding: 0 16px;
-      text-align: center;
-    }
-    h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 600;
-      font-size: 52px;
-      line-height: 1.1;
-      color: var(--navy);
-      margin: 0 0 6px;
-    }
-    .star { color: var(--gold); font-size: 14px; }
-    p { color: var(--muted); margin: 18px auto 0; max-width: 48ch; }
-    .button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 36px;
-      background: var(--navy);
-      color: #E7DBC5;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background .2s ease;
-    }
-    .button:hover, .button:focus-visible { background: var(--gold); color: #FFFFFF; }
-    .contact { font-size: 15px; margin-top: 28px; }
-    .contact a { color: var(--navy); }
-    @media (max-width: 600px) {
-      h1 { font-size: 38px; }
-      .button { width: 100%; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Allison Alimayu</title>
+<meta name="description" content="Dr. Allison Alimayu: speaking, masterclasses, podcast, board and advisory work, and Alimayu Studio.">
+<link rel="icon" href="alimayu-seal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #1E2346;
+--gold: #B08D57;
+--cream: #EFE8DA;
+--ink: #171717;
+--muted: #4A4F63;
+}
+* { box-sizing: border-box; }
+body {
+margin: 0;
+min-height: 100vh;
+background: var(--cream);
+color: var(--ink);
+font-family: 'Source Sans 3', sans-serif;
+font-size: 18px;
+line-height: 1.6;
+}
+.topbar {
+display: flex;
+align-items: center;
+gap: 10px;
+max-width: 960px;
+margin: 0 auto;
+padding: 18px 16px;
+}
+.topbar img { width: 36px; height: auto; }
+.topbar span.brand {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 18px;
+color: var(--navy);
+}
+.nav {
+margin-left: auto;
+display: flex;
+gap: 26px;
+}
+.nav a {
+text-decoration: none;
+font-weight: 600;
+font-size: 15px;
+color: var(--navy);
+}
+.nav a:hover, .nav a:focus-visible { color: var(--gold); }
+.nav a.current { color: var(--gold); }
+main {
+max-width: 760px;
+margin: 24px auto 64px;
+padding: 0 16px;
+text-align: center;
+}
+h1 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 52px;
+line-height: 1.1;
+color: var(--navy);
+margin: 0 0 6px;
+}
+.star { color: var(--gold); font-size: 14px; }
+p { color: var(--muted); margin: 18px auto 0; max-width: 48ch; }
+.button {
+display: inline-block;
+margin-top: 30px;
+padding: 15px 36px;
+background: var(--navy);
+color: #E7DBC5;
+font-weight: 600;
+text-decoration: none;
+border-radius: 2px;
+transition: background .2s ease;
+}
+.button:hover, .button:focus-visible { background: var(--gold); color: #FFFFFF; }
+.contact { font-size: 15px; margin-top: 28px; }
+.contact a { color: var(--navy); }
+@media (max-width: 600px) {
+h1 { font-size: 38px; }
+.button { width: 100%; }
+.nav { gap: 16px; }
+}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <img src="alimayu-seal.png" alt="">
-    <span>Alimayu Studio</span>
-  </header>
+<header class="topbar">
+<img src="alimayu-seal.png" alt="">
+<span class="brand">Alimayu Studio</span>
+<nav class="nav">
+<a href="index.html" class="current">Home</a>
+<a href="speaking.html">Speaking</a>
+<a href="board-seats.html">Board &amp; Advisory</a>
+</nav>
+</header>
 
-  <main>
-    <h1>Dr. Allison Alimayu</h1>
-    <div class="star" aria-hidden="true">&#10022;</div>
-    <p>The full site is on its way. In the meantime, event organizers can book Allison to speak.</p>
-    <a class="button" href="/speaking">Book Dr. Alimayu to Speak</a>
-    <p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
-  </main>
+<main>
+<h1>Dr. Allison Alimayu</h1>
+<div class="star" aria-hidden="true">&#10022;</div>
+<p>The full site is on its way. In the meantime, event organizers can book Allison to speak, and search committees can review her board and advisory record.</p>
+<a class="button" href="speaking.html">Book Dr. Alimayu to Speak</a>
+<p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
+</main>
 
-  <!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
-  <script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
+<!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
+<script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
 </body>
 </html>
