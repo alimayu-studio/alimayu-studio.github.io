@@ -245,6 +245,10 @@ color: var(--muted);
 .res-grid { grid-template-columns: 1fr; }
 .nav { gap: 16px; }
 }
+@media (max-width: 600px) {
+.topbar { flex-wrap: wrap; }
+.nav { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 6px 18px; }
+}
 </style>
 </head>
 <body>
@@ -256,6 +260,7 @@ color: var(--muted);
 <a href="index.html">Home</a>
 <a href="speaking.html">Speaking</a>
 <a href="board-seats.html" class="current">Board &amp; Advisory</a>
+<a href="initiatives.html">Initiatives</a>
 </nav>
 </header>
 

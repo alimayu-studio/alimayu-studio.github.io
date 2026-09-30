@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="p:domain_verify" content="259ea655238b9d3a420e2fe732287415"/>
-<title>Dr. Allison Alimayu</title>
-<meta name="description" content="Dr. Allison Alimayu: speaking, masterclasses, podcast, board and advisory work, and Alimayu Studio.">
+<title>Initiatives | Alimayu Studio</title>
+<meta name="description" content="Initiatives of Alimayu Studio, including The Postmoon Club, a postpartum health and wellness community.">
 <link rel="icon" href="alimayu-seal.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,6 +94,19 @@ h1 { font-size: 38px; }
 .topbar { flex-wrap: wrap; }
 .nav { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 6px 18px; }
 }
+
+.label { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 15px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.list { max-width: 760px; margin: 40px auto 0; padding: 0; display: grid; gap: 20px; text-align: left; }
+.initiative { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center; padding: 24px; border-radius: 4px; text-decoration: none; color: inherit; transition: transform .2s ease; }
+.initiative:hover, .initiative:focus-visible { transform: translateY(-2px); }
+.initiative.postmoon { background: #EBD3C8; }
+.initiative img { width: 160px; height: auto; display: block; }
+.initiative h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 32px; line-height: 1.15; margin: 4px 0 8px; color: #1E2346; }
+.initiative .label { color: #A4533F; }
+.initiative p { margin: 0; max-width: none; color: #1E2346; }
+.initiative .go { display: inline-block; margin-top: 12px; font-weight: 600; color: #A4533F; }
+.soon { border: 1px dashed rgba(30,35,70,.3); border-radius: 4px; padding: 24px; text-align: center; color: var(--muted); }
+@media (max-width: 600px) { .initiative { grid-template-columns: 1fr; text-align: center; } .initiative img { margin: 0 auto; width: 140px; } }
 </style>
 </head>
 <body>
@@ -102,19 +114,31 @@ h1 { font-size: 38px; }
 <img src="alimayu-seal.png" alt="">
 <span class="brand">Alimayu Studio</span>
 <nav class="nav">
-<a href="index.html" class="current">Home</a>
+<a href="index.html">Home</a>
 <a href="speaking.html">Speaking</a>
 <a href="board-seats.html">Board &amp; Advisory</a>
-<a href="initiatives.html">Initiatives</a>
+<a href="initiatives.html" class="current">Initiatives</a>
 </nav>
 </header>
 
 <main>
-<h1>Dr. Allison Alimayu</h1>
+<div class="label">Alimayu Studio</div>
+<h1>Initiatives</h1>
 <div class="star" aria-hidden="true">&#10022;</div>
-<p>The full site is on its way. In the meantime, event organizers can book Allison to speak, and search committees can review her board and advisory record.</p>
-<a class="button" href="speaking.html">Book Dr. Alimayu to Speak</a>
-<p class="contact">Other questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></p>
+<p>Alimayu Studio builds initiatives around real needs. Each one has its own name and its own look, with the same research, education, and care behind it.</p>
+
+<div class="list">
+<a class="initiative postmoon" href="postmoonclub.html">
+<img src="postmoon-mark.png" alt="The Postmoon Club moon mother logo">
+<div>
+<div class="label">Postpartum health and wellness</div>
+<h2>The Postmoon Club</h2>
+<p>A community for the mother, through the twelve months after birth. Plain facts, a free map for her support circle, and a monthly mail club.</p>
+<span class="go">Visit The Postmoon Club &rarr;</span>
+</div>
+</a>
+<div class="soon">More initiatives are on the way.</div>
+</div>
 </main>
 
 <!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
