@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Postmoon Club | Alimayu Studio</title>
+<meta name="description" content="The Postmoon Club is a postpartum health and wellness company for the 12 months after birth, centered on the mother. An initiative of Alimayu Studio.">
+<meta property="og:title" content="The Postmoon Club">
+<meta property="og:description" content="Postpartum lasts a full year. Her care should, too.">
+<meta property="og:url" content="https://alimayu.studio/postmoonclub">
+<link rel="icon" href="alimayu-seal.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--milkrose: #EBD2C6;
+--milkrose-light: #F4E4DC;
+--midnight: #1E2346;
+--rosehip: #A8455A;
+--gold: #B08D57;
+--ink: #171717;
+--muted: #4A4F63;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+margin: 0;
+background: var(--milkrose);
+color: var(--ink);
+font-family: 'Source Sans 3', sans-serif;
+font-size: 18px;
+line-height: 1.6;
+}
+a { color: var(--midnight); }
+.topbar {
+display: flex;
+align-items: center;
+gap: 10px;
+max-width: 960px;
+margin: 0 auto;
+padding: 18px 16px;
+}
+.topbar img { width: 36px; height: auto; }
+.topbar span.brand {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 18px;
+color: var(--midnight);
+}
+.nav { margin-left: auto; display: flex; gap: 26px; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--midnight); }
+.nav a:hover, .nav a:focus-visible, .nav a.current { color: var(--rosehip); }
+
+.hero {
+max-width: 760px;
+margin: 0 auto;
+padding: 48px 16px 64px;
+text-align: center;
+}
+.moons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.moons svg { width: 20px; height: 20px; }
+.the {
+display: block;
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-style: italic;
+font-size: 24px;
+color: var(--rosehip);
+margin-bottom: -6px;
+}
+h1 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 64px;
+line-height: 1.05;
+color: var(--midnight);
+margin: 0;
+}
+.tagline {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 28px;
+line-height: 1.3;
+color: var(--midnight);
+margin: 18px auto 0;
+max-width: 26ch;
+}
+.lede { color: var(--muted); margin: 18px auto 0; max-width: 46ch; }
+.button {
+display: inline-block;
+margin-top: 30px;
+padding: 15px 36px;
+background: var(--midnight);
+color: var(--milkrose-light);
+font-weight: 600;
+text-decoration: none;
+border-radius: 2px;
+transition: background .2s ease;
+}
+.button:hover, .button:focus-visible { background: var(--rosehip); color: #FFFFFF; }
+.small-note { font-size: 15px; color: var(--muted); margin-top: 12px; }
+
+section { padding: 64px 16px; }
+.inner { max-width: 760px; margin: 0 auto; }
+h2 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 40px;
+line-height: 1.15;
+color: var(--midnight);
+margin: 0 0 16px;
+}
+section p { margin: 0 0 14px; color: var(--ink); }
+
+.dark { background: var(--midnight); color: var(--milkrose-light); }
+.dark h2 { color: var(--milkrose-light); }
+.dark p { color: var(--milkrose-light); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+.fact { border-top: 2px solid var(--rosehip); padding-top: 12px; }
+.fact strong {
+display: block;
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-size: 34px;
+line-height: 1.1;
+color: #FFFFFF;
+}
+.fact span { font-size: 16px; }
+
+.light { background: var(--milkrose-light); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+.card { background: #FFFFFF; padding: 24px; border-radius: 4px; }
+.card .label {
+font-size: 13px;
+font-weight: 600;
+letter-spacing: .08em;
+text-transform: uppercase;
+color: var(--rosehip);
+}
+.card h3 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-weight: 600;
+font-size: 26px;
+line-height: 1.2;
+color: var(--midnight);
+margin: 6px 0 10px;
+}
+.card p { font-size: 16px; margin: 0; }
+
+.circle { text-align: center; }
+.circle p { max-width: 52ch; margin-left: auto; margin-right: auto; }
+
+.founder { border-top: 1px solid rgba(30, 35, 70, .15); }
+
+footer {
+text-align: center;
+padding: 40px 16px 56px;
+font-size: 15px;
+color: var(--muted);
+}
+footer img { width: 56px; height: auto; display: block; margin: 0 auto 10px; }
+footer .follow { margin-top: 8px; }
+
+@media (max-width: 720px) {
+h1 { font-size: 46px; }
+.tagline { font-size: 24px; }
+h2 { font-size: 32px; }
+.facts, .cards { grid-template-columns: 1fr; }
+.button { width: 100%; }
+.nav { gap: 16px; }
+.topbar span.brand { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+<a href="index.html"><img src="alimayu-seal.png" alt="Alimayu Studio home"></a>
+<span class="brand">Alimayu Studio</span>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="speaking.html">Speaking</a>
+<a href="postmoonclub.html" class="current">Postmoon Club</a>
+</nav>
+</header>
+
+<main>
+
+<div class="hero">
+<div class="moons" aria-hidden="true">
+<!-- Twelve moons, one for each month of the postpartum year -->
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 1 0 16a5 8 0 0 0 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 1 0 16a2 8 0 0 0 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 1 0 16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 1 0 16a3 8 0 0 1 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 0 0 16a3 8 0 0 0 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 0 0 16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 0 0 16a2 8 0 0 1 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1.5"/><path d="M10 2a8 8 0 0 0 0 16a5 8 0 0 1 0-16z" fill="#1E2346"/></svg>
+<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#A8455A" stroke-width="1.5"/></svg>
+</div>
+<span class="the">The</span>
+<h1>Postmoon Club</h1>
+<p class="tagline">Postpartum lasts a full year. Her care should, too.</p>
+<p class="lede">The Postmoon Club is a postpartum health and wellness company for the 12 months after birth. The focus is the mother, not the baby.</p>
+<a class="button" href="mailto:info@alimayu.studio?subject=Send%20me%20the%20Postmoon%20Map">Get the Free Postmoon Map</a>
+<p class="small-note">Free, and made for a phone.</p>
+</div>
+
+<section class="dark">
+<div class="inner">
+<h2>Six Weeks Is Not the Finish Line</h2>
+<p>Most postpartum checkups end around six weeks. Her body is not done healing. Most new mothers never hear what comes next.</p>
+<div class="facts">
+<div class="fact"><strong>6 weeks</strong><span>when most postpartum care stops</span></div>
+<div class="fact"><strong>About 1 year</strong><span>for the body to heal after birth</span></div>
+<div class="fact"><strong>Years</strong><span>of brain changes that follow</span></div>
+</div>
+</div>
+</section>
+
+<section class="light">
+<div class="inner">
+<h2>What Is Coming</h2>
+<p>Real information, plain words, and art worth keeping. One step at a time.</p>
+<div class="cards">
+<div class="card">
+<div class="label">Free</div>
+<h3>The Postmoon Map</h3>
+<p>Twelve moons, one for each month, with room to write who covers each one. Not everyone has 12 people. The goal is to cover all 12 months.</p>
+</div>
+<div class="card">
+<div class="label">Coming soon</div>
+<h3>The Mail Club</h3>
+<p>A letter by post every month for 12 months. Each one is a small folded zine with art, real facts, and a card or two tucked inside.</p>
+</div>
+<div class="card">
+<div class="label">Later</div>
+<h3>Bath and Soak Blends</h3>
+<p>Herbal sitz bath bags for the early months, then soaks made for her alone. A separate line, coming after the mail club.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="circle">
+<div class="inner">
+<h2>The Moon Circle</h2>
+<p>A Moon Circle is the group of people around a mother for all 12 months. They check in on her, and they check in on each other.</p>
+<p>Anyone can help. At its heart, this is women helping women, because women's health gets ignored far too often.</p>
+</div>
+</section>
+
+<section class="founder">
+<div class="inner">
+<h2>Who Is Behind It</h2>
+<p>The Postmoon Club is led by Allison Alimayu, PhD, with graduate-level training in health promotion and lived experience as a postpartum mother. It is an initiative of Alimayu Studio.</p>
+<a class="button" href="https://www.pinterest.com/postmoonclub/">Follow on Pinterest</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<img src="alimayu-seal.png" alt="Alimayu Studio seal">
+<div>An initiative of Alimayu Studio</div>
+<div class="follow">Questions: <a href="mailto:info@alimayu.studio">info@alimayu.studio</a></div>
+</footer>
+
+</body>
+</html>
