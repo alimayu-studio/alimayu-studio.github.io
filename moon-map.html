@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Moon Map</title>
+<meta name="description" content="Plan who will be there for you in each of the twelve months after birth. Free from The Postmoon Club.">
+<meta property="og:title" content="Your Moon Map · The Postmoon Club">
+<meta property="og:description" content="Healing takes about a year. Plan who will be there for you in each of your twelve moons.">
+<meta name="theme-color" content="#EBD3C8">
+<link rel="icon" href="postmoon-favicon.png">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --milk-rose:#EBD3C8; --midnight:#1E2346; --moonmilk:#F4EDE1; --rosehip:#A4533F;
+  --gold:#B08D57; --gold-ink:#7A5C24; --dusk:#D9CBD8;
+  --paper:#FBF7F0; --line:#E2D6C6; --line-strong:#CDBBA6; --muted:#4F5170;
+  --display:"Cormorant Garamond", Garamond, Georgia, serif;
+  --caps:Cinzel, "Trajan Pro", "Times New Roman", serif;
+  --sans:"Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--moonmilk);color:var(--midnight);font:18px/1.55 var(--sans);padding-inline:16px;padding-block:0 96px}
+.page{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;text-wrap:balance}
+p{margin:0}
+.label{font-family:var(--caps);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+a{color:var(--rosehip)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rosehip);outline-offset:3px}
+
+/* Hero */
+.hero{margin-inline:-16px;background:var(--milk-rose);padding:36px 16px 40px;border-bottom:1px solid var(--line-strong)}
+.hero-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.brand svg{width:34px;height:34px}
+.brand span{font-family:var(--caps);font-size:12px;letter-spacing:.26em}
+.hero h1{font-style:italic;font-size:clamp(44px,9vw,68px);line-height:.98}
+.hero .lede{margin-top:16px;max-width:30ch;font-size:19px}
+.hero-art{width:clamp(120px,28vw,190px)}
+.privacy{margin-top:20px;display:flex;gap:10px;align-items:flex-start;font-size:15px;max-width:44ch}
+.privacy svg{flex:none;margin-top:3px}
+@media (max-width:560px){.hero-in{grid-template-columns:1fr}.hero-art{display:none}}
+
+/* Steps */
+.step{padding-block:44px 8px;display:grid;gap:18px}
+.step-head{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline}
+.step-no{font-family:var(--display);font-style:italic;font-size:44px;line-height:1;color:var(--rosehip);grid-row:span 2}
+.step-head h2{font-size:30px;line-height:1.1}
+.step-head p{color:var(--muted);font-size:16px}
+.rule{height:1px;background:var(--line-strong);margin-top:36px}
+
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:15px}
+.field .hint{font-size:14px;color:var(--muted)}
+input[type=text],input[type=tel],input[type=date]{width:100%;min-height:48px;padding:10px 12px;background:var(--paper);border:1px solid var(--line-strong);border-radius:2px}
+input::placeholder{color:#8B8AA0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 20px;border-radius:2px;border:1px solid var(--midnight);background:transparent;cursor:pointer;font-weight:600;font-size:16px;text-decoration:none;color:var(--midnight)}
+.btn.primary{background:var(--rosehip);border-color:var(--rosehip);color:var(--moonmilk)}
+.btn.dark{background:var(--midnight);color:var(--moonmilk)}
+.btn.quiet{border-color:transparent;padding-inline:6px;color:var(--rosehip);text-decoration:underline;text-underline-offset:3px;min-height:40px}
+.btn:hover{filter:brightness(1.06)}
+
+/* People */
+.people{display:grid;gap:10px}
+.person{display:grid;grid-template-columns:34px 1fr 1fr auto;gap:10px;align-items:center}
+.avatar{width:34px;height:34px;border-radius:999px;background:var(--midnight);color:var(--moonmilk);display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:18px}
+.x{width:40px;height:40px;border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:22px;line-height:1}
+@media (max-width:520px){.person{grid-template-columns:34px 1fr auto}.person .ph{grid-column:2/3}}
+
+/* Moons */
+.moons{display:grid;gap:14px}
+.moon{background:var(--paper);border:1px solid var(--line);padding:18px 18px 16px;display:grid;gap:12px}
+.moon.filled{border-color:var(--line-strong)}
+.moon-top{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center}
+.moon-top svg{width:44px;height:44px}
+.moon-name{font-family:var(--display);font-size:25px;line-height:1.05}
+.moon-dates{font-size:14.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.moon-status{font-family:var(--caps);font-size:10.5px;letter-spacing:.2em;color:var(--gold-ink);text-transform:uppercase}
+.brings{font-size:15.5px;color:var(--muted);border-left:2px solid var(--milk-rose);padding-left:12px}
+.sub{font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:38px;padding:6px 14px;border-radius:999px;border:1px solid var(--line-strong);background:var(--moonmilk);cursor:pointer;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--midnight);border-color:var(--midnight);color:var(--moonmilk)}
+.chip.task[aria-pressed="true"]{background:var(--rosehip);border-color:var(--rosehip)}
+.empty-note{font-size:14.5px;color:var(--muted);font-style:italic}
+.q input{font-size:15.5px;min-height:44px}
+
+/* Hard day */
+.hard{background:var(--midnight);color:var(--moonmilk);margin-inline:-16px;padding:40px 16px 44px;margin-top:44px}
+.hard-in{max-width:760px;margin:0 auto;display:grid;gap:18px}
+.hard .step-no{color:var(--gold)}
+.hard .step-head p{color:#C9C6D6}
+.hard .field label{color:var(--moonmilk)}
+.hard .field .hint{color:#C9C6D6}
+.hard input{background:#262B55;border-color:#4A4F7A;color:var(--moonmilk)}
+.hard input::placeholder{color:#9EA0BD}
+.lines{display:grid;gap:0;border-top:1px solid #3B4070}
+.lines div{display:grid;grid-template-columns:1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid #3B4070;align-items:baseline}
+.lines b{font-weight:600}
+.lines span{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:600;text-align:right}
+.lines small{display:block;color:#C9C6D6;font-size:14px}
+.hard .label{color:var(--gold)}
+.hard select{width:100%;min-height:48px;padding:10px 12px;background:#262B55;border:1px solid #4A4F7A;border-radius:2px;color:var(--moonmilk)}
+
+/* Output */
+.out{display:grid;gap:14px}
+.card{background:var(--paper);border:1px solid var(--line-strong);padding:18px;display:grid;gap:10px}
+.card h3{font-size:22px}
+.msg{white-space:pre-wrap;font-size:15.5px;background:var(--moonmilk);border:1px solid var(--line);padding:12px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.preview{display:grid;gap:12px;justify-items:center;background:var(--milk-rose);padding:20px;border:1px solid var(--line-strong)}
+.preview img{width:min(320px,100%);box-shadow:0 18px 40px -18px rgba(30,35,70,.45)}
+.preview p{font-size:14.5px;text-align:center;max-width:36ch}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line-strong);display:grid;gap:10px;font-size:14px;color:var(--muted)}
+footer .label{color:var(--gold-ink)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--midnight);color:var(--moonmilk);padding:10px 16px;font-size:15px;z-index:9}
+.example-bar{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:15px}
+@media (prefers-reduced-motion:no-preference){.chip,.btn{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="brand" aria-label="The Postmoon Club">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#1E2346"/><g transform="translate(50 50) scale(0.42) translate(-80 -104)"><path class="mm" fill="#EBD3C8"/></g></svg>
+        <span>The Postmoon Club</span>
+      </div>
+      <h1>Your Moon Map</h1>
+      <p class="lede">Healing takes about a year. Plan who will be there for you in each of your twelve moons.</p>
+      <p class="privacy"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><rect x="1" y="8" width="14" height="9" fill="none" stroke="#1E2346" stroke-width="1.6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" fill="none" stroke="#1E2346" stroke-width="1.6"/></svg><span>Your map stays on this device. Nothing you type here is sent anywhere.</span></p>
+    </div>
+    <svg class="hero-art" viewBox="0 0 200 200" aria-hidden="true" id="heroArt"></svg>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="step" aria-labelledby="s1">
+    <div class="step-head"><span class="step-no">1</span><h2 id="s1">Your Year</h2><p>Your birth date sets the dates for each moon. A due date works too.</p></div>
+    <div class="row2">
+      <div class="field"><label for="birth">Birth date or due date</label><input type="date" id="birth"></div>
+      <div class="field"><label for="mname">Your first name</label><input type="text" id="mname" placeholder="For your saved map and texts" autocomplete="given-name"></div>
+    </div>
+    <div class="example-bar"><span>Want to see how it works first?</span><button class="btn quiet" type="button" id="exampleBtn">Fill in an example</button><button class="btn quiet" type="button" id="clearBtn" hidden>Clear and start my own</button></div>
+  </section>
+
+  <section class="step" aria-labelledby="s2">
+    <div class="step-head"><span class="step-no">2</span><h2 id="s2">Your Circle</h2><p>The people who can help this year. Three or four is enough. One person can take many moons.</p></div>
+    <div class="people" id="people"></div>
+    <div><button class="btn" type="button" id="addPerson">+ Add a person</button></div>
+  </section>
+
+  <section class="step" aria-labelledby="s3">
+    <div class="step-head"><span class="step-no">3</span><h2 id="s3">Your Twelve Moons</h2><p>For each moon, choose who is on and what they cover.</p></div>
+    <div class="moons" id="moons"></div>
+  </section>
+
+  <section class="hard" aria-labelledby="s4">
+    <div class="hard-in">
+      <div class="step-head"><span class="step-no">4</span><h2 id="s4">Your Hard Day Plan</h2><p>Decide this now, while things are calm. Share it with your circle.</p></div>
+      <div class="row2">
+        <div class="field"><label for="code">Your code word</label><input type="text" id="code" placeholder="Example: I need the moon"><span class="hint">When you text it, your circle knows it means come now, no questions.</span></div>
+        <div class="field"><label for="provider">Your provider and phone</label><input type="text" id="provider" placeholder="Name and number"></div>
+        <div class="field"><label for="babyWho">Who takes the baby</label><select id="babyWho"></select></div>
+        <div class="field"><label for="driveWho">Who drives you to care</label><select id="driveWho"></select></div>
+      </div>
+      <div class="label" style="margin-top:8px">Save these numbers</div>
+      <div class="lines">
+        <div><b>National Maternal Mental Health Hotline<small>Call or text. Free, 24/7, in English and Spanish.</small></b><span>1-833-TLC-MAMA<br><small>1-833-852-6262</small></span></div>
+        <div><b>988 Suicide and Crisis Lifeline<small>Call or text.</small></b><span>988</span></div>
+        <div><b>Emergency<small>Chest pain, trouble breathing, seizures, thoughts of harming yourself or your baby, or seeing and hearing things others do not.</small></b><span>911</span></div>
+        <div><b>Postpartum Support International HelpLine<small>Support and local resources. Not a crisis line.</small></b><span>1-800-944-4773</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" aria-labelledby="s5">
+    <div class="step-head"><span class="step-no">5</span><h2 id="s5">Save and Share</h2><p>Save your map as an image for your phone. Then send each person their moons.</p></div>
+    <div class="actions"><button class="btn primary" type="button" id="makeImg">Save my Moon Map</button><button class="btn" type="button" id="copyTeam">Copy the plan for my circle</button></div>
+    <div class="preview" id="preview" hidden>
+      <img id="mapImg" alt="Your Moon Map as an image">
+      <div class="actions"><a class="btn dark" id="dl" download="my-moon-map.png" href="#">Download image</a></div>
+      <p>On a phone, press and hold the image to save it to your photos. It fits as a lock screen.</p>
+    </div>
+    <div class="out" id="texts"></div>
+  </section>
+
+  <footer>
+    <span class="label">The Postmoon Club</span>
+    <p>For the mother, through the twelve months after birth. Created by Allison Alimayu, PhD. An initiative of Alimayu Studio.</p>
+    <p>This map is for planning and education. It is not medical advice. If something feels wrong, call your provider. In an emergency, call 911.</p>
+  </footer>
+</main>
+
+<canvas id="cv" width="1080" height="1920" hidden></canvas>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+const MM="M122,18 C132,34 136,50 134,64 C135,70 136,74 134,78 C137,83 141,89 144,95 C147,100 147,104 144,106 C142,107.5 140,108 139,108 C141,111 142,114 140,116 C138,117 137,117 138,118 C141,121 140,125 136,127 C134,129 134,132 137,137 C138,141 134,146 128,147 C120,148 116,146 112,146 C110,158 108,170 110,182 C104,188 92,190 80,188 Q66.02,187.5 54.77,178.63 Q40.49,175.37 34.14,161.39 Q21.83,153.55 20.41,138.25 Q11.19,126.83 14.58,111.97 Q9.28,98.07 17.04,85.16 Q16.44,70.16 27.98,60.59 Q32.37,46.14 46.16,40.73 Q54.79,28.03 69.2,26.76 Q81.22,16.68 95.06,19.14 Q109.12,14.52 122,18 Z";
+document.querySelectorAll("path.mm").forEach(p=>p.setAttribute("d",MM));
+
+const MOONS=[
+ ["The First Moon","Bleeding, soreness, broken sleep, and the baby blues are common. Rest and be fed.","Have you eaten and slept today?"],
+ ["The Second Moon","Bleeding usually ends around six weeks. Your full postpartum visit should happen by twelve weeks.","How is your body healing?"],
+ ["The Third Moon","Many mothers go back to work around now, while still healing.","How is this month feeling for you?"],
+ ["The Fourth Moon","Hair shedding often peaks around months three and four. It is common.","What do you need this week that no one has offered?"],
+ ["The Fifth Moon","Sleep may still be broken. Mood changes can start any time in the first year.","How has your mood been this month?"],
+ ["The Sixth Moon","Halfway. Your core and pelvic floor are still rebuilding.","What would feel like rest right now?"],
+ ["The Seventh Moon","Who you are is changing. Becoming a mother is a big change, like adolescence.","What feels like you again?"],
+ ["The Eighth Moon","Hormone shifts, including weaning, can affect mood.","How are you feeling in your body and your mind?"],
+ ["The Ninth Moon","Friendships and relationships often shift this far in.","Who have you talked to this week?"],
+ ["The Tenth Moon","Your own interests may start to come back.","What is one thing you want to do for yourself?"],
+ ["The Eleventh Moon","A good moon to book your own checkups.","Have you booked your own health visits?"],
+ ["The Twelfth Moon","The first year closes. Your brain keeps changing for years, in ways linked to bonding.","What do you want the next year to hold?"]
+];
+const TASKS=["Meals","Night shift","Check-in call","Errands","A visit","Rides","Older children or pets","Time for me"];
+const KEY="postmoon-moon-map-v1";
+const blank=()=>({name:"",birth:"",people:[{id:uid(),name:"",phone:""}],moons:MOONS.map(m=>({who:[],tasks:[],q:m[2]})),plan:{code:"",provider:"",baby:"",drive:""},example:false});
+function uid(){return Math.random().toString(36).slice(2,9)}
+let S; try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!S||!S.moons||S.moons.length!==12) S=blank();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1800)}
+
+/* moon phase svg: n = 1..12 */
+function moonPath(cx,cy,r,f){
+  if(f>=0.999) return {full:true};
+  const rx=Math.abs(1-2*f)*r, sweep=f<0.5?0:1;
+  return {d:`M${cx},${cy-r} A${r},${r} 0 0 1 ${cx},${cy+r} A${rx},${r} 0 0 ${sweep} ${cx},${cy-r} Z`};
+}
+function moonSVG(n,color){
+  const f=n/12, p=moonPath(22,22,19,f);
+  const lit=p.full?`<circle cx="22" cy="22" r="19" fill="${color}"/>`:`<path d="${p.d}" fill="${color}"/>`;
+  return `<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" stroke="${color}" stroke-width="1.8"/>${lit}</svg>`;
+}
+/* hero art: moon mother facing an arc of twelve moons */
+(function(){
+  let s=`<g transform="translate(82 100) scale(0.78) translate(-80 -104)"><path d="${MM}" fill="#1E2346"/></g>`;
+  for(let i=0;i<12;i++){
+    const a=(-78+i*(156/11))*Math.PI/180, cx=86+92*Math.cos(a), cy=100+92*Math.sin(a), r=6.2, f=(i+1)/12, p=moonPath(cx,cy,r,f);
+    s+=`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke="#A4533F" stroke-width="1.2"/>`+(p.full?`<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r}" fill="#A4533F"/>`:`<path d="${p.d}" fill="#A4533F"/>`);
+  }
+  $("heroArt").innerHTML=s;
+})();
+
+/* dates */
+function addMonths(d,n){const x=new Date(d.getFullYear(),d.getMonth()+n,1);const last=new Date(x.getFullYear(),x.getMonth()+1,0).getDate();x.setDate(Math.min(d.getDate(),last));return x}
+function parseDate(v){if(!v)return null;const [y,m,d]=v.split("-").map(Number);return y?new Date(y,m-1,d):null}
+const fmt=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+const fmtY=d=>d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+function range(i){const b=parseDate(S.birth);if(!b)return null;const s=addMonths(b,i),e=new Date(addMonths(b,i+1).getTime()-864e5);return [s,e]}
+function rangeText(i,withYear){const r=range(i);if(!r)return `Month ${i+1} after birth`;return `${fmt(r[0])} to ${withYear?fmtY(r[1]):fmt(r[1])}`}
+
+const people=()=>S.people.filter(p=>p.name.trim());
+const pname=id=>{const p=S.people.find(x=>x.id===id);return p&&p.name.trim()?p.name.trim():null};
+
+/* render */
+function renderPeople(){
+  $("people").innerHTML=S.people.map((p,i)=>`<div class="person" data-id="${p.id}">
+    <span class="avatar" aria-hidden="true">${esc((p.name.trim()[0]||"·").toUpperCase())}</span>
+    <input type="text" id="pn-${p.id}" aria-label="Person ${i+1} name" placeholder="Name, like Mom or Keisha" value="${esc(p.name)}" data-f="name">
+    <input class="ph" type="tel" id="pp-${p.id}" aria-label="Person ${i+1} phone (optional)" placeholder="Phone (optional)" value="${esc(p.phone)}" data-f="phone">
+    <button class="x" type="button" aria-label="Remove ${esc(p.name||"this person")}" data-rm="${p.id}">×</button></div>`).join("");
+}
+function renderMoons(){
+  const ppl=people();
+  $("moons").innerHTML=S.moons.map((m,i)=>{
+    const filled=m.who.some(pname);
+    return `<article class="moon${filled?" filled":""}" data-i="${i}">
+      <div class="moon-top">${moonSVG(i+1,"#A4533F")}<div><div class="moon-name">${MOONS[i][0]}</div><div class="moon-dates">${rangeText(i,false)}</div></div><span class="moon-status">${filled?"Covered":"Open"}</span></div>
+      <p class="brings">${MOONS[i][1]}</p>
+      <div><div class="sub">Who is on this moon</div>${ppl.length?`<div class="chips">${ppl.map(p=>`<button type="button" class="chip" data-who="${p.id}" aria-pressed="${m.who.includes(p.id)}">${esc(p.name.trim())}</button>`).join("")}</div>`:`<p class="empty-note">Add people in Your Circle to choose them here.</p>`}</div>
+      <div><div class="sub">What they cover</div><div class="chips">${TASKS.map(t=>`<button type="button" class="chip task" data-task="${esc(t)}" aria-pressed="${m.tasks.includes(t)}">${t}</button>`).join("")}</div></div>
+      <div class="field q"><label for="q-${i}" class="sub" style="margin:0">Their check-in question</label><input type="text" id="q-${i}" data-q="${i}" value="${esc(m.q)}"></div>
+    </article>`}).join("");
+}
+function renderSelects(){
+  const opts=`<option value="">Choose someone</option>`+people().map(p=>`<option value="${p.id}">${esc(p.name.trim())}</option>`).join("");
+  ["babyWho","driveWho"].forEach((id,k)=>{const el=$(id);el.innerHTML=opts;el.value=k?S.plan.drive:S.plan.baby});
+}
+function renderTop(){
+  $("birth").value=S.birth;$("mname").value=S.name;$("code").value=S.plan.code;$("provider").value=S.plan.provider;
+  $("clearBtn").hidden=!S.example;
+}
+function renderTexts(){
+  const ppl=people().filter(p=>S.moons.some(m=>m.who.includes(p.id)));
+  if(!ppl.length){$("texts").innerHTML="";return}
+  $("texts").innerHTML=`<div class="label" style="margin-top:12px">Texts to send your circle</div>`+ppl.map(p=>{
+    const t=askText(p);const phone=(p.phone||"").replace(/[^\d+]/g,"");
+    return `<div class="card"><h3>${esc(p.name.trim())}</h3><div class="msg">${esc(t)}</div><div class="actions"><button class="btn" type="button" data-copy="${p.id}">Copy text</button>${phone?`<a class="btn dark" href="sms:${phone}?&body=${encodeURIComponent(t)}">Open in Messages</a>`:""}</div></div>`}).join("");
+}
+function askText(p){
+  const mine=S.moons.map((m,i)=>({m,i})).filter(o=>o.m.who.includes(p.id));
+  const list=mine.map(o=>`${MOONS[o.i][0]} (${rangeText(o.i,false)})`+(o.m.tasks.length?`: ${o.m.tasks.join(", ").toLowerCase()}`:"")).join("\n");
+  const code=S.plan.code.trim();
+  return `Hi ${p.name.trim()}. I am planning my first year after the baby, one moon at a time, so no one has to carry it all. Would you take:\n${list}\n\nIt would mean so much.`+(code?` If I ever text "${code}", it means please come now, no questions.`:"")+(S.name.trim()?`\n\n${S.name.trim()}`:"");
+}
+function teamText(){
+  const lines=S.moons.map((m,i)=>{const w=m.who.map(pname).filter(Boolean);return `${MOONS[i][0]} (${rangeText(i,false)}): ${w.length?w.join(" and "):"open"}${m.tasks.length?` / ${m.tasks.join(", ")}`:""}\n   Check-in: ${m.q}`});
+  const b=pname(S.plan.baby),d=pname(S.plan.drive);
+  return `${S.name.trim()?S.name.trim()+"'s":"My"} Moon Map\n\n${lines.join("\n")}\n\nHard day plan\nCode word: ${S.plan.code.trim()||"(not set)"}\nProvider: ${S.plan.provider.trim()||"(not set)"}\nTakes the baby: ${b||"(not set)"}\nDrives to care: ${d||"(not set)"}\n\nNational Maternal Mental Health Hotline: 1-833-TLC-MAMA (1-833-852-6262)\n988 Suicide and Crisis Lifeline: 988\nEmergency: 911`;
+}
+function all(){renderTop();renderPeople();renderMoons();renderSelects();renderTexts()}
+all();
+
+/* events */
+$("birth").addEventListener("change",e=>{S.birth=e.target.value;save();renderMoons();renderTexts()});
+$("mname").addEventListener("input",e=>{S.name=e.target.value;save();renderTexts()});
+$("code").addEventListener("input",e=>{S.plan.code=e.target.value;save();renderTexts()});
+$("provider").addEventListener("input",e=>{S.plan.provider=e.target.value;save()});
+$("babyWho").addEventListener("change",e=>{S.plan.baby=e.target.value;save()});
+$("driveWho").addEventListener("change",e=>{S.plan.drive=e.target.value;save()});
+$("addPerson").addEventListener("click",()=>{const p={id:uid(),name:"",phone:""};S.people.push(p);save();renderPeople();document.getElementById("pn-"+p.id).focus()});
+$("people").addEventListener("input",e=>{const row=e.target.closest(".person");if(!row)return;const p=S.people.find(x=>x.id===row.dataset.id);p[e.target.dataset.f]=e.target.value;if(e.target.dataset.f==="name")row.querySelector(".avatar").textContent=(p.name.trim()[0]||"·").toUpperCase();save()});
+$("people").addEventListener("change",()=>{renderMoons();renderSelects();renderTexts()});
+$("people").addEventListener("click",e=>{const id=e.target.dataset&&e.target.dataset.rm;if(!id)return;S.people=S.people.filter(p=>p.id!==id);S.moons.forEach(m=>m.who=m.who.filter(w=>w!==id));if(!S.people.length)S.people.push({id:uid(),name:"",phone:""});save();all()});
+$("moons").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)return;const m=S.moons[+c.closest(".moon").dataset.i];
+  const arr=c.dataset.who?m.who:m.tasks,v=c.dataset.who||c.dataset.task;const k=arr.indexOf(v);k<0?arr.push(v):arr.splice(k,1);
+  c.setAttribute("aria-pressed",k<0);const card=c.closest(".moon"),filled=m.who.some(pname);card.classList.toggle("filled",filled);card.querySelector(".moon-status").textContent=filled?"Covered":"Open";save();renderTexts()});
+$("moons").addEventListener("input",e=>{if(e.target.dataset.q){S.moons[+e.target.dataset.q].q=e.target.value;save()}});
+$("texts").addEventListener("click",e=>{const id=e.target.dataset&&e.target.dataset.copy;if(!id)return;copy(askText(S.people.find(p=>p.id===id)))});
+$("copyTeam").addEventListener("click",()=>copy(teamText()));
+async function copy(t){try{await navigator.clipboard.writeText(t);toast("Copied")}catch(e){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Copied")}catch(_){toast("Select the text to copy it")}ta.remove()}}
+
+$("exampleBtn").addEventListener("click",()=>{
+  const ids=[uid(),uid(),uid(),uid()],d=new Date();d.setDate(d.getDate()-10);
+  S={name:"Jasmine",birth:d.toISOString().slice(0,10),people:[{id:ids[0],name:"Mom",phone:""},{id:ids[1],name:"Keisha",phone:""},{id:ids[2],name:"Ana",phone:""},{id:ids[3],name:"Aunt Dee",phone:""}],
+    moons:MOONS.map((m,i)=>({who:[[0],[0],[1],[2],[3],[1],[2],[0],[3],[1],[2],[0]][i].map(k=>ids[k]),tasks:[["Meals","Night shift"],["Meals","Errands"],["Check-in call"],["A visit"],["Meals"],["Time for me"],["Check-in call"],["A visit"],["Errands"],["Time for me"],["Check-in call"],["A visit"]][i],q:m[2]})),
+    plan:{code:"I need the moon",provider:"Dr. Rivera, 555-0142",baby:ids[0],drive:ids[1]},example:true};
+  save();all();toast("Example filled in");document.getElementById("s3").scrollIntoView({behavior:"smooth"});
+});
+$("clearBtn").addEventListener("click",()=>{S=blank();save();all();$("preview").hidden=true;toast("Cleared")});
+
+/* image */
+$("makeImg").addEventListener("click",async()=>{
+  try{await Promise.all([document.fonts.load('italic 500 80px "Cormorant Garamond"'),document.fonts.load('500 30px Cinzel'),document.fonts.load('400 30px "Source Sans 3"'),document.fonts.load('600 30px "Source Sans 3"')])}catch(e){}
+  const cv=$("cv"),c=cv.getContext("2d"),W=1080,H=1920;
+  c.fillStyle="#F4EDE1";c.fillRect(0,0,W,H);
+  c.fillStyle="#EBD3C8";c.fillRect(0,0,W,470);
+  // mark
+  c.save();c.translate(170,250);c.scale(1.35,1.35);c.translate(-80,-104);c.fillStyle="#1E2346";c.fill(new Path2D(MM));c.restore();
+  for(let i=0;i<12;i++){const a=(-78+i*(156/11))*Math.PI/180,cx=176+150*Math.cos(a),cy=250+150*Math.sin(a),r=10,p=moonPath(cx,cy,r,(i+1)/12);
+    c.strokeStyle="#A4533F";c.lineWidth=2.2;c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.stroke();c.fillStyle="#A4533F";if(p.full){c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.fill()}else c.fill(new Path2D(p.d))}
+  c.fillStyle="#1E2346";c.textBaseline="alphabetic";
+  c.font='500 26px Cinzel';spaced(c,"THE POSTMOON CLUB",400,170,6);
+  c.font='italic 500 104px "Cormorant Garamond"';c.fillText(S.name.trim()?`${S.name.trim()}'s`:"My",400,275);c.fillText("Moon Map",400,370);
+  const b=parseDate(S.birth);c.font='400 30px "Source Sans 3"';c.fillStyle="#4F5170";if(b)c.fillText(`First year from ${fmtY(b)}`,400,425);
+  // rows
+  let y=540;const rowH=92;
+  S.moons.forEach((m,i)=>{
+    const cx=110,cy=y-12,r=22,p=moonPath(cx,cy,r,(i+1)/12);
+    c.strokeStyle="#A4533F";c.lineWidth=2.4;c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.stroke();c.fillStyle="#A4533F";if(p.full){c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.fill()}else c.fill(new Path2D(p.d));
+    c.fillStyle="#1E2346";c.font='italic 500 40px "Cormorant Garamond"';c.fillText(`Moon ${i+1}`,160,y);
+    c.font='400 26px "Source Sans 3"';c.fillStyle="#4F5170";c.fillText(b?rangeText(i,false):`Month ${i+1}`,160,y+32);
+    const w=m.who.map(pname).filter(Boolean);c.textAlign="right";c.fillStyle="#1E2346";c.font='600 32px "Source Sans 3"';c.fillText(fit(c,w.length?w.join(" & "):"Open",520),970,y);
+    c.font='400 25px "Source Sans 3"';c.fillStyle="#7A5C24";c.fillText(fit(c,m.tasks.join(" · "),560),970,y+32);c.textAlign="left";
+    c.strokeStyle="#E2D6C6";c.lineWidth=2;c.beginPath();c.moveTo(80,y+56);c.lineTo(1000,y+56);c.stroke();
+    y+=rowH;
+  });
+  // help
+  c.fillStyle="#1E2346";c.fillRect(0,H-300,W,300);
+  c.fillStyle="#B08D57";c.font='500 24px Cinzel';spaced(c,"IF TODAY IS HARD",80,H-228,5);
+  c.fillStyle="#F4EDE1";c.font='600 36px "Source Sans 3"';c.fillText("Call or text 1-833-TLC-MAMA",80,H-170);
+  c.font='400 28px "Source Sans 3"';c.fillStyle="#D9D5E6";c.fillText("National Maternal Mental Health Hotline · 24/7",80,H-128);c.fillText("Emergency: 911",80,H-88);
+  c.fillStyle="#B08D57";c.font='italic 500 30px "Cormorant Garamond"';c.textAlign="right";c.fillText("alimayu.studio/postmoonclub",1000,H-88);c.textAlign="left";
+  const url=cv.toDataURL("image/png");$("mapImg").src=url;$("dl").href=url;$("preview").hidden=false;$("preview").scrollIntoView({behavior:"smooth",block:"center"});
+});
+function spaced(c,t,x,y,s){for(const ch of t){c.fillText(ch,x,y);x+=c.measureText(ch).width+s}}
+function fit(c,t,max){if(c.measureText(t).width<=max)return t;while(t.length&&c.measureText(t+"…").width>max)t=t.slice(0,-1);return t+"…"}
+})();
+</script>
+
+</body>
+</html>
