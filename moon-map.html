@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your Moon Map</title>
+<title>Your Postmoon Map</title>
 <meta name="description" content="Plan who will be there for you in each of the twelve months after birth. Free from The Postmoon Club.">
-<meta property="og:title" content="Your Moon Map · The Postmoon Club">
+<meta property="og:title" content="Your Postmoon Map · The Postmoon Club">
 <meta property="og:description" content="Healing takes about a year. Plan who will be there for you in each of your twelve moons.">
 <meta name="theme-color" content="#EBD3C8">
 <link rel="icon" href="postmoon-favicon.png">
@@ -139,7 +139,7 @@ footer .label{color:var(--gold-ink)}
         <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#1E2346"/><g transform="translate(50 50) scale(0.42) translate(-80 -104)"><path class="mm" fill="#EBD3C8"/></g></svg>
         <span>The Postmoon Club</span>
       </div>
-      <h1>Your Moon Map</h1>
+      <h1>Your Postmoon Map</h1>
       <p class="lede">Healing takes about a year. Plan who will be there for you in each of your twelve moons.</p>
       <p class="privacy"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><rect x="1" y="8" width="14" height="9" fill="none" stroke="#1E2346" stroke-width="1.6"/><path d="M4 8V5a4 4 0 0 1 8 0v3" fill="none" stroke="#1E2346" stroke-width="1.6"/></svg><span>Your map stays on this device. Nothing you type here is sent anywhere.</span></p>
     </div>
@@ -190,10 +190,10 @@ footer .label{color:var(--gold-ink)}
 
   <section class="step" aria-labelledby="s5">
     <div class="step-head"><span class="step-no">5</span><h2 id="s5">Save and Share</h2><p>Save your map as an image for your phone. Then send each person their moons.</p></div>
-    <div class="actions"><button class="btn primary" type="button" id="makeImg">Save my Moon Map</button><button class="btn" type="button" id="copyTeam">Copy the plan for my circle</button></div>
+    <div class="actions"><button class="btn primary" type="button" id="makeImg">Save my Postmoon Map</button><button class="btn" type="button" id="copyTeam">Copy the plan for my circle</button></div>
     <div class="preview" id="preview" hidden>
-      <img id="mapImg" alt="Your Moon Map as an image">
-      <div class="actions"><a class="btn dark" id="dl" download="my-moon-map.png" href="#">Download image</a></div>
+      <img id="mapImg" alt="Your Postmoon Map as an image">
+      <div class="actions"><a class="btn dark" id="dl" download="my-postmoon-map.png" href="#">Download image</a></div>
       <p>On a phone, press and hold the image to save it to your photos. It fits as a lock screen.</p>
     </div>
     <div class="out" id="texts"></div>
@@ -316,7 +316,7 @@ function askText(p){
 function teamText(){
   const lines=S.moons.map((m,i)=>{const w=m.who.map(pname).filter(Boolean);return `${MOONS[i][0]} (${rangeText(i,false)}): ${w.length?w.join(" and "):"open"}${m.tasks.length?` / ${m.tasks.join(", ")}`:""}\n   Check-in: ${m.q}`});
   const b=pname(S.plan.baby),d=pname(S.plan.drive);
-  return `${S.name.trim()?S.name.trim()+"'s":"My"} Moon Map\n\n${lines.join("\n")}\n\nHard day plan\nCode word: ${S.plan.code.trim()||"(not set)"}\nProvider: ${S.plan.provider.trim()||"(not set)"}\nTakes the baby: ${b||"(not set)"}\nDrives to care: ${d||"(not set)"}\n\nNational Maternal Mental Health Hotline: 1-833-TLC-MAMA (1-833-852-6262)\n988 Suicide and Crisis Lifeline: 988\nEmergency: 911`;
+  return `${S.name.trim()?S.name.trim()+"'s":"My"} Postmoon Map\n\n${lines.join("\n")}\n\nHard day plan\nCode word: ${S.plan.code.trim()||"(not set)"}\nProvider: ${S.plan.provider.trim()||"(not set)"}\nTakes the baby: ${b||"(not set)"}\nDrives to care: ${d||"(not set)"}\n\nNational Maternal Mental Health Hotline: 1-833-TLC-MAMA (1-833-852-6262)\n988 Suicide and Crisis Lifeline: 988\nEmergency: 911`;
 }
 function all(){renderTop();renderPeople();renderMoons();renderSelects();renderTexts()}
 all();
@@ -361,7 +361,7 @@ $("makeImg").addEventListener("click",async()=>{
     c.strokeStyle="#A4533F";c.lineWidth=2.2;c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.stroke();c.fillStyle="#A4533F";if(p.full){c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.fill()}else c.fill(new Path2D(p.d))}
   c.fillStyle="#1E2346";c.textBaseline="alphabetic";
   c.font='500 26px Cinzel';spaced(c,"THE POSTMOON CLUB",400,170,6);
-  c.font='italic 500 104px "Cormorant Garamond"';c.fillText(S.name.trim()?`${S.name.trim()}'s`:"My",400,275);c.fillText("Moon Map",400,370);
+  c.font='italic 500 96px "Cormorant Garamond"';c.fillText(fit(c,S.name.trim()?`${S.name.trim()}'s`:"My",620),400,275);c.fillText(fit(c,"Postmoon Map",620),400,370);
   const b=parseDate(S.birth);c.font='400 30px "Source Sans 3"';c.fillStyle="#4F5170";if(b)c.fillText(`First year from ${fmtY(b)}`,400,425);
   // rows
   let y=540;const rowH=92;
