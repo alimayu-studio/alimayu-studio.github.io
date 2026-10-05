@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consulting | Dr. Allison Alimayu</title>
+<link rel="icon" href="alimayu-seal.png">
+<meta name="description" content="Strategy sessions, futures sessions, recorded answers, and monthly advisory for health system leaders, boards, and public agencies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#141830; --navy:#1E2346; --gold:#B08D57; --gold-light:#D2B585;
+  --teal:#2F7A78; --cream:#F4EEE3; --paper:#FBF8F2;
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --caps:"Cormorant Garamond",Georgia,serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 16px);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--navy-deep);font-family:var(--body);font-size:18px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Header (matches the live site topbar) */
+.top{background:var(--cream)}
+.topbar{display:flex;align-items:center;gap:10px;max-width:960px;margin:0 auto;padding:18px 16px}
+.topbar img{width:36px;height:auto}
+.topbar .brand{font-family:var(--display);font-weight:600;font-size:18px;color:var(--navy)}
+.nav{margin-left:auto;display:flex;gap:26px}
+.nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--navy)}
+.nav a:hover,.nav a:focus-visible,.nav a.current{color:var(--gold)}
+@media (max-width:600px){.topbar{flex-wrap:wrap}.nav{margin-left:0;width:100%;flex-wrap:wrap;gap:6px 18px}}
+
+/* Hero */
+.hero{background:var(--navy-deep);color:var(--cream);padding:56px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(44px,7vw,80px);line-height:1.02;margin:0 0 24px;letter-spacing:-.01em}
+.hero p{max-width:34em;color:#E4DCCB;margin:0 0 32px}
+.hero figure{margin:0}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--gold);outline:1px solid rgba(210,181,133,.35);outline-offset:10px}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;padding:14px 26px;text-decoration:none;border:1px solid var(--gold);background:var(--gold);color:var(--navy-deep);transition:background .2s,color .2s}
+.btn:hover{background:var(--gold-light)}
+.btn.ghost{background:transparent;color:var(--cream)}
+.btn.ghost:hover{background:rgba(210,181,133,.15)}
+.btn.dark{background:var(--navy-deep);color:var(--cream);border-color:var(--navy-deep)}
+.btn.dark:hover{background:var(--navy)}
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap{animation:rise .9s ease-out both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+/* Sections */
+section{padding:80px 0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,52px);line-height:1.08;margin:0 0 14px}
+.lede{max-width:36em;margin:0 0 40px;color:#3A3F5C}
+
+/* Session price list */
+.menu{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy-deep)}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:12px 40px;padding:32px 0;border-bottom:1px solid var(--gold)}
+.menu h3{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.15;margin:0 0 8px}
+.menu p{margin:0;max-width:38em;color:#3A3F5C}
+.meta{text-align:right;min-width:170px;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.price{font-family:var(--caps);font-weight:700;font-size:32px;line-height:1;font-variant-numeric:lining-nums}
+.length{font-size:15px;color:#4A4F6B;margin-top:-6px}
+.meta .btn{margin-top:4px}
+
+.titlerow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:0 0 14px}
+.titlerow h2{margin:0}
+.badge{display:flex;align-items:center;min-height:44px}
+
+/* Advisory */
+.advisory{background:var(--navy);color:var(--cream)}
+.advisory .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.advisory .lede{color:#E4DCCB}
+.advisory ul{margin:0 0 0;padding-left:1.1em}
+.advisory li{margin-bottom:10px}
+.terms{border:1px solid var(--gold);padding:32px}
+.terms .price{color:var(--gold-light);font-size:40px;display:block;margin-bottom:8px}
+.terms p{margin:0 0 24px;color:#E4DCCB}
+
+/* Experience */
+.experience{background:var(--cream)}
+.roles{list-style:none;margin:0;padding:0;columns:2;column-gap:56px}
+.roles li{break-inside:avoid;padding:0 0 22px;margin:0 0 22px;border-bottom:1px solid var(--gold)}
+.roles strong{font-family:var(--display);font-size:22px;line-height:1.2;display:block;margin-bottom:2px}
+.roles span{color:#4A4F6B;font-size:16px}
+
+/* Explorer */
+.finder{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 24px}
+.finder input{flex:1 1 280px;font:inherit;padding:14px 16px;border:1px solid var(--navy-deep);background:#fff;color:var(--navy-deep)}
+.areas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.areas li{padding:9px 16px;border:1px solid var(--gold);background:var(--cream);font-size:16px}
+.areas li[hidden]{display:none}
+.count{font-size:15px;color:#4A4F6B;margin:0 0 16px}
+
+/* Custom + close */
+.custom{background:var(--cream)}
+.custom .wrap{display:flex;flex-wrap:wrap;gap:24px 56px;align-items:center;justify-content:space-between}
+.custom div{max-width:36em}
+.custom p{margin:0;color:#3A3F5C}
+footer{background:var(--navy-deep);color:#C9C2B2;padding:40px 0;font-size:16px}
+footer a{color:var(--gold-light)}
+
+@media (max-width:860px){
+  .hero .wrap,.advisory .wrap{grid-template-columns:1fr;gap:40px}
+  .hero figure{max-width:340px}
+  .roles{columns:1}
+  .menu li{grid-template-columns:1fr}
+  .meta{text-align:left;align-items:flex-start;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 20px}
+  .length{margin-top:0}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="topbar">
+    <img src="alimayu-seal.png" alt="">
+    <span class="brand">Alimayu Studio</span>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="consulting.html" class="current">Consulting</a>
+      <a href="board-seats.html">Board &amp; Advisory</a>
+      <a href="initiatives.html">Initiatives</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Clear Decisions in Complex Situations</h1>
+        <p>Dr. Allison Alimayu advises health system leaders, boards, and public agencies. She holds a PhD in Biomedical Informatics and has more than 25 years of experience across private, public, nonprofit, academic, and international settings.</p>
+        <div class="actions">
+          <a class="btn" href="#sessions">Book a Session</a>
+          <a class="btn ghost" href="#advisory">Ask About Monthly Advisory</a>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/img/allison-alimayu-portrait.jpg" alt="Dr. Allison Alimayu" onerror="this.closest('figure').hidden=true">
+      </figure>
+    </div>
+  </div>
+
+  <section id="sessions">
+    <div class="wrap">
+      <div class="titlerow">
+        <h2>Book a Session</h2>
+        <div class="badge">
+          <script src="https://www.everyexpert.com/embed/allisonalimayu.js" data-theme="dark"></script>
+        </div>
+      </div>
+      <p class="lede">Each session focuses on one decision, plan, or problem. Pick the format that fits, and book directly.</p>
+      <ul class="menu">
+        <li>
+          <div>
+            <h3>Strategy Session</h3>
+            <p>A focused video call on one decision, problem, or plan in health care, governance, or policy. Bring a draft, a board packet, a proposal, or just the question. The session covers what the evidence says, where the risks sit, and what to do next. A written summary with action items follows.</p>
+          </div>
+          <div class="meta">
+            <span class="price">$300</span>
+            <span class="length">1 hour</span>
+            <a class="btn dark" href="https://www.everyexpert.com/allisonalimayu/book/strategy-session" rel="noopener">Book Strategy Session</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Futures Session</h3>
+            <p>A working session that uses the Three Horizons method to map where a system stands today, what is fading, and what is emerging. Bring a strategic question, a plan, or a decision that depends on how health care, policy, or your field will change. The session identifies which practices to sustain, which to retire, and which innovations to start now, then turns those findings into next steps.</p>
+          </div>
+          <div class="meta">
+            <span class="price">$500</span>
+            <span class="length">1 hour 30 minutes</span>
+            <a class="btn dark" href="https://www.everyexpert.com/allisonalimayu/book/futures-session" rel="noopener">Book Futures Session</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Ask Dr. Alimayu</h3>
+            <p>Send one specific question about a decision, plan, or problem in health care, governance, program management and implementation, or policy. The answer comes back as a recorded video that covers what the evidence says, where the risks sit, and what to do next.</p>
+          </div>
+          <div class="meta">
+            <span class="price">$200</span>
+            <span class="length">Answer within 3 days</span>
+            <a class="btn dark" href="https://www.everyexpert.com/allisonalimayu/ask/ask-dr-alimayu" rel="noopener">Send a Question</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="advisory" id="advisory">
+    <div class="wrap">
+      <div>
+        <h2>Monthly Advisory</h2>
+        <p class="lede">For leaders and organizations that need steady access to an expert, not a single call.</p>
+        <ul>
+          <li>Up to 10 hours each month</li>
+          <li>Strategy calls on the decisions in front of the team</li>
+          <li>Review of drafts, policies, board packets, and proposals</li>
+          <li>Written feedback and clear next steps</li>
+        </ul>
+      </div>
+      <div class="terms">
+        <span class="price">$5,000 per month</span>
+        <p>Terms are confirmed in a short conversation before the work begins.</p>
+        <a class="btn" href="mailto:info@alimayu.studio?subject=Monthly%20advisory%20inquiry">Start an Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="wrap">
+      <h2>Experience at the Table</h2>
+      <p class="lede">Advice from someone who has made these calls in public, in boardrooms, and in the field.</p>
+      <ul class="roles">
+        <li><strong>Regent, Nevada System of Higher Education</strong><span>Elected, 2013 to 2019. Chair of the Audit and Compliance Committee.</span></li>
+        <li><strong>Member, MEDCAC</strong><span>Medicare Evidence Development and Coverage Advisory Committee. Appointed by the US Secretary of Health and Human Services.</span></li>
+        <li><strong>Fulbright US Scholar, Research Ireland</strong><span>2025 to 2026. Advised on mission-oriented funding design, organizational strategy, and international strategy.</span></li>
+        <li><strong>Commissioner, North Carolina Oil and Gas Commission</strong><span>Appointed in 2026 to a four-year term.</span></li>
+        <li><strong>Expert Reviewer, IPCC</strong><span>Intergovernmental Panel on Climate Change, 2026.</span></li>
+        <li><strong>Assistant Professor, Tufts University School of Medicine</strong><span>2022 to 2024. Child, youth, and family health.</span></li>
+        <li><strong>UnitedHealthcare and DaVita Integrated Care</strong><span>Managed care network development and analytics, from 2006 to 2018.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="topics">
+    <div class="wrap">
+      <h2>Find Your Topic</h2>
+      <p class="lede">Dr. Alimayu works across fifteen areas. Type a word to see which ones fit.</p>
+      <div class="finder">
+        <input id="q" type="search" placeholder="Try audit, data, climate, or equity" aria-label="Search topic areas" autocomplete="off">
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <ul class="areas" id="areas">
+        <li>Education</li>
+        <li>Health Systems and the Business of Care</li>
+        <li>Data, Informatics, and Technology</li>
+        <li>Research, Evidence, and Science Policy</li>
+        <li>Quality Improvement and Implementation Science</li>
+        <li>Governance, Audit, and Accountability</li>
+        <li>Children, Youth, and Families</li>
+        <li>Climate, Environment, and Health</li>
+        <li>Equity and Structural Determinants</li>
+        <li>Politics, Democracy, and Civic Life</li>
+        <li>Women's Leadership</li>
+        <li>Faith and Community</li>
+        <li>Public Health Communication</li>
+        <li>Disability, Access, and Family Engagement</li>
+        <li>Public Safety as Public Health</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="custom">
+    <div class="wrap">
+      <div>
+        <h2>Custom Engagements</h2>
+        <p>Expert amicus briefs, project-based advisory, and other work that does not fit a single session. Scope and fees are set after a short conversation.</p>
+      </div>
+      <a class="btn dark" href="mailto:info@alimayu.studio?subject=Custom%20engagement%20inquiry">Start an Inquiry</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Questions? Write to <a href="mailto:info@alimayu.studio">info@alimayu.studio</a>.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),items=[].slice.call(document.querySelectorAll('#areas li')),count=document.getElementById('count');
+  function run(){
+    var t=q.value.trim().toLowerCase(),n=0;
+    items.forEach(function(li){
+      var show=!t||li.textContent.toLowerCase().indexOf(t)>-1;
+      li.hidden=!show; if(show)n++;
+    });
+    count.textContent=t?(n?n+' of 15 areas match.':'No match. Ask anyway at info@alimayu.studio.'):'';
+  }
+  q.addEventListener('input',run);
+})();
+</script>
+<!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
+<script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
+</body>
+</html>
