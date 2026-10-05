@@ -190,7 +190,8 @@ footer .label{color:var(--gold-ink)}
 
   <section class="step" aria-labelledby="s5">
     <div class="step-head"><span class="step-no">5</span><h2 id="s5">Save and Share</h2><p>Save your map as an image for your phone. Then send each person their moons.</p></div>
-    <div class="actions"><button class="btn primary" type="button" id="makeImg">Save my Postmoon Map</button><button class="btn" type="button" id="copyTeam">Copy the plan for my circle</button></div>
+    <div class="actions"><button class="btn primary" type="button" id="makeImg">Save my Postmoon Map</button><button class="btn" type="button" id="copyTeam">Copy the plan for my circle</button><button class="btn" type="button" id="waTeam">Send the plan on WhatsApp</button></div>
+    <p class="hint" style="margin-top:10px"><strong>Tip: start a Moon Circle group chat.</strong> Make one group in Messages or WhatsApp with everyone on your map. Name it "Moon Circle." Paste the plan in as the first message, so everyone sees who has which moon.</p>
     <div class="preview" id="preview" hidden>
       <img id="mapImg" alt="Your Postmoon Map as an image">
       <div class="actions"><a class="btn dark" id="dl" download="my-postmoon-map.png" href="#">Download image</a></div>
@@ -305,7 +306,7 @@ function renderTexts(){
   if(!ppl.length){$("texts").innerHTML="";return}
   $("texts").innerHTML=`<div class="label" style="margin-top:12px">Texts to send your circle</div>`+ppl.map(p=>{
     const t=askText(p);const phone=(p.phone||"").replace(/[^\d+]/g,"");
-    return `<div class="card"><h3>${esc(p.name.trim())}</h3><div class="msg">${esc(t)}</div><div class="actions"><button class="btn" type="button" data-copy="${p.id}">Copy text</button>${phone?`<a class="btn dark" href="sms:${phone}?&body=${encodeURIComponent(t)}">Open in Messages</a>`:""}</div></div>`}).join("");
+    return `<div class="card"><h3>${esc(p.name.trim())}</h3><div class="msg">${esc(t)}</div><div class="actions"><button class="btn" type="button" data-copy="${p.id}">Copy text</button>${phone?`<a class="btn dark" href="sms:${phone}?&body=${encodeURIComponent(t)}">Open in Messages</a>`:""}<a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(t)}">WhatsApp</a></div></div>`}).join("");
 }
 function askText(p){
   const mine=S.moons.map((m,i)=>({m,i})).filter(o=>o.m.who.includes(p.id));
@@ -338,6 +339,7 @@ $("moons").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)
 $("moons").addEventListener("input",e=>{if(e.target.dataset.q){S.moons[+e.target.dataset.q].q=e.target.value;save()}});
 $("texts").addEventListener("click",e=>{const id=e.target.dataset&&e.target.dataset.copy;if(!id)return;copy(askText(S.people.find(p=>p.id===id)))});
 $("copyTeam").addEventListener("click",()=>copy(teamText()));
+$("waTeam").addEventListener("click",()=>window.open("https://wa.me/?text="+encodeURIComponent(teamText()),"_blank","noopener"));
 async function copy(t){try{await navigator.clipboard.writeText(t);toast("Copied")}catch(e){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Copied")}catch(_){toast("Select the text to copy it")}ta.remove()}}
 
 $("exampleBtn").addEventListener("click",()=>{
