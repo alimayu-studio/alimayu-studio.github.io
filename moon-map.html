@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+/* signup gate: the Jotform sends people here with ?s=<submission id> */
+(function(){var k="pm_access",m=location.search.match(/[?&]s=(\d{15,22})(?:&|$)/),ok=false;
+try{if(m){localStorage.setItem(k,m[1]);ok=true}else ok=!!localStorage.getItem(k)}catch(e){ok=!!m}
+if(!ok){location.replace("https://alimayu.studio/postmoonclub");return}
+if(m&&history.replaceState)history.replaceState(null,"",location.pathname)})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Your Postmoon Map</title>
@@ -383,7 +390,22 @@ $("makeImg").addEventListener("click",async()=>{
   c.fillStyle="#F4EDE1";c.font='600 36px "Source Sans 3"';c.fillText("Call or text 1-833-TLC-MAMA",80,H-170);
   c.font='400 28px "Source Sans 3"';c.fillStyle="#D9D5E6";c.fillText("National Maternal Mental Health Hotline · 24/7",80,H-128);c.fillText("Emergency: 911",80,H-88);
   c.fillStyle="#B08D57";c.font='italic 500 30px "Cormorant Garamond"';c.textAlign="right";c.fillText("alimayu.studio/postmoonclub",1000,H-88);c.textAlign="left";
-  const url=cv.toDataURL("image/png");$("mapImg").src=url;$("dl").href=url;$("preview").hidden=false;$("preview").scrollIntoView({behavior:"smooth",block:"center"});
+  $("mapImg").src=cv.toDataURL("image/png");
+  cv.toBlob(b=>{
+    if(!b){toast("The image did not finish. Tap Save again.");return}
+    if(mapUrl)URL.revokeObjectURL(mapUrl);
+    mapBlob=b;mapUrl=URL.createObjectURL(b);$("dl").href=mapUrl;
+    $("preview").hidden=false;$("preview").scrollIntoView({behavior:"smooth",block:"center"});
+  },"image/png");
+});
+let mapBlob=null,mapUrl="";
+$("dl").addEventListener("click",async e=>{
+  if(!mapBlob){e.preventDefault();return}
+  const f=new File([mapBlob],"my-postmoon-map.png",{type:"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){
+    e.preventDefault();
+    try{await navigator.share({files:[f],title:"My Postmoon Map"})}catch(_){}
+  }
 });
 function spaced(c,t,x,y,s){for(const ch of t){c.fillText(ch,x,y);x+=c.measureText(ch).width+s}}
 function fit(c,t,max){if(c.measureText(t).width<=max)return t;while(t.length&&c.measureText(t+"…").width>max)t=t.slice(0,-1);return t+"…"}
