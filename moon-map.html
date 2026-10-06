@@ -408,11 +408,6 @@ $("makeImg").addEventListener("click",async()=>{
 let mapBlob=null,mapUrl="";
 $("dl").addEventListener("click",async e=>{
   if(!mapBlob){e.preventDefault();return}
-  const f=new File([mapBlob],"my-postmoon-map.png",{type:"image/png"});
-  if(matchMedia("(pointer:coarse)").matches&&navigator.canShare&&navigator.canShare({files:[f]})){
-    e.preventDefault();
-    try{await navigator.share({files:[f],title:"My Postmoon Map"})}catch(_){}
-  }
 });
 /* email a copy: posts the map to a Jotform that emails it back */
 const MAIL_FORM="262777025633057";
