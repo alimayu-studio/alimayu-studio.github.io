@@ -93,6 +93,14 @@
   },
   {
    "@type": "Question",
+   "name": "Is there training or certification for faith leaders?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. FAAITH and HOPE is building on-demand training and a train-the-trainer certification so faith leaders can bring the CREED model to their own congregations and networks. Join the list on this page to hear first."
+   }
+  },
+  {
+   "@type": "Question",
    "name": "Can my congregation or organization use the CREED model?",
    "acceptedAnswer": {
     "@type": "Answer",
@@ -108,7 +116,7 @@
  "@type": "Project",
  "name": "FAAITH and HOPE",
  "alternateName": "Faith-leaders Allied and Aligned to Institute Trust in the Home and Healthy Outcomes from Positive Experiences",
- "description": "A faith community and academic partnership that brings the science of positive childhood experiences into congregations through the CREED model.",
+ "description": "A faith community and academic partnership that brings the science of positive childhood experiences into congregations through the CREED model, with a clergy curriculum, a parent leadership series, the REAL Impact survey, and a Systems Change Guidebook.",
  "url": "https://alimayu.studio/faaith-and-hope.html",
  "funder": {
   "@type": "Organization",
@@ -164,6 +172,20 @@
 .ritual b { display: block; font-family: var(--serif); font-size: 24px; color: #fff; margin: 6px 0; }
 .ritual span { color: rgba(231,219,197,.85); font-size: 16px; }
 @media (max-width: 900px) { .ritual { grid-template-columns: 1fr 1fr; } .ritual li:nth-child(3) { padding-left: 0; border-left: 0; } }
+.films { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; gap: 22px; }
+.film { display: block; padding: 0; border: 0; background: #FBF7EF; text-align: left; cursor: pointer; box-shadow: 0 24px 40px -28px rgba(40,30,15,.7); transition: transform .3s; font: inherit; color: var(--navy); }
+.film:hover { transform: translateY(-4px); }
+.film-lead { grid-row: span 2; }
+.film-img { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy); }
+.film-lead .film-img { aspect-ratio: auto; height: calc(100% - 86px); min-height: 300px; }
+.film-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
+.film:hover .film-img img { transform: scale(1.05); }
+.film .play-btn { width: 70px; height: 70px; margin: -35px 0 0 -35px; }
+.film .play-btn::after { left: 27px; top: 21px; border-left-width: 22px; border-top-width: 14px; border-bottom-width: 14px; }
+.film-meta { display: block; padding: 18px 20px 20px; }
+.film-meta b { display: block; font-family: var(--serif); font-size: 23px; line-height: 1.15; }
+.film-meta span { font-size: 14.5px; color: #6B6556; }
+@media (max-width: 900px) { .films { grid-template-columns: 1fr; } .film-lead { grid-row: auto; } .film-lead .film-img { height: auto; aspect-ratio: 16 / 9; min-height: 0; } }
 .promo { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; background: radial-gradient(circle at 50% 40%, #2A3060, var(--navy)); color: var(--cream); overflow: hidden; }
 .promo::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(176,141,87,.6); }
 .promo img { width: 120px; margin: 0 auto 16px; filter: drop-shadow(0 8px 10px rgba(0,0,0,.5)); }
@@ -204,7 +226,7 @@
       <p class="crumbs"><a href="initiatives.html">Initiatives</a> / FAAITH and HOPE</p>
       <h1>FAAITH <span>and HOPE</span></h1>
       <p class="lead-serif">Every week, families bring their newborns to be blessed. FAAITH and HOPE turns that sacred moment into the start of a healthier childhood.</p>
-      <div class="actions"><a class="btn" href="https://form.jotform.com/262919131197058" target="_blank" rel="noopener">Bring it to your community <span class="arrow">&rarr;</span></a><a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.7)" href="#model">See the model</a></div>
+      <div class="actions"><a class="btn" href="#join">Bring it to your community <span class="arrow">&rarr;</span></a><a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.7)" href="#model">See the model</a></div>
     </div>
     <div class="glass reveal">
       <button class="glass-inner play" type="button" data-video="EJks07ty1m0" aria-label="Play: Voices of Vision, Honoring Faith-Rooted Wisdom with Dr. Alimayu, Robert Wood Johnson Foundation"><img src="https://i.ytimg.com/vi/EJks07ty1m0/maxresdefault.jpg" alt=""><span class="play-btn" aria-hidden="true"></span></button>
@@ -216,10 +238,7 @@
 
 <section class="band band-navy" style="padding:56px 0">
   <div class="wrap stats" style="display:grid;grid-template-columns:repeat(4,1fr)">
-    <div><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">RWJF</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Funded by the Robert Wood Johnson Foundation&rsquo;s Systems for Action program</span></div>
-    <div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">CREED</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">A tested model for clergy, parents, and congregations</span></div>
-    <div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">144 years</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Of trust at Shiloh Baptist Church, Trenton, where it began</span></div>
-    <div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">Every faith</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Built for any tradition with a baby blessing, dedication, or christening</span></div>
+    <div><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">RWJF</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Funded by the Robert Wood Johnson Foundation&rsquo;s Systems for Action program</span></div><div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">3 tools</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">The CREED toolkit, the REAL Impact survey, and a Systems Change Guidebook</span></div><div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">Certified</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Train-the-trainer certification so faith leaders can lead it themselves</span></div><div style="padding-left:22px;border-left:1px solid rgba(231,219,197,.25)"><b style="display:block;font-family:var(--serif);font-size:clamp(34px,3.4vw,48px);color:var(--gold-soft);line-height:1">3 continents</b><span style="display:block;margin-top:8px;font-size:15px;color:rgba(231,219,197,.8)">Dissemination planned across the Americas, Africa, and Europe</span></div>
   </div>
 </section>
 
@@ -247,14 +266,19 @@
   </ol>
 </section>
 
-<section class="band">
-  <div class="wrap band-head"><div><p class="script-eyebrow">What is inside</p><h2>Five parts of the model</h2></div><p>Built with clergy and community members, and informed by Dr. Bruce Perry of the Child Trauma Academy and Dr. Charlyn Harper Browne of the Center for the Study of Social Policy.</p></div>
-  <div class="wrap pillars5">
-    <div class="paper-card pin reveal tilt-l"><span class="num">i.</span><h3>Clergy training</h3><p>A curriculum and guidebook that equips faith leaders to teach early childhood development.</p></div>
-    <div class="paper-card pin reveal"><span class="num">ii.</span><h3>Parent leadership</h3><p>A workbook-based series that helps parents build positive childhood experiences and advocate for their children.</p></div>
-    <div class="paper-card pin reveal tilt-r"><span class="num">iii.</span><h3>Faith and science</h3><p>The HOPE framework from Tufts Medical Center, joined with scripture and the Protective Factors Framework.</p></div>
-    <div class="paper-card pin reveal tilt-l"><span class="num">iv.</span><h3>REAL Impact survey</h3><p>A racial equity assessment that shows how systemic racism plays out when families seek care.</p></div>
-    <div class="paper-card pin reveal"><span class="num">v.</span><h3>Systems change</h3><p>Guidance for congregations to work with policymakers on the barriers families name.</p></div>
+<section class="band" id="toolkit">
+  <div class="wrap band-head"><div><p class="script-eyebrow">What your community receives</p><h2>The CREED toolkit</h2></div><p>Built with clergy and community members, tested at Shiloh Baptist Church, and informed by Dr. Bruce Perry of the Child Trauma Academy and Dr. Charlyn Harper Browne of the Center for the Study of Social Policy.</p></div>
+  <div class="wrap paper-grid two" style="gap:26px">
+    <div class="paper-card pin reveal tilt-l"><span class="num">i.</span><h3>Clergy training and guidebook</h3><p>A curriculum that equips ordained clergy and faith leaders to teach early brain development, positive parenting, and the HOPE framework as part of the ministry they already lead.</p></div>
+    <div class="paper-card pin reveal tilt-r"><span class="num">ii.</span><h3>Parent leadership and advocacy series</h3><p>A five-part, faith-centered series with a family workbook and slides. Parents learn to build positive childhood experiences, strengthen resilience, and speak up for their children.</p></div>
+    <div class="paper-card pin reveal tilt-r"><span class="num">iii.</span><h3>REAL Impact survey</h3><p>The Racial Equity Assessment and Learning survey shows how systemic racism shows up when families seek care, including being dismissed or not taken seriously, so congregations can act on real data.</p></div>
+    <div class="paper-card pin reveal tilt-l"><span class="num">iv.</span><h3>Systems Change Guidebook</h3><p>Step-by-step guidance for congregations to work with health systems and policymakers on the barriers their families name.</p></div>
+  </div>
+  <div class="wrap" style="margin-top:34px">
+    <div class="paper-card reveal" style="display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between;background:var(--navy);color:var(--cream)">
+      <div><span class="num" style="color:var(--gold-soft)">Now enrolling interest</span><h3 style="color:#fff">On-demand training and faith leader certification</h3><p style="color:rgba(231,219,197,.85);margin:0">A train-the-trainer program certifies faith leaders to bring CREED to their own congregations and networks.</p></div>
+      <a class="btn" href="#join">Get on the list <span class="arrow">&rarr;</span></a>
+    </div>
   </div>
 </section>
 
@@ -262,7 +286,7 @@
   <div class="wrap paper-grid two" style="align-items:center">
     <div>
       <p class="script-eyebrow light">The story</p><h2>A pastor, a researcher, and a question</h2>
-      <p>Rev. Dr. Darrell Armstrong blesses ten to twelve babies a year at Shiloh Baptist Church, Trenton&rsquo;s first Black Baptist church. As a former director of New Jersey&rsquo;s child abuse prevention division, he saw each blessing as a missed chance to share what science knows about a baby&rsquo;s first years.</p>
+      <p>Rev. Dr. Darrell LaRue Armstrong has pastored Shiloh Baptist Church, Trenton&rsquo;s first Black Baptist church, since 2000. A former assistant commissioner over New Jersey&rsquo;s Division of Child Abuse Prevention and board president of the Association of Professionals Solving the Abuse of Children (APSAC), he saw each baby blessing as a missed chance to share what science knows about a child&rsquo;s first years.</p>
       <p>Dr. Alimayu, then directing networks and policy at the HOPE National Resource Center at Tufts Medical Center, partnered with him to formalize that work into a model any faith tradition could use. With funding from the Robert Wood Johnson Foundation, they tested it together as co-investigators.</p>
     </div>
     <div class="promo reveal">
@@ -271,39 +295,46 @@
   </div>
 </section>
 
+<section class="band" id="watch">
+  <div class="wrap band-head"><div><p class="script-eyebrow">Watch</p><h2>Hear it from the people who built it</h2></div><p>Dr. Alimayu on the Robert Wood Johnson Foundation&rsquo;s Voices of Vision series, and both Systems for Action webinars, from the first findings to the finished toolkit.</p></div>
+  <div class="wrap films">
+    <button class="film film-lead reveal" type="button" data-video="EJks07ty1m0"><span class="film-img"><img src="https://i.ytimg.com/vi/EJks07ty1m0/maxresdefault.jpg" alt="" loading="lazy"><span class="play-btn" aria-hidden="true"></span></span><span class="film-meta"><b>Voices of Vision: Honoring faith-rooted wisdom</b><span>Robert Wood Johnson Foundation &middot; 5 minutes</span></span></button>
+    <button class="film reveal" type="button" data-video="nl9Ll9cfS8o"><span class="film-img"><img src="https://i.ytimg.com/vi/nl9Ll9cfS8o/hqdefault.jpg" alt="" loading="lazy"><span class="play-btn" aria-hidden="true"></span></span><span class="film-meta"><b>Research-in-progress webinar</b><span>Systems for Action &middot; April 2024</span></span></button>
+    <button class="film reveal" type="button" data-video="tGAE7AsmT0s"><span class="film-img"><img src="https://i.ytimg.com/vi/tGAE7AsmT0s/hqdefault.jpg" alt="" loading="lazy"><span class="play-btn" aria-hidden="true"></span></span><span class="film-meta"><b>First findings webinar</b><span>Systems for Action &middot; May 2023</span></span></button>
+  </div>
+</section>
+
 <section class="band">
   <div class="wrap band-head"><div><p class="script-eyebrow">Work with FAAITH and HOPE</p><h2>Bring the model to your community</h2></div><p>The research recommends taking CREED into clergy training nationwide. Here is how organizations take part.</p></div>
   <div class="wrap audience">
-    <a class="paper-card reveal" href="https://form.jotform.com/262919131197058" target="_blank" rel="noopener" style="text-decoration:none"><span class="num">For faith leaders</span><h3>Clergy training</h3><p>Train your ministry team in the CREED model and the parent curriculum.</p><b style="color:var(--teal)">Request training &rarr;</b></a>
-    <a class="paper-card reveal" href="https://form.jotform.com/262919131197058" target="_blank" rel="noopener" style="text-decoration:none"><span class="num">For seminaries</span><h3>Curriculum</h3><p>Bring the curriculum into schools of divinity and religious training programs.</p><b style="color:var(--teal)">Start a conversation &rarr;</b></a>
-    <a class="paper-card reveal" href="https://form.jotform.com/262919131197058" target="_blank" rel="noopener" style="text-decoration:none"><span class="num">For health systems</span><h3>Partnership</h3><p>Partner with trusted congregations to reach families your system does not reach today.</p><b style="color:var(--teal)">Explore a partnership &rarr;</b></a>
+    <a class="paper-card reveal" href="#join" style="text-decoration:none"><span class="num">For faith leaders</span><h3>Clergy training</h3><p>Train your ministry team in the CREED model and the parent curriculum.</p><b style="color:var(--teal)">Request training &rarr;</b></a>
+    <a class="paper-card reveal" href="#join" style="text-decoration:none"><span class="num">For seminaries</span><h3>Curriculum</h3><p>Bring the curriculum into schools of divinity and religious training programs.</p><b style="color:var(--teal)">Start a conversation &rarr;</b></a>
+    <a class="paper-card reveal" href="#join" style="text-decoration:none"><span class="num">For health systems</span><h3>Partnership</h3><p>Partner with trusted congregations to reach families your system does not reach today.</p><b style="color:var(--teal)">Explore a partnership &rarr;</b></a>
     <a class="paper-card reveal" href="speaking.html" style="text-decoration:none"><span class="num">For events</span><h3>Keynotes</h3><p>Invite Dr. Alimayu to speak on faith, child development, and health equity.</p><b style="color:var(--teal)">Book a keynote &rarr;</b></a>
   </div>
-  <div class="wrap" style="text-align:center;margin-top:44px">
-    <a class="btn dark" href="https://form.jotform.com/262919131197058" target="_blank" rel="noopener">Bring FAAITH and HOPE to your community <span class="arrow">&rarr;</span></a>
+  <div class="wrap paper-grid two" id="join" style="align-items:start;margin-top:56px;scroll-margin-top:90px">
+    <div><p class="script-eyebrow">Start here</p><h2 style="font-size:clamp(34px,4.2vw,54px)">Bring FAAITH and HOPE to your community</h2><p style="color:#4A4F63;margin-top:14px">Share a little about your congregation or organization, and Dr. Alimayu and the FAAITH and HOPE team will reply within two business days.</p></div>
+    <div class="form-card"><iframe id="JotFormIFrame-262919131197058" title="Bring FAAITH and HOPE to your community" src="https://form.jotform.com/262919131197058" allow="geolocation; microphone; camera; fullscreen" style="width:100%;min-height:900px;border:none" scrolling="no"></iframe></div><script>addEventListener("load",function(){if(window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='JotFormIFrame-262919131197058']","https://form.jotform.com/");});</script>
   </div>
 </section>
 
 <section class="band band-teal" style="padding:64px 0">
   <div class="wrap paper-grid two" style="align-items:center">
-    <div><p class="script-eyebrow light">Read the research</p><h2>Evidence brief and webinar</h2><p>Systems for Action published the FAAITH and HOPE evidence brief in May 2025 and featured the project in its research-in-progress webinars.</p></div>
+    <div><p class="script-eyebrow light">Read the research</p><h2>Evidence brief and webinar</h2><p>Systems for Action published the FAAITH and HOPE evidence brief in May 2025 and featured the project in research-in-progress webinars in 2023, 2024, and July 2026.</p></div>
     <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
-      <a class="btn" href="https://csph.theopenscholar.com/files/systemsforaction/files/faaith-and-hope-evidence-brief.pdf" target="_blank" rel="noopener">Open the evidence brief (PDF) <span class="arrow">&rarr;</span></a>
-      <a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.7)" href="https://systemsforaction.org/blog/evidence-brief-faaith-and-hope-equitable-systems-alignment" target="_blank" rel="noopener">Read on Systems for Action</a>
+      <a class="btn" href="{BRIEF}" target="_blank" rel="noopener">Open the evidence brief (PDF) <span class="arrow">&rarr;</span></a>
+      <a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.7)" href="{S4A}" target="_blank" rel="noopener">Read on Systems for Action</a>
     </div>
   </div>
 </section>
 
 <section class="band" style="padding:56px 0 20px">
-  <div class="wrap"><div class="partners"><span>Robert Wood Johnson Foundation</span><span>Systems for Action</span><span>HOPE National Resource Center, Tufts Medical Center</span><span>Shiloh Baptist Church, Trenton</span></div></div>
+  <div class="wrap"><p class="script-eyebrow" style="justify-content:center">Shared with and adopted by</p><div class="partners"><span>Robert Wood Johnson Foundation</span><span>Systems for Action</span><span>HOPE National Resource Center, Tufts Medical Center</span><span>Shiloh Baptist Church, Trenton</span><span>APSAC</span><span>New Jersey Office of the First Lady</span><span>Central Jersey Family Health Consortium</span><span>National African American Child and Family Research Center</span><span>National Baptist Congress of Christian Education</span><span>FAAITH Coalition of Religious Leaders</span></div></div>
 </section>
 
 <div class="vmodal" id="vmodal" hidden role="dialog" aria-modal="true" aria-label="Video"><button class="close" type="button">Close</button><div class="frame" id="vframe"></div></div>
 <section class="catalog-section">
-  <div class="wrap"><div class="faq" style="max-width:860px"><p class="script-eyebrow">Questions people ask</p><details open><summary>What is FAAITH and HOPE?</summary><p>FAAITH (Faith-leaders Allied and Aligned to Institute Trust in the Home) and HOPE (Healthy Outcomes from Positive Experiences) is a faith community and academic partnership that brings the science of positive childhood experiences into congregations. It was studied with funding from the Robert Wood Johnson Foundation&rsquo;s Systems for Action program at Shiloh Baptist Church in Trenton, New Jersey.</p></details>
-<details><summary>What is the CREED model?</summary><p>Congregational Relationships for Early-childhood Equity and Development (CREED) joins child-centered religious rituals, such as baby blessings, dedications, and christenings, with research on early childhood development. It includes clergy training, a parent leadership and advocacy curriculum, a racial equity assessment, and guidance for systems change.</p></details>
-<details><summary>Who leads FAAITH and HOPE?</summary><p>Dr. Allison Alimayu (published as Allison Stephens) co-led the research as co-investigator while at the HOPE National Resource Center at Tufts Medical Center, in partnership with Rev. Dr. Darrell Armstrong, pastor of Shiloh Baptist Church and founder of FAAITH.</p></details>
-<details><summary>Can my congregation or organization use the CREED model?</summary><p>Yes. Faith leaders, seminaries, health systems, and funders can request clergy training, the parent curriculum, a keynote, or a partnership through the form on this page.</p></details></div></div>
+  <div class="wrap"><div class="faq" style="max-width:860px"><p class="script-eyebrow">Questions people ask</p>{faq_html(faq)}</div></div>
 </section>
 </main>
 <footer class="site-footer">
@@ -328,7 +359,7 @@ document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener
 f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.video+'?autoplay=1&rel=0&modestbranding=1" title="Video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';m.hidden=false;m.querySelector('.close').focus();});});
 m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('close'))close();});
 addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)close();});})();
-</script>
+</script><script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <!-- Pia chat bubble (Jotform AI Agent). Keep this line just above the closing body tag on every page. -->
 <script src='https://cdn.jotfor.ms/agent/embedjs/01a0c235f070700082ffa4bbe5702f0b80e3/embed.js'></script>
 </body>
