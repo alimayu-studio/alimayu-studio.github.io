@@ -1,4 +1,4 @@
-# Dr. Allison Alimayu
+﻿# Dr. Allison Alimayu
 
 > Dr. Allison Alimayu (formerly Allison Stephens) is a public interest futurist, keynote speaker, consultant, and board director based in North Carolina. The futures of children and families are decided in budgets, boardrooms, and evidence reviews, and she has worked in all three. Alimayu Studio is her intellectual atelier for research, policy, education, technology, faith, and impact.
 
@@ -48,6 +48,8 @@
 - [Masterclasses](https://alimayu.studio/masterclasses.html): free lessons with paired products, in production
 - [Consulting](https://alimayu.studio/consulting.html): strategy sessions, futures sessions, and monthly advisory
 - [Board service](https://alimayu.studio/board-seats.html): governance record, board bio, and board deck
+
+- [FAAITH and HOPE](https://alimayu.studio/faaith-and-hope.html): faith community and child development initiative (CREED model), funded by the Robert Wood Johnson Foundation Systems for Action program
 
 ## Contact
 - Speaking requests: https://alimayu.studio/speaking.html
