@@ -1,4 +1,4 @@
-# Dr. Allison Alimayu
+﻿# Dr. Allison Alimayu
 
 > Dr. Allison Alimayu (formerly Allison Stephens) is a public interest futurist, keynote speaker, consultant, and board director based in North Carolina. The futures of children and families are decided in budgets, boardrooms, and evidence reviews, and she has worked in all three. Alimayu Studio is her intellectual atelier for research, policy, education, technology, faith, and impact.
 
@@ -55,4 +55,5 @@
 - Speaking requests: https://alimayu.studio/speaking.html
 - Board inquiries: https://form.jotform.com/262917810765061
 - Consulting: https://www.everyexpert.com/allisonalimayu
+- Sessionize speaker profile: https://sessionize.com/allisonalimayu
 - Email: info@alimayu.studio
