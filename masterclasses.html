@@ -79,6 +79,20 @@
 .kit .tag-soon { position: absolute; top: 14px; right: 16px; font-size: 13px; font-weight: 700; color: var(--gold); }
 .kit .icon { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: var(--cream); font-family: var(--serif); font-size: 26px; margin-bottom: 12px; }
 @media (max-width: 900px) { .mc-feature, .kit { grid-template-columns: 1fr; } }
+.planner-buy { display: grid; gap: 14px; }
+.planner-thumb { position: relative; display: block; width: 100%; max-width: 240px; padding: 0; border: 0; background: none; cursor: zoom-in; font: inherit; }
+.planner-thumb img { display: block; width: 100%; height: auto; box-shadow: 0 18px 30px -14px rgba(0,0,0,.55); border-radius: 2px; transition: transform .3s ease; }
+.planner-thumb span { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); white-space: nowrap; background: var(--navy); color: var(--cream); font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; }
+.planner-thumb:hover img, .planner-thumb:focus-visible img { transform: translateY(-4px); }
+.planner-buy-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.planner-buy-note { margin: 0; font-size: 14px; color: #6B6556; }
+.planner-preview { border: 0; padding: 18px 18px 22px; max-width: min(92vw, 560px); width: 100%; background: #F4EEE2; border-radius: 4px; box-shadow: 0 30px 80px rgba(0,0,0,.5); text-align: center; }
+.planner-preview::backdrop { background: rgba(20, 24, 50, .78); }
+.pv-page { display: block; width: auto; max-width: 100%; height: auto; max-height: 72vh; margin: 0 auto 14px; box-shadow: 0 10px 24px -12px rgba(0,0,0,.45); }
+.pv-close { position: absolute; top: 6px; right: 10px; border: 0; background: none; font-size: 30px; line-height: 1; color: var(--navy); cursor: pointer; }
+.pv-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 14px; color: var(--navy); font-weight: 600; }
+.pv-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--navy); background: none; color: var(--navy); font-size: 20px; cursor: pointer; }
+.pv-nav button:disabled { opacity: .3; cursor: default; }
 </style>
 </head>
 <body class="paper">
@@ -129,14 +143,47 @@
   </div>
   <div class="wrap">
     <div class="kit">
-      <div class="paper-card pin reveal tilt-l"><div class="icon">i</div><h3>The year-before planner</h3><p>A spiral-bound planner for the year before running: personal readiness, the district, the issues, the base, the team, and the money. Shipped to the door.</p><div style="margin-top:16px"><div title="Peecho" class="peecho-preview-button" data-publication="2296016" data-filetype="pdf" data-new-window="true" data-text="ORDER PRINT 99.99 USD" data-noprice="true" data-currency="USD" data-locale="en_EN">Print</div>
-<script type="text/javascript">
-(function() {
-var p=document.createElement("script");p.type="text/javascript";p.async=true;
-var h=("https:"==document.location.protocol?"https://":"http://");
-p.src=h+"d3aln0nj58oevo.cloudfront.net/button/preview/178492690406167423.js";
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(p,s);
-}).call(this);
+      <div class="paper-card pin reveal tilt-l"><div class="icon">i</div><h3>The year-before planner</h3><p>A spiral-bound planner for the year before running: personal readiness, the district, the issues, the base, the team, and the money. Shipped to the door.</p><div style="margin-top:16px"><div class="planner-buy">
+  <button type="button" class="planner-thumb" data-preview-open aria-label="Preview pages from the Ballot ready planner"><img src="https://d2pbvzqv6ybw6u.cloudfront.net/filepicker/960_o_1k5qcmdpe3vl17bvcgv1u3n4270-0.png" alt="Cover of Ballot ready: Pre-campaign planner" loading="lazy" width="960" height="1362"><span>Preview 8 pages</span></button>
+  <div class="planner-buy-actions"><a class="btn dark" href="https://www.peecho.com/print/en/2296016" target="_blank" rel="noopener">Order print, $99.99 <span class="arrow">&rarr;</span></a><button type="button" class="btn ghost-ink" data-preview-open>Preview pages</button></div>
+  <p class="planner-buy-note">Printed and shipped by Peecho.</p>
+</div>
+<dialog class="planner-preview" id="planner-preview" aria-label="Ballot ready planner preview">
+  <button type="button" class="pv-close" data-preview-close aria-label="Close preview">&times;</button>
+  <img class="pv-page" src="" alt="">
+  <div class="pv-nav"><button type="button" class="pv-prev" aria-label="Previous page">&larr;</button><span class="pv-count" aria-live="polite">1 of 8</span><button type="button" class="pv-next" aria-label="Next page">&rarr;</button></div>
+  <a class="btn dark pv-order" href="https://www.peecho.com/print/en/2296016" target="_blank" rel="noopener">Order print, $99.99 <span class="arrow">&rarr;</span></a>
+</dialog>
+<script>
+(function () {
+  var base = "https://d2pbvzqv6ybw6u.cloudfront.net/filepicker/960_o_1k5qcmdpe3vl17bvcgv1u3n4270-", total = 8, i = 0;
+  var d = document.getElementById("planner-preview");
+  if (!d || typeof d.showModal !== "function") {
+    document.querySelectorAll("[data-preview-open]").forEach(function (b) { b.addEventListener("click", function () { window.open(base + "0.png", "_blank"); }); });
+    return;
+  }
+  var img = d.querySelector(".pv-page"), count = d.querySelector(".pv-count");
+  var prev = d.querySelector(".pv-prev"), next = d.querySelector(".pv-next");
+  function show(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    img.src = base + i + ".png";
+    img.alt = "Planner page " + (i + 1) + " of " + total;
+    count.textContent = (i + 1) + " of " + total;
+    prev.disabled = i === 0; next.disabled = i === total - 1;
+    if (i + 1 < total) { new Image().src = base + (i + 1) + ".png"; }
+  }
+  document.querySelectorAll("[data-preview-open]").forEach(function (b) {
+    b.addEventListener("click", function () { show(0); d.showModal(); });
+  });
+  prev.addEventListener("click", function () { show(i - 1); });
+  next.addEventListener("click", function () { show(i + 1); });
+  d.querySelector("[data-preview-close]").addEventListener("click", function () { d.close(); });
+  d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
+  d.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(i - 1);
+    if (e.key === "ArrowRight") show(i + 1);
+  });
+})();
 </script></div></div>
       <div class="paper-card pin reveal"><span class="tag-soon">Coming soon</span><div class="icon">ii</div><h3>Claude skills pack</h3><p>Ready-to-use AI skills for campaign planning, messaging, and research, built to match the lessons.</p></div>
       <div class="paper-card pin reveal tilt-r"><span class="tag-soon">Coming soon</span><div class="icon">iii</div><h3>Prompt package</h3><p>Tested prompts for drafting speeches, press releases, and voter outreach, with notes on what not to say.</p></div>
