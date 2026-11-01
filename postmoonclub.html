@@ -12,7 +12,7 @@
 <link rel="icon" href="postmoon-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
 --milkrose: #EBD3C8;
@@ -28,21 +28,23 @@
 html { scroll-behavior: smooth; }
 body {
 margin: 0;
-background: var(--milkrose);
+background-color: var(--moonmilk);
+background-image: radial-gradient(rgba(30, 35, 70, .07) .9px, transparent 1.3px);
+background-size: 7px 7px;
 color: var(--ink);
 font-family: 'Source Sans 3', sans-serif;
-font-size: 18px;
-line-height: 1.55;
+font-size: 19px;
+line-height: 1.6;
 overflow-x: hidden;
 }
 img { max-width: 100%; }
 a { color: var(--midnight); }
 .label {
 font-family: 'Cinzel', 'Trajan Pro', serif;
-font-size: 14px;
+font-size: 15px;
 letter-spacing: .24em;
 text-transform: uppercase;
-color: var(--midnight);
+color: var(--rosehip);
 }
 
 /* Alimayu Studio header and navigation (unchanged) */
@@ -66,49 +68,59 @@ color: var(--midnight);
 .nav a:hover, .nav a:focus-visible, .nav a.current { color: var(--rosehip); }
 
 .crumbs { max-width: 960px; margin: 0 auto; padding: 0 16px 14px; font-size: 14px; }
-.crumbs a { color: var(--midnight); font-weight: 600; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.crumbs a { color: var(--rosehip); font-weight: 600; text-decoration: none; }
 
-/* Plaid: midnight cloth, dusk and milk rose bands, gold hairlines, woven grain */
+/* Plaid: midnight cloth, milk rose and gold bands, moonmilk pinstripes, woven grain */
 .plaid {
 position: relative;
 isolation: isolate;
 background-color: var(--midnight);
 background-image:
-radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(30, 35, 70, .55) 100%),
-repeating-linear-gradient(45deg, rgba(244, 237, 225, .028) 0 1px, transparent 1px 4px),
+radial-gradient(ellipse at 50% 35%, transparent 60%, rgba(20, 23, 48, .45) 100%),
+repeating-linear-gradient(45deg, rgba(20, 23, 48, .2) 0 1px, transparent 1px 3px),
+repeating-linear-gradient(-45deg, rgba(244, 237, 225, .05) 0 1px, transparent 1px 4px),
 repeating-linear-gradient(90deg,
 transparent 0 60px,
-rgba(217, 203, 216, .30) 60px 100px,
-transparent 100px 108px,
-rgba(235, 211, 200, .45) 108px 110px,
-transparent 110px 113px,
-rgba(235, 211, 200, .45) 113px 115px,
-transparent 115px 123px,
-rgba(217, 203, 216, .28) 123px 139px,
-transparent 139px 200px,
-rgba(176, 141, 87, .35) 200px 201px,
-transparent 201px 260px),
+rgba(235, 211, 200, .92) 60px 108px,
+rgba(244, 237, 225, .95) 108px 111px,
+rgba(176, 141, 87, .85) 111px 140px,
+rgba(244, 237, 225, .95) 140px 143px,
+transparent 143px 150px,
+rgba(244, 237, 225, .7) 150px 152px,
+transparent 152px 230px,
+rgba(176, 141, 87, .55) 230px 231px,
+transparent 231px 300px),
 repeating-linear-gradient(0deg,
 transparent 0 60px,
-rgba(217, 203, 216, .30) 60px 100px,
-transparent 100px 108px,
-rgba(235, 211, 200, .45) 108px 110px,
-transparent 110px 113px,
-rgba(235, 211, 200, .45) 113px 115px,
-transparent 115px 123px,
-rgba(217, 203, 216, .28) 123px 139px,
-transparent 139px 200px,
-rgba(176, 141, 87, .35) 200px 201px,
-transparent 201px 260px);
-background-attachment: scroll;
+rgba(235, 211, 200, .92) 60px 108px,
+rgba(244, 237, 225, .95) 108px 111px,
+rgba(176, 141, 87, .85) 111px 140px,
+rgba(244, 237, 225, .95) 140px 143px,
+transparent 143px 150px,
+rgba(244, 237, 225, .7) 150px 152px,
+transparent 152px 230px,
+rgba(176, 141, 87, .55) 230px 231px,
+transparent 231px 300px);
+}
+/* Woven grain: fine fibre noise so the bands read as thread, not flat colour */
+.plaid::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: 0;
+pointer-events: none;
+opacity: .22;
+mix-blend-mode: soft-light;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4 .18' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.18 1.4' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 .plaid::after {
 content: "";
 position: absolute;
 inset: 0;
-z-index: -1;
+z-index: 0;
 pointer-events: none;
-opacity: .07;
+opacity: .08;
 mix-blend-mode: multiply;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .55' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
 }
@@ -116,8 +128,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 /* Scalloped hem where the plaid meets the next ground */
 .hem { position: relative; }
-.hem::before {
-content: "";
+.hem > .hem-edge {
 position: absolute;
 left: 0; right: 0; bottom: -1px;
 height: 12px;
@@ -128,7 +139,7 @@ background-size: 18px 12px;
 
 /* Paper pieces */
 .paper {
-background: var(--moonmilk);
+background: #FAF6EF;
 box-shadow: var(--shadow);
 position: relative;
 }
@@ -159,47 +170,62 @@ background: var(--moonmilk);
 clip-path: polygon(0% 3%, 7% 1%, 15% 2.5%, 26% .5%, 38% 2%, 50% 0%, 63% 2%, 74% .5%, 86% 2.5%, 94% .8%, 100% 2%, 98.6% 12%, 100% 24%, 98.8% 37%, 100% 51%, 98.5% 64%, 100% 77%, 98.8% 89%, 100% 98%, 91% 99.4%, 80% 97.8%, 68% 100%, 55% 98.2%, 43% 99.6%, 31% 97.9%, 19% 99.7%, 8% 98%, 0% 99.5%, 1.3% 87%, 0% 74%, 1.4% 61%, 0% 47%, 1.2% 34%, 0% 21%, 1.4% 10%);
 }
 
+.hero-photos .torn:last-child img {
+clip-path: polygon(0% 1.5%, 11% 3%, 19% .6%, 33% 2.4%, 45% .3%, 57% 2.8%, 70% .9%, 81% 3%, 92% .4%, 100% 2.6%, 98.9% 15%, 100% 29%, 98.4% 42%, 99.8% 56%, 98.6% 70%, 100% 84%, 98.8% 99%, 88% 97.6%, 76% 99.8%, 64% 98%, 52% 99.6%, 40% 97.7%, 27% 99.5%, 15% 98.1%, 0% 99.2%, 1.6% 85%, .2% 71%, 1.5% 57%, .3% 44%, 1.7% 30%, .2% 17%);
+}
+.moonrise .torn img {
+clip-path: polygon(1% 0%, 14% 2%, 28% .4%, 39% 2.6%, 54% .8%, 66% 2.2%, 79% 0%, 90% 2.4%, 99% .6%, 100% 13%, 98.7% 27%, 100% 40%, 98.5% 55%, 100% 68%, 98.6% 82%, 99.6% 100%, 85% 98.3%, 73% 100%, 60% 98.5%, 47% 99.8%, 35% 98%, 22% 99.7%, 10% 98.2%, .4% 99.6%, 1.8% 88%, 0% 75%, 1.5% 62%, 0% 48%, 1.6% 35%, 0% 22%, 1.4% 9%);
+}
+
 /* Hero */
 .hero { padding: 56px 16px 40px; }
 .hero-photos {
 display: flex;
 justify-content: center;
 align-items: flex-start;
-max-width: 640px;
+max-width: 760px;
 margin: 0 auto;
 }
-.hero-photos .torn { width: 50%; max-width: 312px; }
-.hero-photos .torn:first-child { transform: rotate(-2.2deg); margin-right: -14px; margin-top: 10px; }
-.hero-photos .torn:last-child { transform: rotate(2deg); z-index: 1; }
+.hero-photos .torn { width: 50%; max-width: 350px; }
+.hero-photos .torn:first-child { transform: rotate(-3deg); margin-right: -18px; margin-top: 14px; }
+.hero-photos .torn:last-child { transform: rotate(3.2deg); z-index: 1; }
 
 .hero-card {
-max-width: 560px;
+max-width: 880px;
 margin: -6px auto 0;
-padding: 46px 40px 40px;
-text-align: center;
+padding: 40px 44px 36px;
+display: grid;
+grid-template-columns: auto minmax(0, 1fr);
+gap: 44px;
+align-items: center;
+text-align: left;
+background-color: var(--moonmilk);
+background-image: radial-gradient(rgba(30, 35, 70, .06) .9px, transparent 1.3px);
+background-size: 6px 6px;
+box-shadow: inset 0 0 0 10px var(--moonmilk), inset 0 0 0 11px rgba(30, 35, 70, .22), var(--shadow);
 transform: rotate(-.4deg);
 z-index: 2;
 }
+.hero-id { display: flex; flex-direction: column; align-items: flex-start; }
+.hero-copy { min-width: 0; }
 .polaroid {
 display: block;
 width: max-content;
-margin-left: auto;
-margin-right: auto;
 padding: 12px 12px 30px;
 background: #FBF8F2;
 background: color-mix(in srgb, var(--moonmilk) 55%, #fff);
 box-shadow: 0 1px 2px rgba(30, 35, 70, .14), 0 10px 22px -8px rgba(30, 35, 70, .32);
 transform: rotate(-3deg);
-margin-bottom: 22px;
+margin-bottom: 16px;
 }
-.polaroid img { display: block; width: 190px; height: auto; }
+.polaroid img { display: block; width: 168px; height: auto; }
 .lockup { display: inline-block; margin: 0; font-weight: normal; }
 .lockup .small {
 display: block;
 font-family: 'Cinzel', 'Trajan Pro', serif;
 font-size: 15px;
 letter-spacing: .4em;
-padding-left: .4em;
+padding-left: .1em;
 color: var(--midnight);
 }
 .lockup .word {
@@ -208,10 +234,10 @@ position: relative;
 font-family: 'Cormorant Garamond', Georgia, serif;
 font-style: italic;
 font-weight: 500;
-font-size: 76px;
+font-size: 64px;
 line-height: 1;
 color: var(--midnight);
-margin: 4px 0 6px;
+margin: 2px 0 4px;
 }
 .lockup .seal {
 position: absolute;
@@ -224,15 +250,15 @@ height: auto;
 font-family: 'Cormorant Garamond', Georgia, serif;
 font-style: italic;
 font-weight: 500;
-font-size: 27px;
-line-height: 1.3;
-margin: 22px auto 0;
-max-width: 30ch;
+font-size: 30px;
+line-height: 1.25;
+margin: 0;
+max-width: 24ch;
 }
-.lede { margin: 14px auto 0; max-width: 44ch; }
+.lede { margin: 14px 0 0; max-width: 46ch; }
 .button {
 display: inline-block;
-margin-top: 28px;
+margin-top: 22px;
 padding: 15px 36px;
 background: var(--rosehip);
 color: var(--moonmilk);
@@ -271,7 +297,7 @@ transform: rotate(-.6deg);
 }
 .night-card .label { color: var(--gold); }
 .night-card h2 { color: var(--moonmilk); }
-.night-card p { color: var(--moonmilk); margin: 0; max-width: 60ch; }
+.night-card p { color: var(--moonmilk); margin: 0; max-width: 60ch; font-size: 20px; }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px; }
 .fact { border-top: 1px solid var(--gold); padding-top: 12px; }
 .fact strong {
@@ -279,20 +305,20 @@ display: block;
 font-family: 'Cormorant Garamond', Georgia, serif;
 font-style: italic;
 font-weight: 500;
-font-size: 38px;
+font-size: 42px;
 line-height: 1.1;
 }
-.fact span { font-size: 16px; }
+.fact span { font-size: 17.5px; }
 
 /* Sections */
 section { padding: 72px 16px; }
 .inner { max-width: 900px; margin: 0 auto; }
 h2 {
 font-family: 'Cormorant Garamond', Georgia, serif;
-font-style: italic;
+font-style: normal;
 font-weight: 500;
-font-size: 46px;
-line-height: 1.12;
+font-size: 52px;
+line-height: 1.1;
 color: var(--midnight);
 margin: 6px 0 16px;
 }
@@ -300,7 +326,7 @@ section p { margin: 0 0 14px; }
 .intro { max-width: 62ch; }
 
 /* The twelve moons */
-.moonmilk { background: var(--moonmilk); padding-bottom: 0; }
+.moonmilk { padding-bottom: 0; }
 .moons {
 list-style: none;
 padding: 0;
@@ -314,7 +340,7 @@ text-align: center;
 background: #FBF8F2;
 background: color-mix(in srgb, var(--moonmilk) 45%, #fff);
 padding: 16px 6px 12px;
-outline: 1px dashed rgba(30, 35, 70, .28);
+outline: 1.5px dotted rgba(30, 35, 70, .32);
 outline-offset: -6px;
 box-shadow: 0 1px 2px rgba(30, 35, 70, .1), 0 8px 16px -10px rgba(30, 35, 70, .35);
 }
@@ -323,7 +349,7 @@ box-shadow: 0 1px 2px rgba(30, 35, 70, .1), 0 8px 16px -10px rgba(30, 35, 70, .3
 display: block;
 margin-top: 8px;
 font-family: 'Cinzel', 'Trajan Pro', serif;
-font-size: 12px;
+font-size: 13px;
 letter-spacing: .14em;
 text-transform: uppercase;
 }
@@ -354,36 +380,43 @@ background: repeating-linear-gradient(135deg, rgba(235, 211, 200, .9) 0 7px, rgb
 }
 .card img { display: block; width: 100%; aspect-ratio: 7 / 5; object-fit: cover; }
 .card .label, .card h3, .card p { padding: 0 26px; }
-.card .label { margin-top: 22px; font-size: 13px; }
+.card .label { margin-top: 22px; font-size: 14px; }
 .card h3 {
 font-family: 'Cormorant Garamond', Georgia, serif;
-font-style: italic;
+font-style: normal;
 font-weight: 500;
-font-size: 30px;
+font-size: 33px;
 line-height: 1.15;
 margin: 6px 0 10px;
 }
-.card p { font-size: 16px; margin: 0; }
+.card p { font-size: 17.5px; margin: 0; }
 
 /* Club news: the Moon Circle */
 .circle {
---hem: var(--milkrose);
-background-color: var(--dusk);
+--hem: var(--midnight);
+background-color: var(--milkrose);
 background-image:
-linear-gradient(rgba(30, 35, 70, .12) 1px, transparent 1px),
-linear-gradient(90deg, rgba(30, 35, 70, .12) 1px, transparent 1px);
-background-size: 44px 44px;
-background-position: -1px -1px;
+linear-gradient(rgba(30, 35, 70, .12) 2px, transparent 2px),
+linear-gradient(90deg, rgba(30, 35, 70, .12) 2px, transparent 2px),
+linear-gradient(rgba(30, 35, 70, .07) 1px, transparent 1px),
+linear-gradient(90deg, rgba(30, 35, 70, .07) 1px, transparent 1px),
+repeating-linear-gradient(135deg, rgba(30, 35, 70, .045) 0 1px, transparent 1px 5px);
+background-size: 108px 108px, 108px 108px, 54px 54px, 54px 54px, auto;
+background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px, 0 0;
 padding-bottom: 96px;
 }
 .circle-panel {
 max-width: 900px;
 margin: 0 auto;
 padding: 52px 40px 44px;
-background: var(--dusk);
-box-shadow: 0 0 0 1px rgba(30, 35, 70, .08), 0 18px 40px -20px rgba(30, 35, 70, .45);
+background: var(--midnight);
+color: var(--moonmilk);
+box-shadow: 0 22px 44px -18px rgba(30, 35, 70, .5);
+transform: rotate(-.3deg);
 text-align: center;
 }
+.circle-panel .label { color: var(--gold); }
+.circle-panel h2, .circle-panel p { color: var(--moonmilk); }
 .circle-panel p { max-width: 54ch; margin-left: auto; margin-right: auto; }
 .circle .bleed { margin-top: 40px; margin-right: -16px; }
 .join-card {
@@ -398,78 +431,169 @@ scroll-margin-top: 80px;
 .join-card iframe { width: 100%; min-height: 560px; border: none; display: block; }
 
 /* Who is behind it */
-.founder .button { background: var(--midnight); }
-.founder .button:hover, .founder .button:focus-visible { background: var(--rosehip); }
+.founder, footer {
+background-color: var(--midnight);
+background-image: repeating-linear-gradient(45deg, rgba(244, 237, 225, .025) 0 1px, transparent 1px 4px);
+color: var(--moonmilk);
+}
+.founder { padding-top: 88px; padding-bottom: 88px; overflow-x: clip; }
+.founder .label { color: var(--gold); }
+.founder h2, .founder .intro { color: var(--moonmilk); }
+.founder .button { background: var(--rosehip); color: var(--moonmilk); }
+.founder .button:hover, .founder .button:focus-visible { background: var(--moonmilk); color: var(--midnight); }
 .founder-grid {
 display: grid;
-grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
-gap: 56px;
-align-items: start;
+grid-template-columns: minmax(0, 1fr);
+gap: 64px;
 }
+.founder-grid > div:first-child { max-width: 640px; }
 
-/* Press clipping */
-.clipping {
+/* Press: a front-page story torn out of the newspaper and taped down */
+.paper-stack {
+container-type: inline-size;
 position: relative;
-padding: 30px 28px 26px;
-background-color: var(--moonmilk);
-background-image: linear-gradient(180deg, rgba(176, 141, 87, .07), transparent 30%, rgba(176, 141, 87, .06));
-clip-path: polygon(0% 1%, 9% 0%, 21% .8%, 34% .1%, 48% .9%, 61% 0%, 75% .7%, 88% .1%, 100% .8%, 99.4% 14%, 100% 31%, 99.3% 49%, 100% 66%, 99.4% 83%, 100% 99.2%, 87% 100%, 72% 99.3%, 58% 100%, 43% 99.2%, 29% 100%, 14% 99.3%, 0% 100%, .6% 84%, 0% 67%, .7% 50%, 0% 33%, .6% 16%);
+width: 100%;
+max-width: 880px;
+margin: 20px auto 24px;
+transform: rotate(-1.6deg);
+filter: drop-shadow(0 16px 22px rgba(0, 0, 0, .5));
 }
-.clipping-wrap { position: relative; transform: rotate(1.4deg); filter: drop-shadow(0 14px 20px rgba(30, 35, 70, .28)); }
-.clipping-wrap.tape::before { left: 50%; margin-left: -52px; top: -12px; transform: rotate(-3deg); }
-.clipping-wrap.tape::after { display: none; }
-.clip-source {
+/* the paper's lighter core, showing along the torn edge */
+.paper-stack .tear {
+position: absolute;
+inset: -5px -4px -6px -5px;
+background: #F2F0EA;
+clip-path: polygon(0.00% 0.60%, 2.94% 0.38%, 5.88% 0.93%, 8.82% 0.32%, 11.76% 0.56%, 14.71% 0.38%, 17.65% 0.46%, 20.59% 1.07%, 23.53% 0.11%, 26.47% 0.49%, 29.41% 0.25%, 32.35% 0.38%, 35.29% 1.10%, 38.24% 0.36%, 41.18% 0.67%, 44.12% 0.46%, 47.06% 0.80%, 50.00% 0.49%, 52.94% 0.19%, 55.88% 0.48%, 58.82% 0.45%, 61.76% 0.87%, 64.71% 0.62%, 67.65% 0.22%, 70.59% 0.74%, 73.53% 0.33%, 76.47% 0.56%, 79.41% 0.24%, 82.35% 0.45%, 85.29% 0.86%, 88.24% 0.57%, 91.18% 0.83%, 94.12% 0.83%, 97.06% 0.65%, 100.00% 0.71%, 99.65% 4.55%, 99.46% 9.09%, 99.32% 13.64%, 99.91% 18.18%, 99.17% 22.73%, 99.68% 27.27%, 99.88% 31.82%, 99.87% 36.36%, 99.70% 40.91%, 99.94% 45.45%, 99.65% 50.00%, 99.63% 54.55%, 99.42% 59.09%, 99.59% 63.64%, 99.18% 68.18%, 99.42% 72.73%, 99.72% 77.27%, 99.23% 81.82%, 99.38% 86.36%, 99.15% 90.91%, 99.35% 95.45%, 100.00% 98.94%, 97.06% 99.77%, 94.12% 99.69%, 91.18% 98.93%, 88.24% 99.98%, 85.29% 98.98%, 82.35% 99.00%, 79.41% 99.85%, 76.47% 99.83%, 73.53% 98.99%, 70.59% 98.94%, 67.65% 99.04%, 64.71% 99.20%, 61.76% 99.16%, 58.82% 99.66%, 55.88% 99.99%, 52.94% 99.31%, 50.00% 99.03%, 47.06% 98.96%, 44.12% 99.43%, 41.18% 99.99%, 38.24% 99.81%, 35.29% 99.51%, 32.35% 99.75%, 29.41% 99.97%, 26.47% 99.79%, 23.53% 99.45%, 20.59% 99.86%, 17.65% 99.88%, 14.71% 99.82%, 11.76% 99.96%, 8.82% 99.14%, 5.88% 99.05%, 2.94% 99.78%, 0.00% 99.30%, 0.77% 95.45%, 0.21% 90.91%, 0.29% 86.36%, 0.78% 81.82%, 0.67% 77.27%, 0.55% 72.73%, 0.70% 68.18%, 0.50% 63.64%, 0.28% 59.09%, 0.60% 54.55%, 0.69% 50.00%, 0.05% 45.45%, 0.28% 40.91%, 0.26% 36.36%, 0.78% 31.82%, 0.25% 27.27%, 0.59% 22.73%, 0.38% 18.18%, 0.33% 13.64%, 0.44% 9.09%, 0.79% 4.55%);
+}
+.paper-stack::before, .paper-stack::after {
+content: "";
+position: absolute;
+z-index: 3;
+width: 120px;
+height: 30px;
+background: rgba(235, 211, 200, .82);
+box-shadow: 0 1px 2px rgba(30, 35, 70, .15);
+}
+.paper-stack::before { left: -30px; top: 6px; transform: rotate(-38deg); }
+.paper-stack::after { right: -30px; top: 6px; transform: rotate(36deg); }
+.np {
+--ink: #1F1E1C;
+position: relative;
+aspect-ratio: 16 / 10.4;
+overflow: hidden;
+padding: 2.6cqw 3.4cqw 2.4cqw;
+color: var(--ink);
+font-family: 'Old Standard TT', 'Times New Roman', Times, serif;
+background-color: #E2E0DA;
+background-image:
+radial-gradient(ellipse at 0% 0%, rgba(176, 141, 87, .14), transparent 40%),
+radial-gradient(ellipse at 100% 100%, rgba(176, 141, 87, .12), transparent 42%),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .2 0 0 0 0 .2 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+clip-path: polygon(0.00% 0.72%, 2.94% 0.90%, 5.88% 1.48%, 8.82% 0.75%, 11.76% 0.81%, 14.71% 0.94%, 17.65% 0.30%, 20.59% 0.82%, 23.53% 1.01%, 26.47% 1.27%, 29.41% 0.15%, 32.35% 0.49%, 35.29% 0.15%, 38.24% 1.30%, 41.18% 1.11%, 44.12% 0.07%, 47.06% 1.57%, 50.00% 1.54%, 52.94% 1.05%, 55.88% 0.98%, 58.82% 0.25%, 61.76% 0.02%, 64.71% 0.85%, 67.65% 0.10%, 70.59% 0.30%, 73.53% 0.39%, 76.47% 0.05%, 79.41% 0.74%, 82.35% 0.70%, 85.29% 1.35%, 88.24% 0.83%, 91.18% 1.02%, 94.12% 0.80%, 97.06% 1.06%, 100.00% 0.73%, 99.64% 4.55%, 98.72% 9.09%, 98.73% 13.64%, 98.92% 18.18%, 99.09% 22.73%, 99.60% 27.27%, 99.71% 31.82%, 99.63% 36.36%, 99.91% 40.91%, 99.02% 45.45%, 99.49% 50.00%, 98.92% 54.55%, 99.51% 59.09%, 98.77% 63.64%, 98.92% 68.18%, 100.00% 72.73%, 99.73% 77.27%, 98.83% 81.82%, 99.40% 86.36%, 98.75% 90.91%, 99.49% 95.45%, 100.00% 99.88%, 97.06% 98.99%, 94.12% 98.75%, 91.18% 99.57%, 88.24% 99.86%, 85.29% 99.47%, 82.35% 98.46%, 79.41% 98.79%, 76.47% 99.81%, 73.53% 99.61%, 70.59% 99.84%, 67.65% 99.90%, 64.71% 98.72%, 61.76% 99.72%, 58.82% 99.11%, 55.88% 99.28%, 52.94% 99.69%, 50.00% 98.83%, 47.06% 99.79%, 44.12% 98.97%, 41.18% 99.81%, 38.24% 99.33%, 35.29% 99.66%, 32.35% 99.57%, 29.41% 98.45%, 26.47% 98.71%, 23.53% 99.51%, 20.59% 98.58%, 17.65% 99.66%, 14.71% 99.37%, 11.76% 98.63%, 8.82% 98.97%, 5.88% 99.84%, 2.94% 98.42%, 0.00% 99.66%, 0.33% 95.45%, 0.99% 90.91%, 0.42% 86.36%, 0.38% 81.82%, 0.09% 77.27%, 0.12% 72.73%, 0.75% 68.18%, 0.31% 63.64%, 0.77% 59.09%, 0.48% 54.55%, 0.58% 50.00%, 1.23% 45.45%, 0.62% 40.91%, 0.74% 36.36%, 1.11% 31.82%, 0.23% 27.27%, 0.20% 22.73%, 1.16% 18.18%, 1.05% 13.64%, 0.32% 9.09%, 0.24% 4.55%);
+}
+.np-ears { display: flex; justify-content: space-between; gap: 12px; font-size: clamp(8px, 1.2cqw, 11px); letter-spacing: .14em; text-transform: uppercase; }
+.np-masthead {
+margin: .4cqw 0 0;
+text-align: center;
+font-weight: 700;
+font-size: clamp(26px, 7.2cqw, 62px);
+line-height: 1;
+letter-spacing: -.01em;
+}
+.np-bar {
 display: flex;
-flex-wrap: wrap;
 justify-content: space-between;
 gap: 12px;
-padding-bottom: 8px;
-border-bottom: 1px solid var(--midnight);
-font-family: 'Cinzel', 'Trajan Pro', serif;
-font-size: 10.5px;
-letter-spacing: .24em;
+margin-top: 1cqw;
+padding: .5cqw 0;
+border-top: 3px double var(--ink);
+border-bottom: 3px double var(--ink);
+font-size: clamp(8px, 1.2cqw, 11px);
+letter-spacing: .16em;
 text-transform: uppercase;
 }
-.clip-head {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-style: italic;
-font-weight: 500;
-font-size: 25px;
-line-height: 1.15;
-margin: 14px 0 6px;
+.np-head {
+margin: 1.6cqw 0 1.2cqw;
+font-weight: 700;
+font-size: clamp(16px, 3.7cqw, 33px);
+line-height: 1.06;
+text-align: center;
+text-wrap: balance;
 }
-.clip-byline { font-size: 13px; font-weight: 600; margin: 0 0 14px; letter-spacing: .02em; }
-.clip-photo { margin: 0 0 16px; }
+.np-cols {
+display: grid;
+grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+gap: 2.4cqw;
+padding-top: 1.2cqw;
+border-top: 1px solid var(--ink);
+}
+.np-cols > * { min-width: 0; }
+.clip-photo { margin: 0; }
+.clip-photo .halftone { position: relative; display: block; }
+.clip-photo .halftone::after {
+content: "";
+position: absolute;
+inset: 0;
+background: radial-gradient(rgba(31, 30, 28, .4) 30%, transparent 33%) 0 0 / 3px 3px;
+mix-blend-mode: multiply;
+opacity: .5;
+}
 .clip-photo img {
 display: block;
 width: 100%;
 height: auto;
-aspect-ratio: 4 / 3;
+aspect-ratio: 4 / 3.5;
 object-fit: cover;
-object-position: 50% 18%;
-filter: grayscale(1) sepia(.18) contrast(1.05);
+object-position: 50% 8%;
+filter: grayscale(1) contrast(1.12) brightness(.95);
 }
-.clip-photo figcaption { font-size: 12px; line-height: 1.4; margin-top: 6px; }
-.clip-body {
-padding-top: 12px;
-border-top: 1px solid rgba(30, 35, 70, .25);
+.clip-photo figcaption { font-style: italic; font-size: clamp(9px, 1.2cqw, 11.5px); line-height: 1.3; margin-top: .6cqw; }
+.clip-body { column-count: 2; column-gap: 2.2cqw; column-rule: 1px solid rgba(31, 30, 28, .4); }
+.np-byline { margin: 0 0 .6cqw; font-size: clamp(8px, 1.15cqw, 11px); letter-spacing: .16em; text-transform: uppercase; }
+.clip-body p { font-size: clamp(11px, 1.75cqw, 15.5px); line-height: 1.42; margin: 0; text-indent: 1.2em; text-align: justify; hyphens: auto; }
+.clip-body .np-byline { text-indent: 0; text-align: left; font-size: clamp(8px, 1.15cqw, 11px); letter-spacing: .16em; margin-bottom: .6cqw; }
+.clip-body .np-byline + p { text-indent: 0; }
+.clip-body .np-byline + p::first-letter { float: left; font-size: 3.4em; line-height: .8; padding: .08em .08em 0 0; font-weight: 700; }
+.np-pull {
+column-span: all;
+margin: 1.2cqw 0 0;
+padding: .8cqw 0;
+border-top: 2px solid var(--ink);
+border-bottom: 1px solid var(--ink);
+font-style: italic;
+font-size: clamp(15px, 2.45cqw, 22px);
+line-height: 1.15;
+text-align: center;
 }
-.clip-body p { font-size: 15px; line-height: 1.55; margin: 0 0 10px; }
-.clip-body p:last-child { margin-bottom: 0; }
-.clip-body mark { background: var(--milkrose); color: var(--midnight); padding: 0 2px; }
+.clip-body mark { background: rgba(235, 211, 200, .95); color: var(--ink); padding: 0 2px; }
+@container (max-width: 560px) {
+.np { aspect-ratio: auto; padding-bottom: 4cqw; }
+.np-cols { grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); }
+.clip-body { column-count: 1; }
+.paper-stack::before, .paper-stack::after { width: 74px; height: 22px; top: -4px; }
+.paper-stack::before { left: -22px; }
+.paper-stack::after { right: -22px; }
+.np-bar { flex-direction: column; align-items: center; gap: 1px; }
+}
 
 footer {
 text-align: center;
 padding: 40px 16px 56px;
 font-size: 15px;
-border-top: 1px solid rgba(30, 35, 70, .15);
+border-top: 1px solid rgba(176, 141, 87, .35);
 }
-footer img { width: 56px; height: auto; display: block; margin: 0 auto 10px; }
+footer a { color: var(--moonmilk); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+footer img { width: 96px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .45)); height: auto; display: block; margin: 0 auto 10px; }
 
 @media (max-width: 720px) {
-.lockup .word { font-size: 56px; }
-.lockup .seal { width: 24px; right: -28px; top: 4px; }
-.polaroid img { width: 160px; }
+.lockup .word { font-size: 44px; }
+.lockup .seal { width: 20px; right: -22px; top: 2px; }
+.polaroid img { width: 96px; }
+.polaroid { padding: 7px 7px 18px; margin-bottom: 0; }
+.hero-card { grid-template-columns: 1fr; gap: 18px; }
+.hero-id { flex-direction: row; align-items: center; gap: 16px; }
+.lockup .small { font-size: 12px; }
+.clip-body p { text-align: left; hyphens: manual; }
 .tagline { font-size: 23px; }
 h2 { font-size: 36px; }
 .hero { padding-top: 36px; }
@@ -477,8 +601,6 @@ h2 { font-size: 36px; }
 .night-card { padding: 36px 24px; }
 .facts, .cards, .founder-grid { grid-template-columns: 1fr; }
 .founder-grid { gap: 48px; }
-.clipping { padding: 26px 20px 22px; }
-.clipping-wrap { transform: rotate(.8deg); }
 .cards { gap: 40px; }
 .moons { grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .moonrise { gap: 16px; padding-top: 48px; }
@@ -519,6 +641,7 @@ html { scroll-behavior: auto; }
 <nav class="crumbs" aria-label="Breadcrumb"><a href="initiatives.html">Initiatives</a> <span aria-hidden="true">/</span> The Postmoon Club</nav>
 
 <div class="plaid hem">
+<div class="hem-edge" aria-hidden="true"></div>
 
 <div class="hero">
 <div class="hero-photos">
@@ -526,16 +649,20 @@ html { scroll-behavior: auto; }
 <figure class="torn"><img src="assets/img/postmoon-hero-letter.jpg" width="298" height="402" alt="A mother laughing as she reads a letter"></figure>
 </div>
 <div class="hero-card paper tape">
-<div class="polaroid"><img src="postmoon-mark.png" alt="The moon mother: a woman in profile facing twelve moons"></div>
+<div class="hero-id">
+<div class="polaroid"><img src="postmoon-mark-raised.png" width="800" height="800" alt="The moon mother: a woman in profile facing twelve moons"></div>
 <h1 class="lockup">
 <span class="small">The</span>
 <span class="word">Postmoon<img class="seal" src="alimayu-seal.png" alt=""></span>
 <span class="small">Club</span>
 </h1>
+</div>
+<div class="hero-copy">
 <p class="tagline">For the mother, through the twelve months after birth.</p>
 <p class="lede">The Postmoon Club is a postpartum health and wellness community. It walks with the mother through the year after birth, one month at a time. Every piece is made for her.</p>
 <a class="button" href="#join">Get the Free Postmoon Map</a>
 <p class="small-note">Free, and made for a phone.</p>
+</div>
 </div>
 </div>
 
@@ -582,18 +709,18 @@ html { scroll-behavior: auto; }
 <h2>One Moon for Each Month</h2>
 <p class="intro">Recovery takes about a year. The moon fills from a thin crescent in month one to a full moon in month twelve.</p>
 <ul class="moons">
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 1</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 2</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 3</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 4</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 5</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A0.00 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 6</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 7</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 8</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 9</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 10</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 11</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 12</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 1</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 2</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 3</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 4</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 5</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A0.00 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 6</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 7</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 8</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 9</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 10</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 11</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 12</span></li>
 </ul>
 </div>
 <figure class="bleed"><img src="assets/img/postmoon-name-cards.jpg" width="1069" height="485" alt="Handwritten name cards for a Moon Circle laid out on a plaid tablecloth" loading="lazy"></figure>
@@ -628,11 +755,12 @@ html { scroll-behavior: auto; }
 </section>
 
 <section class="circle hem">
+<div class="hem-edge" aria-hidden="true"></div>
 <div class="circle-panel">
 <div class="label">Club news</div>
 <h2>The Moon Circle</h2>
 <p>A Moon Circle is the group of people around a mother for all 12 months. They check in on her, and they check in on each other.</p>
-<p>Anyone can help. At its heart, this is women helping women, because women's health gets ignored far too often.</p>
+<p>Anyone can be in her circle: a partner, a parent, or a friend. At its heart, the circle makes sure she finds the support she needs, because women's health gets ignored far too often.</p>
 </div>
 <figure class="bleed"><img src="assets/img/postmoon-moon-circle-group.jpg" width="1020" height="952" alt="Four women laughing together around a kitchen table" loading="lazy"></figure>
 <div id="join" class="join-card paper tape">
@@ -651,19 +779,25 @@ html { scroll-behavior: auto; }
 <p class="intro">Allison brings graduate-level training in health promotion and lived experience as a postpartum mother. The Postmoon Club is an initiative of Alimayu Studio.</p>
 <a class="button" href="https://www.pinterest.com/postmoonclub/">Follow on Pinterest</a>
 </div>
-<div class="clipping-wrap tape">
-<article class="clipping" aria-label="Clipping from The Nevada Independent">
-<div class="clip-source"><span>The Nevada Independent</span><time datetime="2018-03-17">March 17, 2018</time></div>
-<h3 class="clip-head">On the Record: The story and policy positions of Democratic House candidate Allison Stephens [Alimayu]</h3>
-<p class="clip-byline">By Michelle Rindels</p>
+<div class="paper-stack" aria-label="Clipping from The Nevada Independent">
+<div class="tear" aria-hidden="true"></div>
+<article class="np">
+<div class="np-ears"><span>Election 2018</span><span>On the Record</span></div>
+<p class="np-masthead">The Nevada Independent</p>
+<div class="np-bar"><time datetime="2018-03-17">Saturday, March 17, 2018</time><span>thenevadaindependent.com</span></div>
+<h3 class="np-head">On the Record: The story and policy positions of Democratic House candidate Allison Stephens [Alimayu]</h3>
+<div class="np-cols">
 <figure class="clip-photo">
-<img src="assets/img/postmoon-nevada-independent-2018.jpg" width="720" height="1080" alt="Allison Alimayu, then Regent Allison Stephens, outside the Rainbow Library in Las Vegas" loading="lazy">
+<span class="halftone"><img src="assets/img/postmoon-nevada-independent-2018.jpg" width="720" height="1080" alt="Allison Alimayu, then Regent Allison Stephens, outside the Rainbow Library in Las Vegas" loading="lazy"></span>
 <figcaption>Regent Allison Stephens [Alimayu] poses for a photo outside the Rainbow Library in Las Vegas on March 14, 2018. Photo by Michelle Rindels.</figcaption>
 </figure>
 <div class="clip-body">
+<p class="np-byline">By Michelle Rindels</p>
 <p>When she went into labor early with her second child, she couldn't find a doctor who would deliver her baby.</p>
 <p>Even though she told doctors something was wrong and went into convulsions in the hospital, she was told she was just getting medication out of her system and that she was just panicking. It wasn't until after she returned home and had more convulsions that it was discovered she had sepsis and other infections throughout her body.</p>
 <p>"I kept saying, 'I think I'm dying,'" she said. "I knew something was wrong. <mark>I was not taken seriously.</mark>"</p>
+<blockquote class="np-pull">"I knew something was wrong. I was not taken seriously."</blockquote>
+</div>
 </div>
 </article>
 </div>
@@ -673,7 +807,7 @@ html { scroll-behavior: auto; }
 </main>
 
 <footer>
-<img src="alimayu-seal.png" alt="Alimayu Studio seal">
+<img src="alimayu-seal-embossed.png" alt="Alimayu Studio embossed seal">
 <div><a href="initiatives.html">An initiative of Alimayu Studio</a></div>
 </footer>
 
