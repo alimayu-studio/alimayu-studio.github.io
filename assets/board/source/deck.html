@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Allison Alimayu, PhD | Board materials</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* House rules: no all-caps, no em dashes. One idea per slide; the title states the takeaway. */
+:root {
+  --navy: #1E2346; --night: #11142A; --teal: #2F7A78; --teal-soft: #DCEAE8; --gold: #B08D57; --gold-soft: #CDB083;
+  --ink: #1B1F36; --muted: #5B6075; --rule: #D6D3CB; --tint: #F5F2EC; --paper: #FFFFFF;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--sans); color: var(--ink); font-variant-numeric: lining-nums; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: var(--paper); page-break-after: always; break-after: page; padding: 46px 64px 0; }
+.slide:last-child { page-break-after: auto; break-after: auto; }
+
+/* Standard slide furniture */
+.tracker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--teal); letter-spacing: .02em; margin-bottom: 12px; }
+.tracker::before { content: ""; width: 22px; height: 3px; background: var(--gold); }
+h1.title { font-family: var(--serif); font-weight: 600; font-size: 35px; line-height: 1.12; color: var(--navy); margin: 0; max-width: 1110px; letter-spacing: -.005em; }
+.title-rule { height: 1px; background: var(--rule); margin: 20px 0 26px; }
+.foot { position: absolute; left: 64px; right: 64px; bottom: 22px; display: flex; justify-content: space-between; align-items: flex-end; font-size: 11.5px; color: var(--muted); gap: 40px; }
+.foot .src { max-width: 900px; line-height: 1.4; }
+.foot .pg { white-space: nowrap; }
+.foot .pg b { color: var(--navy); font-weight: 700; margin-left: 10px; }
+
+/* Generic blocks */
+.k { font-size: 12.5px; font-weight: 700; color: var(--teal); letter-spacing: .02em; margin-bottom: 8px; }
+.body { font-size: 16px; line-height: 1.45; color: var(--ink); }
+.muted { color: var(--muted); }
+ul.tight { margin: 0; padding: 0; list-style: none; }
+ul.tight li { position: relative; padding-left: 18px; margin: 0 0 9px; font-size: 15.5px; line-height: 1.4; }
+ul.tight li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; background: var(--gold); }
+.num-xl { font-family: var(--serif); font-weight: 700; color: var(--navy); line-height: .95; }
+
+/* Cover */
+.cover { background: var(--navy); color: #EDE4D2; padding: 0; }
+.cover .left { position: absolute; left: 80px; top: 0; bottom: 0; width: 700px; display: flex; flex-direction: column; justify-content: center; }
+.cover .eyebrow { font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--gold-soft); margin-bottom: 18px; }
+.cover h1 { font-family: var(--serif); font-weight: 600; font-size: 76px; line-height: 1; margin: 0; color: #FFFFFF; }
+.cover .sub { font-size: 22px; line-height: 1.4; margin-top: 26px; color: #EDE4D2; max-width: 600px; }
+.cover .bar { width: 64px; height: 3px; background: var(--gold); margin: 34px 0 22px; }
+.cover .meta { font-size: 14.5px; color: #A9A6B4; line-height: 1.6; }
+.cover .portrait { position: absolute; right: 0; bottom: 0; height: 640px; }
+.cover .glow { position: absolute; right: -120px; top: 60px; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(176,141,87,.28), rgba(176,141,87,0) 68%); }
+.cover .seal { position: absolute; left: 80px; top: 52px; width: 54px; opacity: .95; }
+
+/* Executive summary */
+.exec { display: grid; grid-template-columns: 1fr 360px; gap: 54px; }
+.msg { display: grid; grid-template-columns: 40px 1fr; gap: 0 12px; padding: 11px 0; border-top: 1px solid var(--rule); }
+.msg:first-child { border-top: 0; padding-top: 0; }
+.msg .n { font-family: var(--serif); font-weight: 700; font-size: 34px; color: var(--gold); line-height: .9; }
+.msg h3 { margin: 0 0 3px; font-size: 17.5px; font-weight: 700; color: var(--navy); }
+.msg p { margin: 0; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
+.kpis { background: var(--navy); color: #EDE4D2; padding: 18px 26px 10px; align-self: start; }
+.kpis .h { font-size: 12.5px; font-weight: 700; color: var(--gold-soft); margin-bottom: 4px; }
+.kpi { padding: 8px 0; border-top: 1px solid rgba(237,228,210,.18); }
+.kpi:first-of-type { border-top: 0; }
+.kpi b { display: block; font-family: var(--serif); font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1; }
+.kpi span { display: block; font-size: 13px; color: #C9C3B5; margin-top: 2px; line-height: 1.35; }
+
+/* Skills matrix */
+table.matrix { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.matrix th { font-size: 13px; font-weight: 700; color: var(--navy); text-align: center; vertical-align: bottom; padding: 0 6px 10px; border-bottom: 2px solid var(--navy); line-height: 1.25; }
+table.matrix th:first-child { text-align: left; }
+table.matrix th small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+table.matrix td { padding: 8px 6px; border-bottom: 1px solid var(--rule); text-align: center; height: 44px; }
+table.matrix td:first-child { text-align: left; font-weight: 600; color: var(--ink); width: 300px; }
+table.matrix td:first-child small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+table.matrix tr.hl td { background: var(--tint); }
+.hb { width: 20px; height: 20px; border-radius: 50%; border: 1.6px solid var(--navy); display: inline-block; vertical-align: middle; }
+.hb.f4 { background: var(--navy); }
+.hb.f3 { background: conic-gradient(var(--navy) 0 270deg, transparent 270deg); }
+.hb.f2 { background: conic-gradient(var(--navy) 0 180deg, transparent 180deg); }
+.hb.f1 { background: conic-gradient(var(--navy) 0 90deg, transparent 90deg); }
+.legend { display: flex; gap: 22px; align-items: center; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend .hb { width: 14px; height: 14px; border-width: 1.3px; }
+
+/* Situation / action / result */
+.sar { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 0; }
+.sar > div { padding: 4px 28px 0 0; }
+.sar .body, .sar ul.tight li { font-size: 16.5px; line-height: 1.5; }
+.sar ul.tight li { margin-bottom: 13px; }
+.sar > div + div { padding-left: 28px; border-left: 1px solid var(--rule); }
+.sar h4 { margin: 0 0 12px; font-size: 16px; font-weight: 700; color: var(--navy); display: flex; gap: 10px; align-items: baseline; }
+.sar h4 i { font-style: normal; font-family: var(--serif); font-size: 22px; color: var(--gold); font-weight: 700; }
+.chip { display: inline-block; font-size: 12.5px; font-weight: 600; padding: 4px 10px; background: var(--teal-soft); color: var(--teal); margin: 0 6px 6px 0; }
+.bars { display: flex; gap: 26px; align-items: flex-end; height: 200px; margin: 6px 0 8px; padding-left: 4px; border-bottom: 1px solid var(--navy); }
+.bars .b { width: 100px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+.bars .b i { display: block; width: 100%; }
+.bars .b em { font-style: normal; font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 5px; }
+.bars-x { display: flex; gap: 26px; padding-left: 4px; font-size: 12px; color: var(--muted); }
+.bars-x span { width: 100px; text-align: center; }
+.callout { display: flex; align-items: center; gap: 14px; background: var(--tint); border-left: 4px solid var(--gold); padding: 12px 16px; margin-top: 16px; }
+.callout b { font-family: var(--serif); font-size: 40px; color: var(--navy); line-height: 1; }
+.callout span { font-size: 14px; line-height: 1.35; color: var(--ink); }
+
+/* Data tables */
+table.grid { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.grid th { text-align: left; font-size: 13px; font-weight: 700; color: var(--navy); padding: 0 16px 10px 0; border-bottom: 2px solid var(--navy); }
+table.grid td { padding: 14px 16px 14px 0; font-size: 15px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.38; }
+table.grid td:first-child { font-weight: 700; color: var(--navy); }
+table.grid .yr { color: var(--muted); font-weight: 400; font-size: 13px; display: block; }
+table.grid .arrow { color: var(--gold); font-weight: 700; position: absolute; left: 0; }
+table.grid td.ctl { position: relative; padding-left: 24px; }
+
+/* Managed care */
+.mc { display: grid; grid-template-columns: 400px 1fr; gap: 54px; }
+.big-stat { background: var(--navy); color: #EDE4D2; padding: 24px 30px; }
+.big-stat .num-xl { color: #fff; font-size: 86px; }
+.big-stat .lbl { font-size: 16px; margin-top: 6px; color: #EDE4D2; }
+.big-stat .div { height: 1px; background: rgba(237,228,210,.2); margin: 16px 0; }
+.big-stat .mid { font-family: var(--serif); font-size: 42px; font-weight: 700; color: var(--gold-soft); line-height: 1; }
+.states { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.states span { border: 1px solid rgba(237,228,210,.35); padding: 4px 10px; font-size: 13px; }
+.tl { position: relative; margin: 6px 0 26px; }
+.tl .line { position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: var(--rule); }
+.tl .pts { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+.tl .pt { padding-right: 18px; }
+.tl .pt i { display: block; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); margin: 8px 0 12px; box-shadow: 0 0 0 4px #fff; }
+.tl .pt b { display: block; font-size: 13px; color: var(--teal); }
+.tl .pt strong { display: block; font-size: 16px; color: var(--navy); margin: 2px 0 3px; }
+.tl .pt span { font-size: 14.5px; color: var(--muted); line-height: 1.38; display: block; }
+.sowhat { border-top: 1px solid var(--rule); padding-top: 16px; }
+.sowhat ul.tight li { font-size: 16px; margin-bottom: 11px; }
+
+/* SAFE */
+.safe { display: grid; grid-template-columns: 1fr 330px; gap: 44px; }
+.gates { display: flex; flex-direction: column; gap: 8px; }
+.gate { color: #fff; padding: 11px 16px; display: flex; justify-content: space-between; align-items: baseline; }
+.gate b { font-size: 17px; }
+.gate span { font-size: 13px; opacity: .85; }
+.gate-note { font-size: 13px; color: var(--muted); line-height: 1.4; margin-top: 10px; }
+
+/* Regulatory cards */
+.cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { border-top: 4px solid var(--navy); background: var(--tint); padding: 20px 22px 18px; display: flex; flex-direction: column; }
+.card .when { font-size: 13px; font-weight: 600; color: var(--teal); }
+.card h3 { font-family: var(--serif); font-size: 27px; font-weight: 700; color: var(--navy); margin: 4px 0 4px; line-height: 1.05; }
+.card .by { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
+.card p { font-size: 15px; line-height: 1.42; margin: 0 0 14px; }
+.card .rel { margin-top: auto; border-top: 1px solid var(--rule); padding-top: 12px; font-size: 14px; line-height: 1.4; }
+.card .rel b { color: var(--navy); display: block; font-size: 12.5px; margin-bottom: 3px; }
+.strip { margin-top: 22px; display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: start; border-top: 1px solid var(--rule); padding-top: 14px; font-size: 14.5px; line-height: 1.45; }
+.strip b { color: var(--navy); }
+
+/* Gantt */
+.gantt { position: relative; }
+.g-years { display: grid; grid-template-columns: 390px repeat(21, 1fr); font-size: 11.5px; color: var(--muted); border-bottom: 1px solid var(--navy); padding-bottom: 5px; }
+.g-years span { text-align: left; }
+.g-row { display: grid; grid-template-columns: 390px 1fr; align-items: center; height: 27.5px; border-bottom: 1px solid #EEEBE4; }
+.g-row .nm { font-size: 13px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 10px; }
+.g-row .nm small { color: var(--muted); font-size: 11.5px; }
+.g-track { position: relative; height: 100%; }
+.g-bar { position: absolute; top: 7px; height: 13px; }
+.c-fid { background: var(--navy); } .c-reg { background: var(--teal); } .c-pol { background: var(--gold); } .c-np { background: #8D91A6; }
+.g-legend { display: flex; gap: 22px; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+.g-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.g-legend i { width: 18px; height: 10px; display: inline-block; }
+
+/* Close */
+.close { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.close ul.tight li { font-size: 16.5px; margin-bottom: 12px; }
+.close > div { padding: 2px 26px 0 0; }
+.close > div + div { padding-left: 26px; border-left: 1px solid var(--rule); }
+.close h3 { font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--navy); margin: 0 0 10px; line-height: 1.05; }
+.close h3 small { display: block; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--teal); margin-bottom: 6px; }
+.contact { position: absolute; left: 0; right: 0; bottom: 0; height: 132px; background: var(--navy); color: #EDE4D2; display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 40px; padding: 24px 64px; align-items: start; }
+.contact b { display: block; color: var(--gold-soft); font-size: 12.5px; margin-bottom: 6px; }
+.contact div { font-size: 14px; line-height: 1.5; }
+.contact .nm { font-family: var(--serif); font-size: 28px; font-weight: 600; color: #fff; line-height: 1.05; }
+</style>
+</head>
+<body>
+
+<!-- 1. Cover -->
+<section class="slide cover">
+  <div class="glow"></div>
+  <img class="seal" src="../../../alimayu-seal.png" alt="">
+  <div class="left">
+    <div class="eyebrow">Independent director candidate</div>
+    <h1>Allison Alimayu, PhD</h1>
+    <div class="sub">Audit, enterprise risk, and regulatory oversight, tested as an elected regent of a multi-billion-dollar public system</div>
+    <div class="bar"></div>
+    <div class="meta">Board materials &nbsp;|&nbsp; November 2026<br>Earlier work appears under her former name, Allison Stephens</div>
+  </div>
+  <img class="portrait" src="../../home/cutout-portrait.png" alt="Portrait of Allison Alimayu">
+</section>
+
+<!-- 2. Executive summary -->
+<section class="slide">
+  <div class="tracker">Executive summary</div>
+  <h1 class="title">She has governed at multi-billion-dollar scale, rebuilt audit and risk oversight, and designed control systems from the ground up</h1>
+  <div class="title-rule"></div>
+  <div class="exec">
+    <div>
+      <div class="msg"><div class="n">1</div><div><h3>Fiduciary oversight at scale</h3><p>Elected regent of the Nevada System of Higher Education, a multi-billion-dollar system of eight institutions, 2013 to 2019. Vice chair of the board and chair of the Audit and Compliance Committee.</p></div></div>
+      <div class="msg"><div class="n">2</div><div><h3>Audit and enterprise risk, rebuilt</h3><p>Redesigned the system's audit and enterprise risk management framework, directed a $25 million reserve distribution to clear audit follow-up, and cut open audit exceptions by 68 percent.</p></div></div>
+      <div class="msg"><div class="n">3</div><div><h3>Operator's command of the numbers</h3><p>Twelve years in managed care finance at UnitedHealthcare and DaVita, where she designed a five-state value-based payment program averaging $8.5 million in monthly savings.</p></div></div>
+      <div class="msg"><div class="n">4</div><div><h3>System design and risk mitigation</h3><p>Designed SAFE, an end-to-end governance framework for a national research funder that names six risks to outcomes and builds a control for each.</p></div></div>
+      <div class="msg"><div class="n">5</div><div><h3>Regulatory depth</h3><p>Federal appointee to Medicare's evidence and coverage advisory committee (MEDCAC) and a commissioner on the North Carolina Oil and Gas Commission.</p></div></div>
+    </div>
+    <div class="kpis">
+      <div class="h">By the numbers</div>
+      <div class="kpi"><b>Multi-billion</b><span>Dollar public system governed as an elected regent</span></div>
+      <div class="kpi"><b>68%</b><span>Reduction in open audit exceptions</span></div>
+      <div class="kpi"><b>$25M</b><span>Reserve distribution directed as audit committee chair</span></div>
+      <div class="kpi"><b>$8.5M</b><span>Average monthly savings, five-state payment program</span></div>
+      <div class="kpi"><b>15</b><span>Boards, commissions, and councils since 2010</span></div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">Sources: Nevada System of Higher Education Board of Regents records, 2013 to 2019; UnitedHealthcare and DaVita Integrated Care program reporting, 2006 to 2018.</div><div class="pg">Allison Alimayu, PhD<b>2</b></div></div>
+</section>
+
+<!-- 3. Skills matrix -->
+<section class="slide">
+  <div class="tracker">Board competencies</div>
+  <h1 class="title">Her record covers the competencies nominating committees screen for, with the deepest experience in audit, risk, and regulation</h1>
+  <div class="title-rule"></div>
+  <table class="matrix">
+    <thead><tr>
+      <th>Competency</th>
+      <th>NSHE Board<br>of Regents<small>2013 to 2019</small></th>
+      <th>Managed care<br>finance<small>2006 to 2018</small></th>
+      <th>SAFE<br>framework<small>2025 to 2026</small></th>
+      <th>MEDCAC<small>2019 to 2027</small></th>
+      <th>NC Oil and Gas<br>Commission<small>2026 to 2030</small></th>
+      <th>Nonprofit<br>boards<small>2012 to 2021</small></th>
+    </tr></thead>
+    <tbody>
+      <tr class="hl"><td>Audit and financial oversight</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr class="hl"><td>Enterprise risk management</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr class="hl"><td>Regulatory and compliance</td><td><i class="hb f3"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr><td>Executive oversight and accountability</td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td></tr>
+      <tr><td>Strategy and system design</td><td><i class="hb f3"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr><td>Data, analytics, and AI</td><td><i class="hb f1"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td><td><i class="hb"></i></td></tr>
+      <tr><td>Healthcare and life sciences</td><td><i class="hb f2"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr><td>Energy, environment, and climate</td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td></tr>
+    </tbody>
+  </table>
+  <div class="foot"><div class="legend"><span>Depth of direct responsibility:</span><span><i class="hb f4"></i>Led</span><span><i class="hb f3"></i>Substantial</span><span><i class="hb f2"></i>Shared</span><span><i class="hb f1"></i>Exposure</span><span><i class="hb"></i>None</span></div><div class="pg">Allison Alimayu, PhD<b>3</b></div></div>
+</section>
+
+<!-- 4. NSHE -->
+<section class="slide">
+  <div class="tracker">Audit and enterprise risk oversight</div>
+  <h1 class="title">As a regent of a multi-billion-dollar, eight-institution system, she rebuilt audit and risk oversight and cut open audit exceptions by 68 percent</h1>
+  <div class="title-rule"></div>
+  <div class="sar">
+    <div>
+      <h4><i>1</i>The mandate</h4>
+      <p class="body" style="margin:0 0 14px">Elected in November 2012 to the governing board of the Nevada System of Higher Education, a multi-billion-dollar public system. Served January 2013 to January 2019.</p>
+      <div><span class="chip">2 research universities</span><span class="chip">1 state university</span><span class="chip">4 community and state colleges</span><span class="chip">1 research institute</span></div>
+      <p class="body muted" style="margin:10px 0 0;font-size:14.5px">The board holds fiduciary oversight of the chancellor and system executive leadership.</p>
+    </div>
+    <div>
+      <h4><i>2</i>What she did</h4>
+      <ul class="tight">
+        <li>Chaired the Audit and Compliance Committee; served as vice chair of the board, December 2016 to June 2017</li>
+        <li>Led a redesign of the system's audit and enterprise risk management framework</li>
+        <li>Built a staffing model that paired auditors with subject matter experts in each key area of enterprise risk, including health compliance</li>
+        <li>Directed a $25 million distribution from the Operating Pool Reserve to clear a backlog of internal audit follow-up</li>
+      </ul>
+    </div>
+    <div>
+      <h4><i>3</i>Results</h4>
+      <div class="bars">
+        <div class="b"><em>100</em><i style="height:160px;background:#B9BCC9"></i></div>
+        <div class="b"><em>32</em><i style="height:51px;background:var(--navy)"></i></div>
+      </div>
+      <div class="bars-x"><span>Before redesign</span><span>After redesign</span></div>
+      <div class="callout"><b>68%</b><span>fewer open audit exceptions. Distinguished Public Service Award, 2019.</span></div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">Open audit exceptions indexed to 100 at the start of the redesign. Published on audit committee governance in the College and University Auditor Journal and Trustee Quarterly; presented at the Association of College and University Auditors national conference.</div><div class="pg">Allison Alimayu, PhD<b>4</b></div></div>
+</section>
+
+<!-- 5. Risk judgment -->
+<section class="slide">
+  <div class="tracker">Risk judgment in the boardroom</div>
+  <h1 class="title">On the board's largest capital, contract, and compliance decisions, she named the risk early and set the condition for approval</h1>
+  <div class="title-rule"></div>
+  <table class="grid">
+    <thead><tr><th style="width:250px">Decision before the board</th><th style="width:410px">Risk she named</th><th>What she required</th></tr></thead>
+    <tbody>
+      <tr><td>Launch of the UNLV School of Medicine<span class="yr">2014 to 2016</span></td><td>Volatile state revenue, accreditation timelines, and leadership transitions across partner institutions</td><td class="ctl"><span class="arrow">&rarr;</span>Multi-scenario financial models before the board committed public capital</td></tr>
+      <tr><td>Medical education building<span class="yr">Capital program</span></td><td>Project cost estimates growing well past the original $100 million baseline</td><td class="ctl"><span class="arrow">&rarr;</span>Firm cost targets set before any fundraising campaign launched</td></tr>
+      <tr><td>Stadium joint use agreement<span class="yr">2018</span></td><td>Game-day rent rising from about $50,000 to an estimated $250,000, with no express exit right</td><td class="ctl"><span class="arrow">&rarr;</span>Pressed on the record for an exit clause; approval was conditioned on legal opinions confirming the university could exit without penalty</td></tr>
+      <tr><td>2017 to 2019 biennial budget<span class="yr">2016</span></td><td>Efficiency claims with no common method to verify them</td><td class="ctl"><span class="arrow">&rarr;</span>Moved to standardize savings reporting and to redirect verified savings to instruction and student success</td></tr>
+      <tr><td>Title IX compliance<span class="yr">2015</span></td><td>Institutional liability from third-party personnel on campus and clinical sites</td><td class="ctl"><span class="arrow">&rarr;</span>Extended training requirements to vendors, contractors, and clinical partners</td></tr>
+    </tbody>
+  </table>
+  <div class="foot"><div class="src">Source: Nevada System of Higher Education Board of Regents meeting minutes, 2013 to 2018.</div><div class="pg">Allison Alimayu, PhD<b>5</b></div></div>
+</section>
+
+<!-- 6. Managed care -->
+<section class="slide">
+  <div class="tracker">Financial and operating leadership</div>
+  <h1 class="title">In managed care, she designed and ran a five-state value-based payment program that averaged $8.5 million in monthly savings</h1>
+  <div class="title-rule"></div>
+  <div class="mc">
+    <div class="big-stat">
+      <div class="num-xl">$8.5M</div>
+      <div class="lbl">Average monthly savings</div>
+      <div class="div"></div>
+      <div class="mid">~$100M</div>
+      <div class="lbl">Annualized savings across six years of operation</div>
+      <div class="div"></div>
+      <div class="lbl" style="margin:0">Five states</div>
+      <div class="states"><span>Arizona</span><span>Florida</span><span>North Carolina</span><span>South Carolina</span><span>Texas</span></div>
+    </div>
+    <div>
+      <div class="k">Career progression</div>
+      <div class="tl"><div class="line"></div><div class="pts">
+        <div class="pt"><i></i><b>2006 to 2015</b><strong>UnitedHealthcare</strong><span>Advanced through multiple internal promotions to network program consultant</span></div>
+        <div class="pt"><i></i><b>Program design</b><strong>Value-based reimbursement</strong><span>Designed the program and the network analytics that monitored and sustained it</span></div>
+        <div class="pt"><i></i><b>2015 to 2018</b><strong>DaVita Integrated Care</strong><span>Senior manager, network development; extended the program to complex, underserved populations</span></div>
+      </div></div>
+      <div class="sowhat">
+        <div class="k">Why it matters to a board</div>
+        <ul class="tight">
+          <li>Reads the drivers behind a P&amp;L: utilization, unit cost, reimbursement, and network performance</li>
+          <li>Turns complex financial and operating data into decisions management can execute and a board can rely on</li>
+          <li>Knows healthcare reimbursement from the payer side, a growing exposure for employers and investors</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">Annualized figure is the monthly average multiplied by twelve. Source: UnitedHealthcare and DaVita Integrated Care program reporting.</div><div class="pg">Allison Alimayu, PhD<b>6</b></div></div>
+</section>
+
+<!-- 7. SAFE -->
+<section class="slide">
+  <div class="tracker">System design and risk mitigation</div>
+  <h1 class="title">For a national research funder, she designed a governance system that names six risks to outcomes and builds a control for each</h1>
+  <div class="title-rule"></div>
+  <div class="safe">
+    <table class="grid" style="font-size:14px">
+      <thead><tr><th style="width:44%">Risk identified</th><th>Control she designed</th></tr></thead>
+      <tbody>
+        <tr><td>Priorities chosen informally, with no documented process</td><td class="ctl"><span class="arrow">&rarr;</span>Documented selection: three intake pathways, agreed allocations, and senior leadership sign-off</td></tr>
+        <tr><td>Investments drift from the problem they were meant to solve</td><td class="ctl"><span class="arrow">&rarr;</span>Alignment worksheet and impact workbook at every gate, creating an auditable record</td></tr>
+        <tr><td>Teams selected for credentials over capacity to deliver</td><td class="ctl"><span class="arrow">&rarr;</span>A team gate as the first competitive filter, before any proposal is written</td></tr>
+        <tr><td>Narrow, repeat review panels</td><td class="ctl"><span class="arrow">&rarr;</span>A new, independent, diverse panel at each gate</td></tr>
+        <tr><td>Inconsistent rules on IP, data, AI, and conflicts of interest</td><td class="ctl"><span class="arrow">&rarr;</span>One standing agreement that settles those terms across every funded consortium</td></tr>
+        <tr><td>Funding ends with no transition plan</td><td class="ctl"><span class="arrow">&rarr;</span>A funded six-month off-ramp; no exit until a named steward is ready</td></tr>
+      </tbody>
+    </table>
+    <div>
+      <div class="k">Stage gates: capital narrows as evidence grows</div>
+      <div class="gates">
+        <div class="gate" style="background:#8D91A6;margin-right:0"><b>Concept</b><span>6 months</span></div>
+        <div class="gate" style="background:#5F6488;margin:0 22px 0 0"><b>Seed</b><span>12 months</span></div>
+        <div class="gate" style="background:#3A4070;margin:0 44px 0 0"><b>Grow</b><span>12 months, one team advances</span></div>
+        <div class="gate" style="background:var(--navy);margin:0 66px 0 0"><b>Prize</b><span>24 months</span></div>
+      </div>
+      <div class="gate-note">A forward-only review rule credits candid reporting of failure, so problems surface early instead of late.</div>
+      <div class="callout" style="margin-top:18px"><span><b style="font-size:15px;font-family:var(--sans);display:block;color:var(--navy)">Validated against statute and strategy</b>Checked against Ireland's Research and Innovation Act 2024, the agency's 2026 to 2030 strategy, and international precedent.</span></div>
+    </div>
+  </div>
+  <div class="foot"><div class="src">SAFE: Strategic Analytical Framework for Evidence-based challenge funding. Developed as a Fulbright US Scholar at Research Ireland, the national research funding agency, 2025 to 2026.</div><div class="pg">Allison Alimayu, PhD<b>7</b></div></div>
+</section>
+
+<!-- 8. Regulatory -->
+<section class="slide">
+  <div class="tracker">Regulatory experience</div>
+  <h1 class="title">Federal and state appointments put her inside the evidence reviews and regulatory decisions that shape regulated industries</h1>
+  <div class="title-rule"></div>
+  <div class="cards3">
+    <div class="card"><div class="when">2019 to 2027</div><h3>MEDCAC</h3><div class="by">Appointed by the US Secretary of Health and Human Services</div><p>Voting member of the Medicare Evidence Development and Coverage Advisory Committee, reviewing the clinical evidence behind national Medicare coverage policy.</p><div class="rel"><b>Board relevance</b>Coverage and reimbursement risk for healthcare, life sciences, and device companies</div></div>
+    <div class="card"><div class="when">2026 to 2030</div><h3>North Carolina Oil and Gas Commission</h3><div class="by">Appointed to a four-year term</div><p>Commissioner on the state body that sets rules for oil and gas activity in North Carolina.</p><div class="rel"><b>Board relevance</b>Energy, environmental, and permitting risk; regulator perspective for industrial and utility boards</div></div>
+    <div class="card"><div class="when">2026</div><h3>IPCC expert reviewer</h3><div class="by">Intergovernmental Panel on Climate Change</div><p>Expert reviewer for the Special Report on Climate Change and Cities.</p><div class="rel"><b>Board relevance</b>Climate risk disclosure, physical risk, and sustainability oversight</div></div>
+  </div>
+  <div class="strip"><b>State licensing and policy boards</b><span>Nevada State Board of Occupational Therapy, 2010 to 2015 (licensing). Nevada State Board of Education, 2016 to 2018. Nevada Legislative Subcommittee on Governance and Financing, 2013 to 2014. Nevada Vocational Rehabilitation Council, 2020 to 2021.</span></div>
+  <div class="foot"><div class="src">Appointing authorities as listed. Terms shown as appointed.</div><div class="pg">Allison Alimayu, PhD<b>8</b></div></div>
+</section>
+
+<!-- 9. Gantt -->
+<section class="slide">
+  <div class="tracker">Governance record</div>
+  <h1 class="title">Continuous board and commission service since 2010, across education, health, energy, and national governance</h1>
+  <div class="title-rule" style="margin-bottom:16px"></div>
+  <div class="gantt" id="gantt"></div>
+  <div class="g-legend"><span><i class="c-fid"></i>Governing and fiduciary</span><span><i class="c-reg"></i>Regulatory and evidence review</span><span><i class="c-pol"></i>Policy and advisory</span><span><i class="c-np"></i>Nonprofit and national governance</span></div>
+  <div class="foot"><div class="src">Selected seats. Bars show term years.</div><div class="pg">Allison Alimayu, PhD<b>9</b></div></div>
+</section>
+
+<!-- 10. Close -->
+<section class="slide">
+  <div class="tracker">Board fit</div>
+  <h1 class="title">She is ready to contribute from the first meeting on the audit, risk, and governance committees</h1>
+  <div class="title-rule"></div>
+  <div class="close">
+    <div><h3><small>Committee fit</small>Audit</h3><ul class="tight"><li>Chaired a system audit and compliance committee</li><li>Redesigned internal audit and ERM; cut open exceptions 68 percent</li><li>Published on audit committee governance</li></ul></div>
+    <div><h3><small>Committee fit</small>Risk and compliance</h3><ul class="tight"><li>Built anticipatory risk review into capital and contract decisions</li><li>Designed a control-based governance framework for a national funder</li><li>Federal and state regulatory appointments</li></ul></div>
+    <div><h3><small>Committee fit</small>Governance and sustainability</h3><ul class="tight"><li>Vice chair of a public system board; oversight of the chancellor</li><li>Fifteen boards, commissions, and councils since 2010</li><li>Healthcare, energy, and climate oversight experience</li></ul></div>
+  </div>
+  <div class="contact">
+    <div><div class="nm">Allison Alimayu, PhD</div><div style="color:#A9A6B4;font-size:13px;margin-top:6px">PhD, Biomedical Informatics, Rutgers University</div></div>
+    <div><b>Recognition</b>Fulbright US Scholar, 2025 to 2026<br>Distinguished Public Service Award, 2019<br>Distinguished Women of Nevada, 2014</div>
+    <div><b>Contact</b>info@alimayu.studio<br>alimayu.studio/board-seats.html</div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var Y0 = 2010, Y1 = 2030, N = Y1 - Y0 + 1;
+  var rows = [
+    ['fid', 'Nevada Board of Regents', 'Vice chair; audit committee chair', 2013, 2019],
+    ['reg', 'MEDCAC', 'US Dept. of Health and Human Services', 2019, 2027],
+    ['reg', 'North Carolina Oil and Gas Commission', '', 2026, 2030],
+    ['reg', 'Nevada State Board of Occupational Therapy', '', 2010, 2015],
+    ['fid', 'Nevada State Board of Education', '', 2016, 2018],
+    ['fid', 'ACCT Finance and Audit Committee', '', 2017, 2018],
+    ['pol', 'Legislative Subcommittee, Governance and Financing', '', 2013, 2014],
+    ['pol', 'Nevada Commission for Women', '', 2015, 2018],
+    ['pol', 'Children’s Justice Act Task Force', '', 2019, 2020],
+    ['pol', 'Nevada Vocational Rehabilitation Council', '', 2020, 2021.5],
+    ['np', 'EnergyFit Nevada', 'Secretary', 2012, 2014],
+    ['np', 'Nevada PEP', 'Board member', 2017, 2020],
+    ['np', 'Children’s Advocacy Alliance Constituency Council', '', 2021, 2021.9],
+    ['np', 'Democratic National Committee', 'Two elected terms', 2016, 2024]
+  ];
+  var g = document.getElementById('gantt');
+  var yrs = '<div class="g-years"><span></span>';
+  for (var y = Y0; y <= Y1; y++) yrs += '<span>' + (y % 2 === 0 ? y : '') + '</span>';
+  g.innerHTML = yrs + '</div>';
+  rows.forEach(function (r) {
+    var left = (r[3] - Y0) / N * 100, w = Math.max((r[4] - r[3]) / N * 100, 1.6);
+    g.insertAdjacentHTML('beforeend', '<div class="g-row"><div class="nm">' + r[1] + (r[2] ? ' <small>' + r[2] + '</small>' : '') + '</div><div class="g-track"><div class="g-bar c-' + r[0] + '" style="left:' + left + '%;width:' + w + '%"></div></div></div>');
+  });
+})();
+</script>
+</body>
+</html>
