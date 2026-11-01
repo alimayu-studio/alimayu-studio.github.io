@@ -22,6 +22,7 @@
 --gold: #B08D57;
 --dusk: #D9CBD8;
 --ink: #1E2346;
+--shadow: 0 1px 2px rgba(30, 35, 70, .12), 0 14px 34px -12px rgba(30, 35, 70, .38);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -32,15 +33,19 @@ color: var(--ink);
 font-family: 'Source Sans 3', sans-serif;
 font-size: 18px;
 line-height: 1.55;
+overflow-x: hidden;
 }
+img { max-width: 100%; }
 a { color: var(--midnight); }
 .label {
 font-family: 'Cinzel', 'Trajan Pro', serif;
 font-size: 14px;
 letter-spacing: .24em;
 text-transform: uppercase;
-color: var(--rosehip);
+color: var(--midnight);
 }
+
+/* Alimayu Studio header and navigation (unchanged) */
 .topbar {
 display: flex;
 align-items: center;
@@ -60,10 +65,134 @@ color: var(--midnight);
 .nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--midnight); }
 .nav a:hover, .nav a:focus-visible, .nav a.current { color: var(--rosehip); }
 
-.hero { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; text-align: center; }
-.crumbs { max-width: 960px; margin: 0 auto; padding: 0 16px; font-size: 14px; }
-.crumbs a { color: var(--rosehip); font-weight: 600; text-decoration: none; }
-.hero .mark { width: 200px; height: auto; display: block; margin: 0 auto 8px; }
+.crumbs { max-width: 960px; margin: 0 auto; padding: 0 16px 14px; font-size: 14px; }
+.crumbs a { color: var(--midnight); font-weight: 600; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+
+/* Plaid: midnight cloth, dusk and milk rose bands, gold hairlines, woven grain */
+.plaid {
+position: relative;
+isolation: isolate;
+background-color: var(--midnight);
+background-image:
+radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(30, 35, 70, .55) 100%),
+repeating-linear-gradient(45deg, rgba(244, 237, 225, .028) 0 1px, transparent 1px 4px),
+repeating-linear-gradient(90deg,
+transparent 0 60px,
+rgba(217, 203, 216, .30) 60px 100px,
+transparent 100px 108px,
+rgba(235, 211, 200, .45) 108px 110px,
+transparent 110px 113px,
+rgba(235, 211, 200, .45) 113px 115px,
+transparent 115px 123px,
+rgba(217, 203, 216, .28) 123px 139px,
+transparent 139px 200px,
+rgba(176, 141, 87, .35) 200px 201px,
+transparent 201px 260px),
+repeating-linear-gradient(0deg,
+transparent 0 60px,
+rgba(217, 203, 216, .30) 60px 100px,
+transparent 100px 108px,
+rgba(235, 211, 200, .45) 108px 110px,
+transparent 110px 113px,
+rgba(235, 211, 200, .45) 113px 115px,
+transparent 115px 123px,
+rgba(217, 203, 216, .28) 123px 139px,
+transparent 139px 200px,
+rgba(176, 141, 87, .35) 200px 201px,
+transparent 201px 260px);
+background-attachment: scroll;
+}
+.plaid::after {
+content: "";
+position: absolute;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+opacity: .07;
+mix-blend-mode: multiply;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .55' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+}
+.plaid > * { position: relative; z-index: 1; }
+
+/* Scalloped hem where the plaid meets the next ground */
+.hem { position: relative; }
+.hem::before {
+content: "";
+position: absolute;
+left: 0; right: 0; bottom: -1px;
+height: 12px;
+z-index: 2;
+background: radial-gradient(circle at 9px 12px, var(--hem, var(--moonmilk)) 8.5px, transparent 9px) repeat-x;
+background-size: 18px 12px;
+}
+
+/* Paper pieces */
+.paper {
+background: var(--moonmilk);
+box-shadow: var(--shadow);
+position: relative;
+}
+.tape::before, .tape::after {
+content: "";
+position: absolute;
+top: -14px;
+width: 104px;
+height: 28px;
+background: rgba(235, 211, 200, .78);
+box-shadow: 0 1px 2px rgba(30, 35, 70, .12);
+z-index: 3;
+}
+.tape::before { left: 9%; transform: rotate(-4deg); }
+.tape::after { right: 9%; transform: rotate(3deg); }
+
+/* Torn-edge photographs */
+.torn {
+margin: 0;
+filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .32));
+}
+.torn img {
+display: block;
+width: 100%;
+height: auto;
+padding: 7px;
+background: var(--moonmilk);
+clip-path: polygon(0% 3%, 7% 1%, 15% 2.5%, 26% .5%, 38% 2%, 50% 0%, 63% 2%, 74% .5%, 86% 2.5%, 94% .8%, 100% 2%, 98.6% 12%, 100% 24%, 98.8% 37%, 100% 51%, 98.5% 64%, 100% 77%, 98.8% 89%, 100% 98%, 91% 99.4%, 80% 97.8%, 68% 100%, 55% 98.2%, 43% 99.6%, 31% 97.9%, 19% 99.7%, 8% 98%, 0% 99.5%, 1.3% 87%, 0% 74%, 1.4% 61%, 0% 47%, 1.2% 34%, 0% 21%, 1.4% 10%);
+}
+
+/* Hero */
+.hero { padding: 56px 16px 40px; }
+.hero-photos {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+max-width: 640px;
+margin: 0 auto;
+}
+.hero-photos .torn { width: 50%; max-width: 312px; }
+.hero-photos .torn:first-child { transform: rotate(-2.2deg); margin-right: -14px; margin-top: 10px; }
+.hero-photos .torn:last-child { transform: rotate(2deg); z-index: 1; }
+
+.hero-card {
+max-width: 560px;
+margin: -6px auto 0;
+padding: 46px 40px 40px;
+text-align: center;
+transform: rotate(-.4deg);
+z-index: 2;
+}
+.polaroid {
+display: block;
+width: max-content;
+margin-left: auto;
+margin-right: auto;
+padding: 12px 12px 30px;
+background: #FBF8F2;
+background: color-mix(in srgb, var(--moonmilk) 55%, #fff);
+box-shadow: 0 1px 2px rgba(30, 35, 70, .14), 0 10px 22px -8px rgba(30, 35, 70, .32);
+transform: rotate(-3deg);
+margin-bottom: 22px;
+}
+.polaroid img { display: block; width: 190px; height: auto; }
 .lockup { display: inline-block; margin: 0; font-weight: normal; }
 .lockup .small {
 display: block;
@@ -94,12 +223,13 @@ height: auto;
 .tagline {
 font-family: 'Cormorant Garamond', Georgia, serif;
 font-style: italic;
-font-size: 26px;
+font-weight: 500;
+font-size: 27px;
 line-height: 1.3;
 margin: 22px auto 0;
 max-width: 30ch;
 }
-.lede { margin: 16px auto 0; max-width: 46ch; }
+.lede { margin: 14px auto 0; max-width: 44ch; }
 .button {
 display: inline-block;
 margin-top: 28px;
@@ -109,77 +239,224 @@ color: var(--moonmilk);
 font-weight: 600;
 text-decoration: none;
 border-radius: 2px;
-transition: background .2s ease;
+box-shadow: 0 3px 0 rgba(30, 35, 70, .18);
+transition: background .2s ease, transform .2s ease;
 }
-.button:hover, .button:focus-visible { background: var(--midnight); }
-.small-note { font-size: 15px; margin-top: 12px; }
+.button:hover, .button:focus-visible { background: var(--midnight); transform: translateY(-1px); }
+.small-note { font-size: 15px; margin: 12px 0 0; }
 
-section { padding: 64px 16px; }
-.inner { max-width: 760px; margin: 0 auto; }
-h2 {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-weight: 500;
-font-size: 42px;
-line-height: 1.15;
-color: var(--midnight);
-margin: 6px 0 16px;
+/* Mug photo with the gold moon */
+.moonrise {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 40px;
+max-width: 760px;
+margin: 0 auto;
+padding: 64px 16px 24px;
 }
-section p { margin: 0 0 14px; }
+.moonrise .crescent { width: 132px; height: auto; flex: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); transform: rotate(-8deg); }
+.moonrise .torn { width: 320px; max-width: 62%; transform: rotate(1.6deg); }
 
-.night { background: var(--midnight); color: var(--moonmilk); }
-.night h2, .night p { color: var(--moonmilk); }
-.night .label { color: var(--gold); }
-.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+/* What to expect */
+.expect { padding: 48px 16px 104px; }
+.night-card {
+max-width: 900px;
+margin: 0 auto;
+padding: 48px 48px 44px;
+background: var(--midnight);
+color: var(--moonmilk);
+box-shadow: 0 0 0 1px rgba(176, 141, 87, .35), 0 24px 50px -18px rgba(0, 0, 0, .65);
+transform: rotate(-.6deg);
+}
+.night-card .label { color: var(--gold); }
+.night-card h2 { color: var(--moonmilk); }
+.night-card p { color: var(--moonmilk); margin: 0; max-width: 60ch; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 30px; }
 .fact { border-top: 1px solid var(--gold); padding-top: 12px; }
 .fact strong {
 display: block;
 font-family: 'Cormorant Garamond', Georgia, serif;
 font-style: italic;
 font-weight: 500;
-font-size: 36px;
+font-size: 38px;
 line-height: 1.1;
 }
 .fact span { font-size: 16px; }
 
-.moonmilk { background: var(--moonmilk); }
+/* Sections */
+section { padding: 72px 16px; }
+.inner { max-width: 900px; margin: 0 auto; }
+h2 {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-style: italic;
+font-weight: 500;
+font-size: 46px;
+line-height: 1.12;
+color: var(--midnight);
+margin: 6px 0 16px;
+}
+section p { margin: 0 0 14px; }
+.intro { max-width: 62ch; }
+
+/* The twelve moons */
+.moonmilk { background: var(--moonmilk); padding-bottom: 0; }
 .moons {
 list-style: none;
 padding: 0;
-margin: 28px 0 0;
+margin: 32px 0 0;
 display: grid;
 grid-template-columns: repeat(6, 1fr);
-gap: 22px 8px;
+gap: 16px;
 text-align: center;
 }
+.moons li {
+background: #FBF8F2;
+background: color-mix(in srgb, var(--moonmilk) 45%, #fff);
+padding: 16px 6px 12px;
+outline: 1px dashed rgba(30, 35, 70, .28);
+outline-offset: -6px;
+box-shadow: 0 1px 2px rgba(30, 35, 70, .1), 0 8px 16px -10px rgba(30, 35, 70, .35);
+}
+.moons svg { display: block; margin: 0 auto; }
 .moons span {
 display: block;
-margin-top: 6px;
+margin-top: 8px;
 font-family: 'Cinzel', 'Trajan Pro', serif;
 font-size: 12px;
-letter-spacing: .12em;
+letter-spacing: .14em;
 text-transform: uppercase;
 }
 
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
-.card { background: var(--moonmilk); padding: 24px; border-radius: 2px; }
+.bleed {
+margin: 56px 0 0 auto;
+width: calc(100% - max(0px, (100vw - 900px) / 2 - 16px) - 48px);
+max-width: 1240px;
+}
+.bleed img { display: block; width: 100%; height: auto; box-shadow: var(--shadow); }
+.moonmilk .bleed { margin-right: -16px; }
+
+/* What is coming */
+.coming { padding-top: 96px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 36px; }
+.card { padding: 0 0 26px; }
+.card:nth-child(1) { transform: rotate(-1.1deg); }
+.card:nth-child(2) { transform: rotate(.6deg) translateY(6px); }
+.card:nth-child(3) { transform: rotate(-.4deg); }
+.card .tape::before { display: none; }
+.card.tape::before { display: none; }
+.card.tape::after {
+left: 50%; right: auto;
+width: 96px;
+margin-left: -48px;
+transform: rotate(-2deg);
+background: repeating-linear-gradient(135deg, rgba(235, 211, 200, .9) 0 7px, rgba(244, 237, 225, .9) 7px 14px);
+}
+.card img { display: block; width: 100%; aspect-ratio: 7 / 5; object-fit: cover; }
+.card .label, .card h3, .card p { padding: 0 26px; }
+.card .label { margin-top: 22px; font-size: 13px; }
 .card h3 {
 font-family: 'Cormorant Garamond', Georgia, serif;
+font-style: italic;
 font-weight: 500;
-font-size: 28px;
-line-height: 1.2;
+font-size: 30px;
+line-height: 1.15;
 margin: 6px 0 10px;
 }
 .card p { font-size: 16px; margin: 0; }
 
-.circle { text-align: center; background: var(--rosehip); color: var(--moonmilk); }
-.circle h2, .circle p { color: var(--moonmilk); }
-.circle .label { color: var(--moonmilk); }
-.circle p { max-width: 52ch; margin-left: auto; margin-right: auto; }
-.circle .button { background: var(--moonmilk); color: var(--rosehip); }
-.circle .button:hover, .circle .button:focus-visible { background: var(--midnight); color: var(--moonmilk); }
+/* Club news: the Moon Circle */
+.circle {
+--hem: var(--milkrose);
+background-color: var(--dusk);
+background-image:
+linear-gradient(rgba(30, 35, 70, .12) 1px, transparent 1px),
+linear-gradient(90deg, rgba(30, 35, 70, .12) 1px, transparent 1px);
+background-size: 44px 44px;
+background-position: -1px -1px;
+padding-bottom: 96px;
+}
+.circle-panel {
+max-width: 900px;
+margin: 0 auto;
+padding: 52px 40px 44px;
+background: var(--dusk);
+box-shadow: 0 0 0 1px rgba(30, 35, 70, .08), 0 18px 40px -20px rgba(30, 35, 70, .45);
+text-align: center;
+}
+.circle-panel p { max-width: 54ch; margin-left: auto; margin-right: auto; }
+.circle .bleed { margin-top: 40px; margin-right: -16px; }
+.join-card {
+max-width: 680px;
+margin: 56px auto 0;
+padding: 40px 22px 22px;
+text-align: center;
+transform: rotate(-.5deg);
+scroll-margin-top: 80px;
+}
+.join-card .stamp { width: 132px; height: auto; display: block; margin: 0 auto 22px; transform: rotate(-6deg); filter: drop-shadow(0 4px 6px rgba(30, 35, 70, .3)); }
+.join-card iframe { width: 100%; min-height: 560px; border: none; display: block; }
 
+/* Who is behind it */
 .founder .button { background: var(--midnight); }
 .founder .button:hover, .founder .button:focus-visible { background: var(--rosehip); }
+.founder-grid {
+display: grid;
+grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+gap: 56px;
+align-items: start;
+}
+
+/* Press clipping */
+.clipping {
+position: relative;
+padding: 30px 28px 26px;
+background-color: var(--moonmilk);
+background-image: linear-gradient(180deg, rgba(176, 141, 87, .07), transparent 30%, rgba(176, 141, 87, .06));
+clip-path: polygon(0% 1%, 9% 0%, 21% .8%, 34% .1%, 48% .9%, 61% 0%, 75% .7%, 88% .1%, 100% .8%, 99.4% 14%, 100% 31%, 99.3% 49%, 100% 66%, 99.4% 83%, 100% 99.2%, 87% 100%, 72% 99.3%, 58% 100%, 43% 99.2%, 29% 100%, 14% 99.3%, 0% 100%, .6% 84%, 0% 67%, .7% 50%, 0% 33%, .6% 16%);
+}
+.clipping-wrap { position: relative; transform: rotate(1.4deg); filter: drop-shadow(0 14px 20px rgba(30, 35, 70, .28)); }
+.clipping-wrap.tape::before { left: 50%; margin-left: -52px; top: -12px; transform: rotate(-3deg); }
+.clipping-wrap.tape::after { display: none; }
+.clip-source {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 12px;
+padding-bottom: 8px;
+border-bottom: 1px solid var(--midnight);
+font-family: 'Cinzel', 'Trajan Pro', serif;
+font-size: 10.5px;
+letter-spacing: .24em;
+text-transform: uppercase;
+}
+.clip-head {
+font-family: 'Cormorant Garamond', Georgia, serif;
+font-style: italic;
+font-weight: 500;
+font-size: 25px;
+line-height: 1.15;
+margin: 14px 0 6px;
+}
+.clip-byline { font-size: 13px; font-weight: 600; margin: 0 0 14px; letter-spacing: .02em; }
+.clip-photo { margin: 0 0 16px; }
+.clip-photo img {
+display: block;
+width: 100%;
+height: auto;
+aspect-ratio: 4 / 3;
+object-fit: cover;
+object-position: 50% 18%;
+filter: grayscale(1) sepia(.18) contrast(1.05);
+}
+.clip-photo figcaption { font-size: 12px; line-height: 1.4; margin-top: 6px; }
+.clip-body {
+padding-top: 12px;
+border-top: 1px solid rgba(30, 35, 70, .25);
+}
+.clip-body p { font-size: 15px; line-height: 1.55; margin: 0 0 10px; }
+.clip-body p:last-child { margin-bottom: 0; }
+.clip-body mark { background: var(--milkrose); color: var(--midnight); padding: 0 2px; }
 
 footer {
 text-align: center;
@@ -187,16 +464,27 @@ padding: 40px 16px 56px;
 font-size: 15px;
 border-top: 1px solid rgba(30, 35, 70, .15);
 }
-footer img { width: 48px; height: auto; display: block; margin: 0 auto 10px; }
+footer img { width: 56px; height: auto; display: block; margin: 0 auto 10px; }
 
 @media (max-width: 720px) {
 .lockup .word { font-size: 56px; }
 .lockup .seal { width: 24px; right: -28px; top: 4px; }
-.hero .mark { width: 170px; }
-.tagline { font-size: 22px; }
-h2 { font-size: 34px; }
-.facts, .cards { grid-template-columns: 1fr; }
-.moons { grid-template-columns: repeat(4, 1fr); }
+.polaroid img { width: 160px; }
+.tagline { font-size: 23px; }
+h2 { font-size: 36px; }
+.hero { padding-top: 36px; }
+.hero-card { padding: 40px 22px 32px; }
+.night-card { padding: 36px 24px; }
+.facts, .cards, .founder-grid { grid-template-columns: 1fr; }
+.founder-grid { gap: 48px; }
+.clipping { padding: 26px 20px 22px; }
+.clipping-wrap { transform: rotate(.8deg); }
+.cards { gap: 40px; }
+.moons { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.moonrise { gap: 16px; padding-top: 48px; }
+.moonrise .crescent { width: 72px; }
+.circle-panel { padding: 40px 20px 32px; }
+.bleed { width: calc(100% - 24px); }
 .button { width: 100%; }
 .nav { gap: 16px; }
 .topbar span.brand { display: none; }
@@ -204,6 +492,10 @@ h2 { font-size: 34px; }
 @media (max-width: 600px) {
 .topbar { flex-wrap: wrap; }
 .nav { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 6px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+.button { transition: none; }
 }
 </style>
 </head>
@@ -226,8 +518,15 @@ h2 { font-size: 34px; }
 <main>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="initiatives.html">Initiatives</a> <span aria-hidden="true">/</span> The Postmoon Club</nav>
 
+<div class="plaid hem">
+
 <div class="hero">
-<img class="mark" src="postmoon-mark.png" alt="The moon mother: a woman in profile facing twelve moons">
+<div class="hero-photos">
+<figure class="torn"><img src="assets/img/postmoon-hero-moon-chart.jpg" width="290" height="407" alt="A mother at her kitchen table filling in a sheet of moons"></figure>
+<figure class="torn"><img src="assets/img/postmoon-hero-letter.jpg" width="298" height="402" alt="A mother laughing as she reads a letter"></figure>
+</div>
+<div class="hero-card paper tape">
+<div class="polaroid"><img src="postmoon-mark.png" alt="The moon mother: a woman in profile facing twelve moons"></div>
 <h1 class="lockup">
 <span class="small">The</span>
 <span class="word">Postmoon<img class="seal" src="alimayu-seal.png" alt=""></span>
@@ -238,9 +537,32 @@ h2 { font-size: 34px; }
 <a class="button" href="#join">Get the Free Postmoon Map</a>
 <p class="small-note">Free, and made for a phone.</p>
 </div>
+</div>
 
-<section class="night">
-<div class="inner">
+<div class="moonrise">
+<svg class="crescent" viewBox="0 0 100 120" aria-hidden="true">
+<defs>
+<linearGradient id="goldleaf" x1="0" y1="0" x2=".8" y2="1">
+<stop offset="0" stop-color="#C9AD7C"/>
+<stop offset=".35" stop-color="#B08D57"/>
+<stop offset=".65" stop-color="#C2A26C"/>
+<stop offset="1" stop-color="#94743F"/>
+</linearGradient>
+<filter id="foil" x="-5%" y="-5%" width="110%" height="110%">
+<feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="3" seed="7" result="n"/>
+<feDiffuseLighting in="n" surfaceScale="3" lighting-color="#F4EDE1" result="l"><feDistantLight azimuth="225" elevation="58"/></feDiffuseLighting>
+<feComposite in="l" in2="SourceGraphic" operator="in" result="lit"/>
+<feBlend in="SourceGraphic" in2="lit" mode="multiply"/>
+</filter>
+<mask id="crescent-cut"><rect width="100" height="120" fill="#fff"/><circle cx="70" cy="50" r="44" fill="#000"/></mask>
+</defs>
+<circle cx="48" cy="62" r="46" fill="url(#goldleaf)" mask="url(#crescent-cut)" filter="url(#foil)"/>
+</svg>
+<figure class="torn"><img src="assets/img/postmoon-mug.jpg" width="305" height="401" alt="A smiling mother holding a mug of tea"></figure>
+</div>
+
+<div class="expect">
+<div class="night-card">
 <div class="label">What to expect</div>
 <h2>Six Weeks Is Not the Finish Line</h2>
 <p>Most postpartum checkups end around six weeks. Her body is not done healing. Most new mothers never hear what comes next.</p>
@@ -250,47 +572,53 @@ h2 { font-size: 34px; }
 <div class="fact"><strong>Years</strong><span>of brain changes that follow</span></div>
 </div>
 </div>
-</section>
+</div>
+
+</div>
 
 <section class="moonmilk">
 <div class="inner">
 <div class="label">The twelve moons</div>
 <h2>One Moon for Each Month</h2>
-<p>Recovery takes about a year. The moon fills from a thin crescent in month one to a full moon in month twelve.</p>
+<p class="intro">Recovery takes about a year. The moon fills from a thin crescent in month one to a full moon in month twelve.</p>
 <ul class="moons">
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 1</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 2</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 3</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 4</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 0 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 5</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A0.00 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 6</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 7</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 8</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 9</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 10</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 1 10 2z" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 11</span></li>
-<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#A4533F"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 12</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 1</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 2</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 3</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 4</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 0 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 5</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A0.00 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 6</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A1.33 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 7</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A2.67 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 8</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A4.00 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 9</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A5.33 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 10</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><path d="M10 2 A8 8 0 0 1 10 18 A6.67 8 0 0 1 10 2z" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 11</span></li>
+<li><svg viewBox="0 0 20 20" width="36" height="36" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#1E2346"/><circle cx="10" cy="10" r="8" fill="none" stroke="#1E2346" stroke-width="1"/></svg><span>Month 12</span></li>
 </ul>
 </div>
+<figure class="bleed"><img src="assets/img/postmoon-name-cards.jpg" width="1069" height="485" alt="Handwritten name cards for a Moon Circle laid out on a plaid tablecloth" loading="lazy"></figure>
 </section>
 
-<section>
+<section class="coming">
 <div class="inner">
 <div class="label">What is coming</div>
 <h2>One Step at a Time</h2>
-<p>Real information, plain words, and art worth keeping.</p>
+<p class="intro">Real information, plain words, and art worth keeping.</p>
 <div class="cards">
-<div class="card">
+<div class="card paper tape">
+<img src="assets/img/postmoon-card-map.jpg" width="285" height="204" alt="A hand writing on the Postmoon Map, a ring of twelve moons" loading="lazy">
 <div class="label">Free</div>
 <h3>The Postmoon Map</h3>
 <p>Twelve moons, one for each month, with room to write who covers each one. Not everyone has 12 people. The goal is to cover all 12 months.</p>
 </div>
-<div class="card">
+<div class="card paper tape">
+<img src="assets/img/postmoon-card-mail.jpg" width="285" height="204" alt="A rose envelope closed with a midnight wax seal" loading="lazy">
 <div class="label">Coming soon</div>
 <h3>The Mail Club</h3>
-<p>A letter by post every month for 12 months. Each issue is a small zine with its own moon, real facts, and a card or two tucked inside.</p>
+<p>A letter by post every month for 12 months. Each issue is a small zine with real facts, and a card or two tucked inside.</p>
 </div>
-<div class="card">
+<div class="card paper tape">
+<img src="assets/img/postmoon-card-soaks.jpg" width="285" height="204" alt="A bath scattered with dried flowers and orange slices" loading="lazy">
 <div class="label">Later</div>
 <h3>Teas and Soaks</h3>
 <p>Postpartum sitz bath teas for the early months, then mother's soaks made for her alone.</p>
@@ -299,26 +627,46 @@ h2 { font-size: 34px; }
 </div>
 </section>
 
-<section class="circle">
-<div class="inner">
+<section class="circle hem">
+<div class="circle-panel">
 <div class="label">Club news</div>
 <h2>The Moon Circle</h2>
 <p>A Moon Circle is the group of people around a mother for all 12 months. They check in on her, and they check in on each other.</p>
 <p>Anyone can help. At its heart, this is women helping women, because women's health gets ignored far too often.</p>
-<div id="join" style="max-width:640px;margin:28px auto 0;background:var(--moonmilk);padding:10px;border-radius:2px;scroll-margin-top:80px">
-<iframe id="JotFormIFrame-262718077967069" title="Get the Postmoon Map" src="https://form.jotform.com/262718077967069" allow="fullscreen" style="width:100%;min-height:560px;border:none;display:block" scrolling="no"></iframe>
+</div>
+<figure class="bleed"><img src="assets/img/postmoon-moon-circle-group.jpg" width="1020" height="952" alt="Four women laughing together around a kitchen table" loading="lazy"></figure>
+<div id="join" class="join-card paper tape">
+<img class="stamp" src="alimayu-seal.png" alt="Alimayu Studio seal">
+<iframe id="JotFormIFrame-262718077967069" title="Get the Postmoon Map" src="https://form.jotform.com/262718077967069" allow="fullscreen" scrolling="no"></iframe>
 </div>
 <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <script>addEventListener("load",function(){if(window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='JotFormIFrame-262718077967069']","https://form.jotform.com/");});</script>
-</div>
 </section>
 
 <section class="founder">
-<div class="inner">
+<div class="inner founder-grid">
+<div>
 <div class="label">Who is behind it</div>
 <h2>Led by Allison Alimayu, PhD</h2>
-<p>Allison brings graduate-level training in health promotion and lived experience as a postpartum mother. The Postmoon Club is an initiative of Alimayu Studio.</p>
+<p class="intro">Allison brings graduate-level training in health promotion and lived experience as a postpartum mother. The Postmoon Club is an initiative of Alimayu Studio.</p>
 <a class="button" href="https://www.pinterest.com/postmoonclub/">Follow on Pinterest</a>
+</div>
+<div class="clipping-wrap tape">
+<article class="clipping" aria-label="Clipping from The Nevada Independent">
+<div class="clip-source"><span>The Nevada Independent</span><time datetime="2018-03-17">March 17, 2018</time></div>
+<h3 class="clip-head">On the Record: The story and policy positions of Democratic House candidate Allison Stephens [Alimayu]</h3>
+<p class="clip-byline">By Michelle Rindels</p>
+<figure class="clip-photo">
+<img src="assets/img/postmoon-nevada-independent-2018.jpg" width="720" height="1080" alt="Allison Alimayu, then Regent Allison Stephens, outside the Rainbow Library in Las Vegas" loading="lazy">
+<figcaption>Regent Allison Stephens [Alimayu] poses for a photo outside the Rainbow Library in Las Vegas on March 14, 2018. Photo by Michelle Rindels.</figcaption>
+</figure>
+<div class="clip-body">
+<p>When she went into labor early with her second child, she couldn't find a doctor who would deliver her baby.</p>
+<p>Even though she told doctors something was wrong and went into convulsions in the hospital, she was told she was just getting medication out of her system and that she was just panicking. It wasn't until after she returned home and had more convulsions that it was discovered she had sepsis and other infections throughout her body.</p>
+<p>"I kept saying, 'I think I'm dying,'" she said. "I knew something was wrong. <mark>I was not taken seriously.</mark>"</p>
+</div>
+</article>
+</div>
 </div>
 </section>
 
