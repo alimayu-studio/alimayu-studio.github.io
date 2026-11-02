@@ -24,7 +24,7 @@
     ['evidence', 2016.5, 2020.4, 'PhD, Biomedical Informatics, Rutgers', 'Dissertation on extreme heat and kidney-related emergency care in Nevada.'],
     ['evidence', 2019, 2027, 'MEDCAC', 'Medicare Evidence Development and Coverage Advisory Committee, appointed by the US Secretary of Health and Human Services.'],
     ['evidence', 2021, 2024.8, 'Tufts University School of Medicine', 'Assistant professor, Department of Medicine, 2022 to 2024, and director of networks and policy for the HOPE National Resource Center.'],
-    ['evidence', 2025.7, 2026.4, 'Fulbright US Scholar, Research Ireland', 'Advised on challenge-based and mission-oriented funding design, and later on organizational and international strategy.'],
+    ['evidence', 2025.7, 2026.4, 'Fulbright US Scholar, Research Ireland', 'Designed SAFE, an end-to-end governance framework for challenge funding, with documented selection, stage gates, risk controls, and transition planning.'],
     ['evidence', 2026, 2026.8, 'IPCC expert reviewer', 'Special Report on Climate Change and Cities.'],
     ['ground', 2019, 2021.6, 'Nevada PEP, Statewide Family Network', 'Director of statewide programs for families of children with mental health needs and developmental disabilities.'],
     ['ground', 2021.5, 2026.8, 'Nevada PEP, strategic initiatives', 'Strategic initiatives director.'],
