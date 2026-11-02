@@ -51,16 +51,16 @@ ul.tight li::before { content: ""; position: absolute; left: 0; top: 8px; width:
 
 /* Executive summary */
 .exec { display: grid; grid-template-columns: 1fr 360px; gap: 54px; }
-.msg { display: grid; grid-template-columns: 40px 1fr; gap: 0 12px; padding: 11px 0; border-top: 1px solid var(--rule); }
+.msg { display: grid; grid-template-columns: 40px 1fr; gap: 0 12px; padding: 8px 0; border-top: 1px solid var(--rule); }
 .msg:first-child { border-top: 0; padding-top: 0; }
-.msg .n { font-family: var(--serif); font-weight: 700; font-size: 34px; color: var(--gold); line-height: .9; }
+.msg .n { font-family: var(--serif); font-weight: 700; font-size: 30px; color: var(--gold); line-height: .9; }
 .msg h3 { margin: 0 0 3px; font-size: 17.5px; font-weight: 700; color: var(--navy); }
-.msg p { margin: 0; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
+.msg p { margin: 0; font-size: 14px; line-height: 1.36; color: var(--muted); }
 .kpis { background: var(--navy); color: #EDE4D2; padding: 18px 26px 10px; align-self: start; }
 .kpis .h { font-size: 12.5px; font-weight: 700; color: var(--gold-soft); margin-bottom: 4px; }
-.kpi { padding: 8px 0; border-top: 1px solid rgba(237,228,210,.18); }
+.kpi { padding: 6px 0; border-top: 1px solid rgba(237,228,210,.18); }
 .kpi:first-of-type { border-top: 0; }
-.kpi b { display: block; font-family: var(--serif); font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1; }
+.kpi b { display: block; font-family: var(--serif); font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1; }
 .kpi span { display: block; font-size: 13px; color: #C9C3B5; margin-top: 2px; line-height: 1.35; }
 
 /* Skills matrix */
@@ -69,7 +69,7 @@ table.matrix th { font-size: 13px; font-weight: 700; color: var(--navy); text-al
 table.matrix th:first-child { text-align: left; }
 table.matrix th small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
 table.matrix td { padding: 6px 6px; border-bottom: 1px solid var(--rule); text-align: center; height: 38px; }
-table.matrix td:first-child { text-align: left; font-weight: 600; color: var(--ink); width: 300px; }
+table.matrix td:first-child { text-align: left; font-weight: 600; color: var(--ink); width: 290px; }
 table.matrix td:first-child small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
 table.matrix tr.hl td { background: var(--tint); }
 .hb { width: 20px; height: 20px; border-radius: 50%; border: 1.6px solid var(--navy); display: inline-block; vertical-align: middle; }
@@ -206,11 +206,12 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="title-rule"></div>
   <div class="exec">
     <div>
-      <div class="msg"><div class="n">1</div><div><h3>Fiduciary oversight at scale</h3><p>Elected regent of the Nevada System of Higher Education, a multi-billion-dollar system of eight institutions that run like cities: real estate, investments, energy and water, health care, athletics, housing, and child care. Vice chair; audit committee chair.</p></div></div>
-      <div class="msg"><div class="n">2</div><div><h3>Audit and enterprise risk, rebuilt</h3><p>Redesigned the system's audit and enterprise risk management framework, directed a $25 million reserve distribution to clear audit follow-up, and cut open audit exceptions by 68 percent.</p></div></div>
-      <div class="msg"><div class="n">3</div><div><h3>Operator's command of the numbers</h3><p>Twelve years in managed care finance at UnitedHealthcare and DaVita, where she designed a five-state value-based payment program averaging $8.5 million in monthly savings.</p></div></div>
-      <div class="msg"><div class="n">4</div><div><h3>System design and risk mitigation</h3><p>Designed SAFE, an end-to-end governance framework for a national research funder that names six risks to outcomes and builds a control for each.</p></div></div>
-      <div class="msg"><div class="n">5</div><div><h3>Regulatory depth</h3><p>Federal appointee to Medicare's evidence and coverage advisory committee (MEDCAC) and a commissioner on the North Carolina Oil and Gas Commission.</p></div></div>
+      <div class="msg"><div class="n">1</div><div><h3>Fiduciary oversight at scale</h3><p>Elected regent of the Nevada System of Higher Education, a multi-billion-dollar system of eight institutions that run like cities. Vice chair and audit committee chair, 2013 to 2019.</p></div></div>
+      <div class="msg"><div class="n">2</div><div><h3>Audit and enterprise risk, rebuilt</h3><p>Redesigned the audit and enterprise risk framework, directed a $25 million reserve distribution, and cut open audit exceptions by 68 percent.</p></div></div>
+      <div class="msg"><div class="n">3</div><div><h3>Operator's command of the numbers</h3><p>Twelve years at UnitedHealthcare and DaVita; designed a five-state payment program averaging $8.5 million in monthly savings.</p></div></div>
+      <div class="msg"><div class="n">4</div><div><h3>System design and risk mitigation</h3><p>Designed SAFE, a governance framework for a national research funder that builds a control for each of six risks.</p></div></div>
+      <div class="msg"><div class="n">5</div><div><h3>National governance</h3><p>Eight years and two elected terms on the Democratic National Committee, the party's national governing body, with officer roles in its Black Caucus and its Environmental and Climate Crisis Council.</p></div></div>
+      <div class="msg"><div class="n">6</div><div><h3>Regulatory depth</h3><p>Federal appointee to Medicare's MEDCAC; commissioner, North Carolina Oil and Gas Commission.</p></div></div>
     </div>
     <div class="kpis">
       <div class="h">By the numbers</div>
@@ -218,6 +219,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
       <div class="kpi"><b>68%</b><span>Reduction in open audit exceptions</span></div>
       <div class="kpi"><b>$25M</b><span>Reserve distribution directed as audit committee chair</span></div>
       <div class="kpi"><b>$8.5M</b><span>Average monthly savings, five-state payment program</span></div>
+      <div class="kpi"><b>8 years</b><span>On a national governing board, two elected terms</span></div>
       <div class="kpi"><b>15</b><span>Boards, commissions, and councils since 2010</span></div>
     </div>
   </div>
@@ -237,19 +239,20 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
       <th>SAFE<br>framework<small>2025 to 2026</small></th>
       <th>MEDCAC<small>2019 to 2027</small></th>
       <th>NC Oil and Gas<br>Commission<small>2026 to 2030</small></th>
+      <th>Democratic National<br>Committee<small>2016 to 2024</small></th>
       <th>Nonprofit<br>boards<small>2012 to 2021</small></th>
     </tr></thead>
     <tbody>
-      <tr class="hl"><td>Audit and financial oversight</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
-      <tr class="hl"><td>Enterprise risk management</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td></tr>
-      <tr class="hl"><td>Regulatory and compliance</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td></tr>
-      <tr><td>Executive oversight and accountability</td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td></tr>
-      <tr><td>Real estate and capital projects</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td></tr>
-      <tr><td>Investments and capital allocation</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td></tr>
-      <tr><td>Strategy and system design</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
-      <tr><td>Data, technology, and analytics<small>Validating the evidence behind decisions; IT oversight</small></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td><td><i class="hb"></i></td></tr>
-      <tr><td>Healthcare and life sciences</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td></tr>
-      <tr><td>Energy, environment, and climate</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr class="hl"><td>Audit and financial oversight</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr class="hl"><td>Enterprise risk management</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f2"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr class="hl"><td>Regulatory and compliance</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr><td>Executive oversight and accountability</td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td></tr>
+      <tr><td>Real estate and capital projects</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr><td>Investments and capital allocation</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td></tr>
+      <tr><td>Strategy and system design</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td><td><i class="hb f3"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr><td>Data, technology, and analytics<small>Validating the evidence behind decisions; IT oversight</small></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td><td><i class="hb"></i></td></tr>
+      <tr><td>Healthcare and life sciences</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td><td><i class="hb f2"></i></td></tr>
+      <tr><td>Energy, environment, and climate</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td></tr>
     </tbody>
   </table>
   <div class="foot"><div class="legend"><span>Depth of direct responsibility:</span><span><i class="hb f4"></i>Led</span><span><i class="hb f3"></i>Substantial</span><span><i class="hb f2"></i>Shared</span><span><i class="hb f1"></i>Exposure</span><span><i class="hb"></i>None</span></div><div class="pg">Allison Alimayu, PhD<b>3</b></div></div>
@@ -296,11 +299,11 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="title-rule"></div>
   <div class="scope">
     <div class="tile"><h3>Real estate and capital projects</h3><p>Land sales, lease-purchase financing, and campus construction, from academic buildings to student housing</p><span>Corporate analogue: capital allocation, facilities, real estate portfolio</span></div>
-    <div class="tile"><h3>Investments and endowment</h3><p>Endowment and operating investment portfolios, including fossil fuel divestment and climate risk in investment policy</p><span>Corporate analogue: investment committee, pension, and climate risk in capital allocation</span></div>
+    <div class="tile"><h3>Investments and endowment</h3><p>Endowment and operating portfolios; weighed a 2018 fossil fuel divestment review and chose not to divest</p><span>Corporate analogue: investment committee, pension, and climate risk in capital allocation</span></div>
     <div class="tile"><h3>Public lands, energy, and climate</h3><p>Nearly 14,000 acres of land-grant farms, ranches, and research lands, plus campus energy and climate commitments</p><span>Corporate analogue: land and natural resource stewardship, sustainability, climate risk</span></div>
     <div class="tile"><h3>Health care enterprise</h3><p>Two medical schools, faculty practice plans, clinical partnerships, and practice-plan debt</p><span>Corporate analogue: health system operations and reimbursement risk</span></div>
     <div class="tile"><h3>Athletics and public venues</h3><p>Coaching contracts, stadium agreements, and events that bring the wider community onto campus</p><span>Corporate analogue: executive contracts, venue and event liability</span></div>
-    <div class="tile"><h3>Housing, child care, and safety</h3><p>People live, work, and play on campus: residence halls, child care centers, Title IX, and public safety</p><span>Corporate analogue: workforce, duty of care, and compliance</span></div>
+    <div class="tile"><h3>Housing, child care, and safety</h3><p>People live, work, and play on campus: residence halls, child care centers, Title IX, and campus police consolidation</p><span>Corporate analogue: workforce, duty of care, and compliance</span></div>
     <div class="tile"><h3>Data and technology</h3><p>The data behind every policy vote, system-wide information systems, and technology efforts she led</p><span>Corporate analogue: data governance, IT and cyber oversight</span></div>
     <div class="tile"><h3>Executive search and oversight</h3><p>Chaired a community college presidential search; oversight of the chancellor and presidents</p><span>Corporate analogue: CEO succession and evaluation</span></div>
     <div class="tile"><h3>Budget and people</h3><p>Biennial operating budgets, tuition and fees, and compensation for faculty and executives</p><span>Corporate analogue: operating plan, pricing, and compensation committee</span></div>
@@ -463,7 +466,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="close">
     <div><h3><small>Committee fit</small>Audit</h3><ul class="tight"><li>Chaired a system audit and compliance committee</li><li>Redesigned internal audit and ERM; cut open exceptions 68 percent</li><li>Published on audit committee governance</li></ul></div>
     <div><h3><small>Committee fit</small>Risk and compliance</h3><ul class="tight"><li>Built anticipatory risk review into capital and contract decisions</li><li>Designed a control-based governance framework for a national funder</li><li>Federal and state regulatory appointments</li></ul></div>
-    <div><h3><small>Committee fit</small>Governance and sustainability</h3><ul class="tight"><li>Vice chair of a public system board; chaired a presidential search</li><li>Fifteen boards, commissions, and councils since 2010</li><li>Healthcare, energy, and climate oversight experience</li></ul></div>
+    <div><h3><small>Committee fit</small>Governance and sustainability</h3><ul class="tight"><li>Vice chair of a public system board; chaired a presidential search</li><li>Eight years on a national governing board; fifteen boards since 2010</li><li>Healthcare, energy, and climate oversight experience</li></ul></div>
   </div>
   <div class="contact">
     <div><div class="nm">Allison Alimayu, PhD</div><div style="color:#A9A6B4;font-size:13px;margin-top:6px">PhD, Biomedical Informatics, Rutgers University</div></div>
