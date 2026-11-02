@@ -106,6 +106,15 @@ table.matrix tr.hl td { background: var(--tint); }
 .tile h3 { font-family: var(--serif); font-size: 21px; font-weight: 700; color: var(--navy); margin: 0 0 8px; line-height: 1.05; }
 .tile p { font-size: 13.8px; line-height: 1.42; margin: 0 0 10px; }
 .tile span { margin-top: auto; font-size: 12.5px; color: var(--teal); font-weight: 600; line-height: 1.35; border-top: 1px solid var(--rule); padding-top: 8px; }
+/* Other seats */
+.others { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.ocard { border-top: 3px solid var(--teal); background: var(--tint); padding: 12px 14px 8px; }
+.ocard .when { font-size: 12px; font-weight: 600; color: var(--teal); }
+.ocard h3 { font-family: var(--serif); font-size: 19.5px; font-weight: 700; color: var(--navy); margin: 3px 0 3px; line-height: 1.08; }
+.ocard .by { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.3; }
+.ocard ul { margin: 0; padding: 0; list-style: none; }
+.ocard li { position: relative; padding-left: 13px; font-size: 13px; line-height: 1.35; margin-bottom: 6px; }
+.ocard li::before { content: ""; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; background: var(--gold); }
 /* Data tables */
 table.grid.tight-rows td { padding-top: 9px; padding-bottom: 9px; }
 table.grid { width: 100%; border-collapse: collapse; font-size: 14.5px; }
@@ -146,7 +155,8 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
 
 /* Regulatory cards */
 .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.card { border-top: 4px solid var(--navy); background: var(--tint); padding: 20px 22px 18px; display: flex; flex-direction: column; }
+.card { border-top: 4px solid var(--navy); background: var(--tint); padding: 22px 24px 20px; display: flex; flex-direction: column; min-height: 400px; }
+.card p { font-size: 16px !important; }
 .card .when { font-size: 13px; font-weight: 600; color: var(--teal); }
 .card h3 { font-family: var(--serif); font-size: 27px; font-weight: 700; color: var(--navy); margin: 4px 0 4px; line-height: 1.05; }
 .card .by { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
@@ -444,7 +454,6 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
     <div class="card"><div class="when">2026 to 2030</div><h3>North Carolina Oil and Gas Commission</h3><div class="by">Appointed to a four-year term</div><p>Commissioner on the state body that sets rules for oil and gas activity in North Carolina.</p><div class="rel"><b>Board relevance</b>Energy, environmental, and permitting risk; regulator perspective for industrial and utility boards</div></div>
     <div class="card"><div class="when">2026</div><h3>IPCC expert reviewer</h3><div class="by">Intergovernmental Panel on Climate Change</div><p>Expert reviewer for the Special Report on Climate Change and Cities.</p><div class="rel"><b>Board relevance</b>Climate risk disclosure, physical risk, and sustainability oversight</div></div>
   </div>
-  <div class="strip"><b>State licensing and policy boards</b><span>Nevada State Board of Occupational Therapy, 2010 to 2015, a licensing board that enforced practice standards, held open disciplinary hearings, oversaw its executive director, complied with open meeting law, responded to new state and federal legislation, and worked with licensing boards and national associations across the country. Nevada State Board of Education, 2016 to 2018. Nevada Legislative Subcommittee on Governance and Financing, 2013 to 2014. Nevada Vocational Rehabilitation Council, 2020 to 2021.</span></div>
   <div class="foot"><div class="src">Appointing authorities as listed. Terms shown as appointed.</div><div class="pg">Allison Alimayu, PhD<b>10</b></div></div>
 </section>
 
@@ -520,6 +529,24 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="foot"><div class="src">Recognition in this period: Women in Politics Lifetime Achievement Award, Urban Chamber of Commerce, 2016; Congressional Commendation, US Representative Dina Titus, 2016.</div><div class="pg">Allison Alimayu, PhD<b>12</b></div></div>
 </section>
 
+<!-- 9a. Other seats -->
+<section class="slide">
+  <div class="tracker">Additional board and commission service</div>
+  <h1 class="title">Additional state, national, and nonprofit seats added licensing, accountability, and federal program oversight</h1>
+  <div class="title-rule"></div>
+  <div class="others">
+    <div class="ocard"><div class="when">2010 to 2015</div><h3>Nevada State Board of Occupational Therapy</h3><div class="by">Public member, appointed by the governor</div><ul><li>Licensing, practice standards, and open disciplinary hearings</li><li>Oversight of the executive director; open meeting law; new state and federal legislation</li></ul></div>
+    <div class="ocard"><div class="when">2016 to 2018</div><h3>Nevada State Board of Education</h3><div class="by">Higher education representative, appointed by the governor</div><ul><li>Statewide K-12 standards, regulations, and accountability</li><li>Aligning K-12 with higher education; federal Every Student Succeeds Act planning</li></ul></div>
+    <div class="ocard"><div class="when">2017 to 2018</div><h3>Association of Community College Trustees</h3><div class="by">Finance and Audit Committee</div><ul><li>Financial and audit oversight for a national trustee association</li><li>National presentations on technology management and workforce partnerships</li></ul></div>
+    <div class="ocard"><div class="when">2013 to 2014</div><h3>Legislative Subcommittee on Governance and Financing</h3><div class="by">Nevada Legislature</div><ul><li>Interim study of how higher education is governed</li><li>Review of the higher education funding formula</li></ul></div>
+    <div class="ocard"><div class="when">2015 to 2018</div><h3>Nevada Commission for Women</h3><div class="by">Appointed by the governor</div><ul><li>Advised the governor and Legislature on policy affecting women</li><li>Public body governed by open meeting law</li></ul></div>
+    <div class="ocard"><div class="when">2020 to 2021</div><h3>Nevada Vocational Rehabilitation Council</h3><div class="by">Appointed by the governor</div><ul><li>Federally required council reviewing state rehabilitation program performance</li><li>Shaped state plan goals with the agency</li></ul></div>
+    <div class="ocard"><div class="when">2019 to 2020</div><h3>Children’s Justice Act Task Force</h3><div class="by">Nevada Division of Child and Family Services</div><ul><li>Federally required review of how child abuse cases are handled</li><li>Recommendations that guide use of federal Children’s Justice Act funds</li></ul></div>
+    <div class="ocard"><div class="when">2017 to 2020</div><h3>Nevada PEP</h3><div class="by">Board member</div><ul><li>Fiduciary oversight of a statewide nonprofit serving families of children with disabilities</li><li>Federally funded programs and their compliance</li></ul></div>
+    </div>
+  <div class="foot"><div class="src">Highlights summarize each body's charge and her role on it.</div><div class="pg">Allison Alimayu, PhD<b>13</b></div></div>
+</section>
+
 <!-- 9. Gantt -->
 <section class="slide">
   <div class="tracker">Governance record</div>
@@ -527,7 +554,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="title-rule" style="margin-bottom:16px"></div>
   <div class="gantt" id="gantt"></div>
   <div class="g-legend"><span><i class="c-fid"></i>Governing and fiduciary</span><span><i class="c-reg"></i>Regulatory and evidence review</span><span><i class="c-pol"></i>Policy and advisory</span><span><i class="c-np"></i>Nonprofit and national governance</span></div>
-  <div class="foot"><div class="src">Selected seats. Bars show term years.</div><div class="pg">Allison Alimayu, PhD<b>13</b></div></div>
+  <div class="foot"><div class="src">Selected seats. Bars show term years.</div><div class="pg">Allison Alimayu, PhD<b>14</b></div></div>
 </section>
 
 <!-- 10. Close -->
