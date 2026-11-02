@@ -101,10 +101,10 @@ table.matrix tr.hl td { background: var(--tint); }
 .callout span { font-size: 14px; line-height: 1.35; color: var(--ink); }
 
 /* Scope tiles */
-.scope { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.tile { border-top: 3px solid var(--navy); background: var(--tint); padding: 14px 16px 14px; display: flex; flex-direction: column; min-height: 214px; }
-.tile h3 { font-family: var(--serif); font-size: 23px; font-weight: 700; color: var(--navy); margin: 0 0 8px; line-height: 1.05; }
-.tile p { font-size: 14.5px; line-height: 1.42; margin: 0 0 10px; }
+.scope { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.tile { border-top: 3px solid var(--navy); background: var(--tint); padding: 13px 14px; display: flex; flex-direction: column; min-height: 222px; }
+.tile h3 { font-family: var(--serif); font-size: 21px; font-weight: 700; color: var(--navy); margin: 0 0 8px; line-height: 1.05; }
+.tile p { font-size: 13.8px; line-height: 1.42; margin: 0 0 10px; }
 .tile span { margin-top: auto; font-size: 12.5px; color: var(--teal); font-weight: 600; line-height: 1.35; border-top: 1px solid var(--rule); padding-top: 8px; }
 /* Data tables */
 table.grid { width: 100%; border-collapse: collapse; font-size: 14.5px; }
@@ -246,7 +246,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
       <tr><td>Real estate and capital projects</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td></tr>
       <tr><td>Investments and capital allocation</td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td><td><i class="hb f3"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f1"></i></td></tr>
       <tr><td>Strategy and system design</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f1"></i></td><td><i class="hb f2"></i></td></tr>
-      <tr><td>Data, analytics, and AI</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td><td><i class="hb"></i></td></tr>
+      <tr><td>Data, technology, and analytics<small>Validating the evidence behind decisions; IT oversight</small></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f3"></i></td><td><i class="hb f1"></i></td><td><i class="hb"></i></td></tr>
       <tr><td>Healthcare and life sciences</td><td><i class="hb f4"></i></td><td><i class="hb f4"></i></td><td><i class="hb f1"></i></td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb f2"></i></td></tr>
       <tr><td>Energy, environment, and climate</td><td><i class="hb f4"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb"></i></td><td><i class="hb f4"></i></td><td><i class="hb f2"></i></td></tr>
     </tbody>
@@ -269,7 +269,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
     <div>
       <h4><i>2</i>What she did</h4>
       <ul class="tight">
-        <li>Chaired the Audit and Compliance Committee; served as vice chair of the board, December 2016 to June 2017</li>
+        <li>Chaired the Audit and Compliance Committee; vice chair of the board, December 2016 to June 2017; member of the Budget and Finance, Investment and Finance, and Health Sciences System committees</li>
         <li>Led a redesign of the system's audit and enterprise risk management framework</li>
         <li>Built a staffing model that paired auditors with subject matter experts in each key area of enterprise risk, including health compliance</li>
         <li>Directed a $25 million distribution from the Operating Pool Reserve to clear a backlog of internal audit follow-up</li>
@@ -300,6 +300,8 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
     <div class="tile"><h3>Health care enterprise</h3><p>Two medical schools, faculty practice plans, clinical partnerships, and practice-plan debt</p><span>Corporate analogue: health system operations and reimbursement risk</span></div>
     <div class="tile"><h3>Athletics and public venues</h3><p>Coaching contracts, stadium agreements, and events that bring the wider community onto campus</p><span>Corporate analogue: executive contracts, venue and event liability</span></div>
     <div class="tile"><h3>Housing, child care, and safety</h3><p>People live, work, and play on campus: residence halls, child care centers, Title IX, and public safety</p><span>Corporate analogue: workforce, duty of care, and compliance</span></div>
+    <div class="tile"><h3>Data and technology</h3><p>The data behind every policy vote, system-wide information systems, and technology efforts she led</p><span>Corporate analogue: data governance, IT and cyber oversight</span></div>
+    <div class="tile"><h3>Executive search and oversight</h3><p>Chaired a community college presidential search; oversight of the chancellor and presidents</p><span>Corporate analogue: CEO succession and evaluation</span></div>
     <div class="tile"><h3>Budget and people</h3><p>Biennial operating budgets, tuition and fees, and compensation for faculty and executives</p><span>Corporate analogue: operating plan, pricing, and compensation committee</span></div>
     <div class="tile"><h3>Audit, risk, and compliance</h3><p>As committee chair: the audit and enterprise risk framework across every enterprise above</p><span>Corporate analogue: audit and risk committees</span></div>
   </div>
@@ -424,7 +426,7 @@ table.grid td.ctl { position: relative; padding-left: 24px; }
   <div class="close">
     <div><h3><small>Committee fit</small>Audit</h3><ul class="tight"><li>Chaired a system audit and compliance committee</li><li>Redesigned internal audit and ERM; cut open exceptions 68 percent</li><li>Published on audit committee governance</li></ul></div>
     <div><h3><small>Committee fit</small>Risk and compliance</h3><ul class="tight"><li>Built anticipatory risk review into capital and contract decisions</li><li>Designed a control-based governance framework for a national funder</li><li>Federal and state regulatory appointments</li></ul></div>
-    <div><h3><small>Committee fit</small>Governance and sustainability</h3><ul class="tight"><li>Vice chair of a public system board; oversight of the chancellor</li><li>Fifteen boards, commissions, and councils since 2010</li><li>Healthcare, energy, and climate oversight experience</li></ul></div>
+    <div><h3><small>Committee fit</small>Governance and sustainability</h3><ul class="tight"><li>Vice chair of a public system board; chaired a presidential search</li><li>Fifteen boards, commissions, and councils since 2010</li><li>Healthcare, energy, and climate oversight experience</li></ul></div>
   </div>
   <div class="contact">
     <div><div class="nm">Allison Alimayu, PhD</div><div style="color:#A9A6B4;font-size:13px;margin-top:6px">PhD, Biomedical Informatics, Rutgers University</div></div>
