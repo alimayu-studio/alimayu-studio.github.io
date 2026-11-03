@@ -25,6 +25,7 @@
     ['Daily Kos', L + 'daily-kos.png'],
     ['Washington Examiner', L + 'washington-examiner.webp'],
     ['Las Vegas Sun', L + 'las-vegas-sun.png'],
+    ['Las Vegas Black Image', L + 'las-vegas-black-image.jpg'],
     ['Nevada Current', L + 'nevada-current.png'],
     ['The Imprint', L + 'the-imprint.svg'],
     ['The American Presidency Project', null, 'font-family:"Gentium Book Basic","Gentium Book Plus",Georgia,serif;font-weight:400;color:#111'],
@@ -34,7 +35,10 @@
     ['Politics NOW, KLAS 8', L + 'politics-now.jpg'],
     ['Capital Crossfire'],
     ['Child Welfare Monitor', L + 'child-welfare-monitor.png'],
-    ['News Medical Life Sciences', L + 'news-medical.png']
+    ['News Medical Life Sciences', L + 'news-medical.png'],
+    ['Tufts Now', L + 'tufts-now.svg'],
+    ['Tufts Medicine', L + 'tufts-medicine.svg'],
+    ['Trenton Daily', L + 'trenton-daily.png']
   ];
 
   var track = document.getElementById('ticker');
