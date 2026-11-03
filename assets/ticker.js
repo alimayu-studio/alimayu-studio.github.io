@@ -36,7 +36,8 @@
     ['Capital Crossfire'],
     ['Child Welfare Monitor', L + 'child-welfare-monitor.png'],
     ['News Medical Life Sciences', L + 'news-medical.png'],
-    ['Tufts Now', L + 'tufts-now.svg']
+    ['Tufts Now', L + 'tufts-now.svg'],
+    ['Tufts Medicine', L + 'tufts-medicine.svg']
   ];
 
   var track = document.getElementById('ticker');
