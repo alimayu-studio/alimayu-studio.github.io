@@ -37,7 +37,8 @@
     ['Child Welfare Monitor', L + 'child-welfare-monitor.png'],
     ['News Medical Life Sciences', L + 'news-medical.png'],
     ['Tufts Now', L + 'tufts-now.svg'],
-    ['Tufts Medicine', L + 'tufts-medicine.svg']
+    ['Tufts Medicine', L + 'tufts-medicine.svg'],
+    ['Trenton Daily', L + 'trenton-daily.png']
   ];
 
   var track = document.getElementById('ticker');
