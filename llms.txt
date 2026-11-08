@@ -38,11 +38,12 @@
 
 ## Speaking topics
 Signature talks:
-- Health systems and the business of care: how payment, coverage, and data decide who gets care, drawn from years inside UnitedHealthcare and DaVita and a federal seat on MEDCAC. Best for health plans, health systems, employers, and associations.
-- Public policy, governance, and equity: how boards, budgets, and votes really work, from six years as an elected regent and service on state and federal bodies since 2010. Best for public agencies, boards, foundations, and civic and political events.
+- Managed care is population health, not medicine: a health plan sees a population, and a doctor should see a person. Managed care runs on averages, risk pools, and protocols, the right tools for public health and the wrong ones for the exam room. Drawn from years inside UnitedHealthcare and DaVita and a federal seat on MEDCAC. Best for health plans, health systems, employers, public health agencies, and associations.
+- Every town deserves to know: data centers and health: a data center brings heat, air pollution, water use, noise, and light to its neighbors, and each one answers to a different regulator. None of them owns health. This talk lays out a framework any town can use to see the full picture, from a commissioner on the North Carolina Oil and Gas Commission and the author of the DNC resolution on noise pollution and cumulative impacts. Pairs with the free masterclass Data center health. Best for local governments, public health agencies, regulators, and community and environmental organizations.
 - What is missing from science? The rest of us: her TEDx talk, built out as a keynote on who gets a seat when evidence is weighed. Best for universities, research funders, and innovation conferences.
 
 More topics, each available as a keynote, panel, or training:
+- Public policy, governance, and equity: how boards, budgets, and votes really work, from six years as an elected regent and service on state and federal bodies since 2010. Best for public agencies, boards, foundations, and civic and political events.
 - Climate and health: from an expert reviewer for the IPCC Special Report on Climate Change and Cities and an officer of the DNC Environmental and Climate Crisis Council. Best for public health agencies, health systems, and climate and sustainability conferences.
 - Child and family wellbeing: drawn from FAAITH and HOPE research with faith leaders and keynotes for infant mental health and afterschool networks. Best for child welfare, early childhood, education, and faith-based audiences.
 - Running for office: from someone who has run and won, advised local, state, and federal campaigns, including as a presidential campaign policy advisor, and served as an elected member of the Democratic National Committee; pairs with the free masterclass Ballot ready. Best for candidate trainings, party and civic organizations, and leadership programs.
@@ -51,7 +52,7 @@ More topics, each available as a keynote, panel, or training:
 - [Home](https://alimayu.studio/): overview, record, and quick facts
 - [About](https://alimayu.studio/about.html): full biography
 - [Speaking](https://alimayu.studio/speaking.html): signature talks, more topics, speaker reel, testimonials, and booking
-- [Masterclasses](https://alimayu.studio/masterclasses.html): free lessons with paired products, in production
+- [Masterclasses](https://alimayu.studio/masterclasses.html): free lessons with paired products, in production: Ballot ready and Data center health
 - [Consulting](https://alimayu.studio/consulting.html): strategy sessions, futures sessions, and monthly advisory
 - [Board service](https://alimayu.studio/board-seats.html): governance record, board bio, and board deck
 - [Initiatives](https://alimayu.studio/initiatives.html): The Postmoon Club and ABIDE with FAAITH
