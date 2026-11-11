@@ -336,3 +336,8 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .studio-section .band-head h2 { font-size: clamp(40px, 5vw, 66px); }
 .s3d [data-tilt] .sc-soon { transform: translateZ(40px); }
 .pubs-list em { color: var(--teal); }
+.sub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid rgba(231,219,197,.22); padding-bottom: 12px; margin-bottom: 28px; }
+.sub-head h3 { font-size: clamp(28px, 3vw, 38px); color: #fff; margin: 0; }
+.sub-head .text-link { color: var(--gold-soft); white-space: nowrap; }
+.notes-dark h2 { color: #fff; font-size: clamp(32px, 3.6vw, 48px); }
+.notes-dark p { color: rgba(255,255,255,.82); }
