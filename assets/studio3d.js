@@ -167,6 +167,33 @@
     stack.addEventListener('pointerleave', function () { stack.classList.remove('peek'); });
   });
 
+  // ---------- Rise: items lift up out of the page, one after another, as they scroll in ----------
+  $$('[data-rise]').forEach(function (list) {
+    var kids = Array.prototype.slice.call(list.children);
+    kids.forEach(function (k, i) { k.style.setProperty('--rise-d', (i * 0.09).toFixed(2) + 's'); });
+    if (REDUCED || !('IntersectionObserver' in window)) { list.classList.add('risen'); return; }
+    new IntersectionObserver(function (es, io) {
+      if (es[0].isIntersecting) { list.classList.add('risen'); io.disconnect(); }
+    }, { rootMargin: '0px 0px -12% 0px' }).observe(list);
+  });
+
+  // ---------- Follow: an object that turns to face the cursor anywhere on the page ----------
+  $$('[data-follow]').forEach(function (el) {
+    if (REDUCED || !FINE) return;
+    var tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+    function apply() {
+      x += (tx - x) * .08; y += (ty - y) * .08;
+      el.style.transform = 'perspective(700px) rotateY(' + (x * 26).toFixed(2) + 'deg) rotateX(' + (-y * 18).toFixed(2) + 'deg)';
+      raf = (Math.abs(tx - x) > .001 || Math.abs(ty - y) > .001) ? requestAnimationFrame(apply) : 0;
+    }
+    addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      tx = clamp((e.clientX - (r.left + r.width / 2)) / (innerWidth / 2), -1, 1);
+      ty = clamp((e.clientY - (r.top + r.height / 2)) / (innerHeight / 2), -1, 1);
+      if (!raf) raf = requestAnimationFrame(apply);
+    }, { passive: true });
+  });
+
   // ---------- Studio Notes issue: the cover opens as it scrolls into view ----------
   $$('[data-issue]').forEach(function (issue) {
     if (REDUCED) return;
