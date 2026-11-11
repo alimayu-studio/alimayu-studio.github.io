@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/atelier.css">
+<link rel="stylesheet" href="assets/studio3d.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -149,6 +150,28 @@
     <div><b>15</b><span>Boards, commissions, and councils since 2010</span></div>
   </div>
 </section>
+<section class="band board3d" data-scene="boardroom" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="band-head"><div><p class="script-eyebrow">Fifteen seats since 2010</p><h2>The table, assembled</h2></div><div><p class="board3d-count"><b data-seat-count>15</b> of 15 seats</p><p style="color:#4A4F63;margin-top:8px">Each chair is a board, commission, or council: elected, gubernatorial, federal, national, and nonprofit.</p></div></div>
+    <div class="board3d-stage">
+      <canvas aria-hidden="true"></canvas>
+        <span data-seat="0"><small>Audit and finance</small><b>Nevada Board of Regents</b></span>
+        <span data-seat="3"><small>Federal regulatory</small><b>MEDCAC</b></span>
+        <span data-seat="5"><small>Energy and environment</small><b>NC Oil and Gas Commission</b></span>
+        <span data-seat="8"><small>State boards</small><b>Nevada appointments</b></span>
+        <span data-seat="10"><small>National governance</small><b>Democratic National Committee</b></span>
+        <span data-seat="13"><small>Nonprofit</small><b>Nonprofit boards</b></span>
+    </div>
+    <ul class="board3d-legend">
+      <li><b>Nevada Board of Regents</b>, audit and finance</li>
+      <li><b>MEDCAC</b>, federal regulatory</li>
+      <li><b>NC Oil and Gas Commission</b>, energy and environment</li>
+      <li><b>Nevada appointments</b>, state boards</li>
+      <li><b>Democratic National Committee</b>, national governance</li>
+      <li><b>Nonprofit boards</b>, nonprofit</li>
+    </ul>
+  </div>
+</section>
 <section class="band">
   <div class="wrap">
     <div class="band-head"><div><p class="script-eyebrow">The record</p><h2>Governance across sectors</h2></div><p>Elected, gubernatorial, federal, and nonprofit board service, with audit, finance, and regulatory responsibilities.</p></div>
@@ -191,7 +214,7 @@
 </section>
 <section class="band" id="inquiry">
   <div class="wrap paper-grid two" style="align-items:start">
-    <div><p class="script-eyebrow">Ready to talk</p><h2 style="font-size:clamp(36px,4.6vw,58px)">Open to corporate and nonprofit board seats</h2><p style="color:#4A4F63;margin-top:14px">Search committees and governance recruiters can share the opportunity here, and a reply follows within two business days.</p><div class="faq" style="margin-top:28px"><details open><summary>What board experience does Dr. Allison Alimayu have?</summary><p>Fifteen boards, commissions, and councils since 2010, including six years as an elected member of the Nevada Board of Regents, the governing board of a multi-billion-dollar public higher education system (vice chair from December 2016 to June 2017, chair of the Audit and Compliance Committee), the federal MEDCAC panel, and the North Carolina Oil and Gas Commission.</p></details>
+    <div><div class="monogram3d left" data-scene="monogram" aria-hidden="true"><canvas></canvas></div><p class="script-eyebrow">Ready to talk</p><h2 style="font-size:clamp(36px,4.6vw,58px)">Open to corporate and nonprofit board seats</h2><p style="color:#4A4F63;margin-top:14px">Search committees and governance recruiters can share the opportunity here, and a reply follows within two business days.</p><div class="faq" style="margin-top:28px"><details open><summary>What board experience does Dr. Allison Alimayu have?</summary><p>Fifteen boards, commissions, and councils since 2010, including six years as an elected member of the Nevada Board of Regents, the governing board of a multi-billion-dollar public higher education system (vice chair from December 2016 to June 2017, chair of the Audit and Compliance Committee), the federal MEDCAC panel, and the North Carolina Oil and Gas Commission.</p></details>
 <details><summary>Is Dr. Alimayu available for corporate board service?</summary><p>Yes. She is open to conversations with search committees and governance recruiters about corporate and nonprofit board seats. Use the board inquiry form on this page.</p></details></div></div>
     <div class="form-card"><iframe id="JotFormIFrame-262917810765061" title="Board service inquiry" src="https://form.jotform.com/262917810765061" allow="geolocation; microphone; camera; fullscreen" style="width:100%;min-height:760px;border:none" scrolling="no"></iframe></div><script>addEventListener("load",function(){if(window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='JotFormIFrame-262917810765061']","https://form.jotform.com/");});</script>
   </div>
@@ -212,6 +235,7 @@
   </div>
 </footer>
 <script src="assets/site.js"></script>
-<script src="assets/ledger.js"></script><script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script src="assets/ledger.js"></script>
+<script src="assets/studio3d.js"></script><script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 </body>
 </html>

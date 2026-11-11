@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/atelier.css">
+<link rel="stylesheet" href="assets/studio3d.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -163,7 +164,7 @@
       <p class="lead-serif">200+ engagements, from the TEDx stage to live national television. Every talk is built for the room in front of it.</p>
       <div class="actions"><a class="btn dark" href="#book">Check a date <span class="arrow">&rarr;</span></a><a class="btn ghost-ink" href="#reel">Watch the reel</a></div>
     </div>
-    <div class="a-arch speak-portrait"><div class="a-window-edge" aria-hidden="true"></div><div class="a-window portrait-window"><div class="pw-glow" aria-hidden="true"></div><div class="pw-rays" aria-hidden="true"></div><img class="pw-photo" style="opacity:1" src="assets/home/cutout-portrait.png" alt="Dr. Allison Alimayu"><div class="pw-sheen" aria-hidden="true"></div></div><img class="a-stamp" src="alimayu-seal.png" alt=""></div>
+    <div class="speak-portrait" data-depth><div class="a-arch"><div class="a-window-edge" aria-hidden="true"></div><div class="a-window portrait-window"><div class="pw-glow" aria-hidden="true" data-z="-1.4"></div><div class="pw-rays" aria-hidden="true" data-z="-2.2"></div><img class="pw-photo" style="opacity:1" src="assets/home/cutout-portrait.png" alt="Dr. Allison Alimayu" data-z="1"><canvas class="dust" aria-hidden="true"></canvas><div class="pw-sheen" aria-hidden="true"></div></div><img class="a-stamp" src="alimayu-seal.png" alt="" data-z="2.6"></div></div>
   </div>
 </section>
 
@@ -174,10 +175,13 @@
       <h2>On stage, on air, <em>and on the record.</em></h2>
       <p>TEDx, Fox News, the CNN post-debate spin room, a broadcast congressional debate, and more, in three minutes.</p>
     </div>
-    <div class="folio reveal">
+    <div class="folio" data-screen-in>
       <img class="folio-clasp" src="alimayu-seal.png" alt="">
       <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-      <div class="folio-screen"><video controls playsinline preload="metadata" poster="assets/speaking/reel-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="assets/speaking/speaker-reel-2026.mp4" type="video/mp4"></video></div>
+      <div class="folio-screen" data-reel><video controls playsinline preload="metadata" poster="assets/speaking/reel-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="assets/speaking/speaker-reel-2026.mp4" type="video/mp4"></video>
+        <button type="button" class="reel-sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Watch with sound</button>
+        <div class="reel-end"><p>Bring this to your stage.</p><a class="btn" href="#book">Book a keynote <span class="arrow">&rarr;</span></a><button type="button" class="reel-replay">Watch again</button></div>
+      </div>
     </div>
   </div>
 </section>
@@ -191,9 +195,9 @@
     <p>Each talk begins with the audience: who is in the seats, what they decide, and what they need to do differently on Monday.</p>
   </div>
   <div class="wrap paper-grid">
-    <article class="paper-card talk-card pin tilt-l reveal"><span class="num">i.</span><h3>The average patient does not exist</h3><p class="hook">Plans look at groups. Doctors should look at people.</p><p>Health plans make decisions about large groups of people. They use averages and set rules for everyone, which works when the goal is keeping a whole community healthy. Medicine is different. A doctor treats one person, and good care fits that person. Drawn from more than a decade inside UnitedHealthcare and DaVita and a federal seat on MEDCAC.</p><dl><dt>Best for</dt><dd>Health plans, health systems, employers, public health agencies, and associations</dd></dl></article>
-    <article class="paper-card talk-card pin reveal"><span class="num">ii.</span><h3>Data centers and health</h3><p class="hook">Count every impact, then count who lives next door.</p><p>A data center brings heat, air pollution, water use, noise, and light to its neighbors, and each one answers to a different regulator. None of them owns health. This talk lays out a framework any town can use to see the full picture, from a commissioner on the North Carolina Oil and Gas Commission and the author of the DNC resolution on noise pollution and cumulative impacts. Pairs with the free masterclass <a href="masterclasses.html#data-center-health">Data center health</a>.</p><dl><dt>Best for</dt><dd>Local governments, public health agencies, regulators, and community and environmental organizations</dd></dl></article>
-    <article class="paper-card talk-card pin tilt-r reveal"><span class="num">iii.</span><h3>What is missing from science? The rest of us</h3><p class="hook">The TEDx talk, built out as a keynote.</p><p>Who gets a seat when evidence is weighed, and what changes when more people are in the room.</p><dl><dt>Best for</dt><dd>Universities, research funders, and innovation conferences</dd></dl></article>
+    <article class="paper-card talk-card pin tilt-l reveal" id="talk-managed-care"><span class="num">i.</span><h3>The average patient does not exist</h3><p class="hook">Plans look at groups. Doctors should look at people.</p><p>Health plans make decisions about large groups of people. They use averages and set rules for everyone, which works when the goal is keeping a whole community healthy. Medicine is different. A doctor treats one person, and good care fits that person. Drawn from more than a decade inside UnitedHealthcare and DaVita and a federal seat on MEDCAC.</p><dl><dt>Best for</dt><dd>Health plans, health systems, employers, public health agencies, and associations</dd></dl></article>
+    <article class="paper-card talk-card pin reveal" id="talk-data-centers"><span class="num">ii.</span><h3>Data centers and health</h3><p class="hook">Count every impact, then count who lives next door.</p><p>A data center brings heat, air pollution, water use, noise, and light to its neighbors, and each one answers to a different regulator. None of them owns health. This talk lays out a framework any town can use to see the full picture, from a commissioner on the North Carolina Oil and Gas Commission and the author of the DNC resolution on noise pollution and cumulative impacts. Pairs with the free masterclass <a href="masterclasses.html#data-center-health">Data center health</a>.</p><dl><dt>Best for</dt><dd>Local governments, public health agencies, regulators, and community and environmental organizations</dd></dl></article>
+    <article class="paper-card talk-card pin tilt-r reveal" id="talk-tedx"><span class="num">iii.</span><h3>What is missing from science? The rest of us</h3><p class="hook">The TEDx talk, built out as a keynote.</p><p>Who gets a seat when evidence is weighed, and what changes when more people are in the room.</p><dl><dt>Best for</dt><dd>Universities, research funders, and innovation conferences</dd></dl></article>
   </div>
 </section>
 <section class="band" style="padding-top:0">
@@ -202,18 +206,56 @@
     <p>Dr. Alimayu also speaks on each of these as a keynote, panel, or training, shaped for the audience.</p>
   </div>
   <div class="wrap paper-grid">
-    <article class="paper-card talk-card more-card reveal"><h3>Public policy, governance, and equity</h3><p>How decisions really get made. Boards, budgets, and votes from someone who has cast them: six years as an elected regent and service on state and federal bodies since 2010.</p><dl><dt>Best for</dt><dd>Public agencies, boards, foundations, and civic and political events</dd></dl></article>
-    <article class="paper-card talk-card more-card reveal"><h3>Climate and health</h3><p>How climate change reaches health systems, public budgets, and families, from an expert reviewer for the IPCC Special Report on Climate Change and Cities and an officer of the DNC Environmental and Climate Crisis Council.</p><dl><dt>Best for</dt><dd>Public health agencies, health systems, and climate and sustainability conferences</dd></dl></article>
-    <article class="paper-card talk-card more-card reveal"><h3>Child and family wellbeing</h3><p>What children and families need from the systems built to serve them, drawn from research with faith leaders through <a href="faaith-and-hope.html">FAAITH and HOPE</a> and keynotes for infant mental health and afterschool networks.</p><dl><dt>Best for</dt><dd>Child welfare, early childhood, education, and faith-based audiences</dd></dl></article>
-    <article class="paper-card talk-card more-card reveal"><h3>Running for office</h3><p>What it takes to run and win, from someone who has run and won, advised local, state, and federal campaigns, including as a presidential campaign policy advisor, and served as an elected member of the Democratic National Committee. Pairs with the free masterclass <a href="masterclasses.html">Ballot ready</a>.</p><dl><dt>Best for</dt><dd>Candidate trainings, party and civic organizations, and leadership programs</dd></dl></article>
+    <article class="paper-card talk-card more-card reveal" id="talk-policy"><h3>Public policy, governance, and equity</h3><p>How decisions really get made. Boards, budgets, and votes from someone who has cast them: six years as an elected regent and service on state and federal bodies since 2010.</p><dl><dt>Best for</dt><dd>Public agencies, boards, foundations, and civic and political events</dd></dl></article>
+    <article class="paper-card talk-card more-card reveal" id="talk-climate"><h3>Climate and health</h3><p>How climate change reaches health systems, public budgets, and families, from an expert reviewer for the IPCC Special Report on Climate Change and Cities and an officer of the DNC Environmental and Climate Crisis Council.</p><dl><dt>Best for</dt><dd>Public health agencies, health systems, and climate and sustainability conferences</dd></dl></article>
+    <article class="paper-card talk-card more-card reveal" id="talk-family"><h3>Child and family wellbeing</h3><p>What children and families need from the systems built to serve them, drawn from research with faith leaders through <a href="faaith-and-hope.html">FAAITH and HOPE</a> and keynotes for infant mental health and afterschool networks.</p><dl><dt>Best for</dt><dd>Child welfare, early childhood, education, and faith-based audiences</dd></dl></article>
+    <article class="paper-card talk-card more-card reveal" id="talk-office"><h3>Running for office</h3><p>What it takes to run and win, from someone who has run and won, advised local, state, and federal campaigns, including as a presidential campaign policy advisor, and served as an elected member of the Democratic National Committee. Pairs with the free masterclass <a href="masterclasses.html">Ballot ready</a>.</p><dl><dt>Best for</dt><dd>Candidate trainings, party and civic organizations, and leadership programs</dd></dl></article>
   </div>
 </section>
-<section class="band band-navy">
+<section class="band band-navy const3d" data-scene="constellation" id="topics">
+  <div class="wrap band-head"><div><p class="script-eyebrow light">Fifteen areas of expertise</p><h2>Find the topic for the room</h2></div><p>Choose any point to see the experience behind it and send a request with the topic already filled in.</p></div>
+  <div class="wrap const-wrap">
+    <div>
+      <div class="const-stage" aria-label="Speaking topics">
+        <canvas aria-hidden="true"></canvas>
+          <button type="button" data-topic data-hook="More than a decade inside UnitedHealthcare and DaVita, and a federal seat on MEDCAC." data-best="Related talk: The average patient does not exist" data-card="talk-managed-care" aria-pressed="false">Health systems and the business of care</button>
+          <button type="button" data-topic data-hook="An IPCC expert reviewer and a commissioner on the North Carolina Oil and Gas Commission." data-best="Related talks: Data centers and health, and Climate and health" data-card="talk-data-centers" aria-pressed="false">Climate, environment, and health</button>
+          <button type="button" data-topic data-hook="A Fulbright US Scholar who asks who is missing when evidence is weighed." data-best="Related talk: What is missing from science? The rest of us" data-card="talk-tedx" aria-pressed="false">Research, evidence, and science policy</button>
+          <button type="button" data-topic data-hook="Audit and Compliance Committee chair for a multi-billion-dollar public system." data-best="Related talk: Public policy, governance, and equity" data-card="talk-policy" aria-pressed="false">Governance, audit, and accountability</button>
+          <button type="button" data-topic data-hook="Ran and won, advised campaigns, and served eight years on the DNC." data-best="Related talk: Running for office" data-card="talk-office" aria-pressed="false">Politics, democracy, and civic life</button>
+          <button type="button" data-topic data-hook="Research with faith leaders and keynotes for infant mental health and afterschool networks." data-best="Related talk: Child and family wellbeing" data-card="talk-family" aria-pressed="false">Children, youth, and families</button>
+          <button type="button" data-topic data-hook="From the State Board of Education to the Board of Regents and the medical school classroom." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Education</button>
+          <button type="button" data-topic data-hook="A PhD in biomedical informatics, applied to health data, analytics, and AI." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Data, informatics, and technology</button>
+          <button type="button" data-topic data-hook="Implementation Science Institute and LEAN training, put to work inside real systems." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Quality improvement and implementation science</button>
+          <button type="button" data-topic data-hook="Who gets a seat when decisions are made, and who carries the cost when they are not." data-best="Related talk: Public policy, governance, and equity" data-card="talk-policy" aria-pressed="false">Equity and structural determinants</button>
+          <button type="button" data-topic data-hook="Service on the Nevada Commission for Women and keynotes for women&rsquo;s summits." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Women&rsquo;s leadership</button>
+          <button type="button" data-topic data-hook="FAAITH and HOPE: child development research alongside faith leaders." data-best="Related talk: Child and family wellbeing" data-card="talk-family" aria-pressed="false">Faith and community</button>
+          <button type="button" data-topic data-hook="Plain-language health, from the TEDx stage to live national television." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Public health communication</button>
+          <button type="button" data-topic data-hook="Occupational therapy licensing, vocational rehabilitation, and Nevada PEP board service." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Disability, access, and family engagement</button>
+          <button type="button" data-topic data-hook="Children&rsquo;s Justice Act Task Force service and research on child physical abuse." data-best="Shaped as a keynote, panel, or training for the audience." data-card="" aria-pressed="false">Public safety as public health</button>
+      </div>
+      <p class="const-hint">Drag to turn the constellation. Choose a topic to bring it forward.</p>
+    </div>
+    <aside class="const-panel" aria-live="polite">
+      <p class="cp-kicker">Topic</p>
+      <h3 class="cp-title">Health systems and the business of care</h3>
+      <p class="cp-hook"></p>
+      <p class="cp-best"></p>
+      <a class="btn cp-ask" href="mailto:info@alimayu.studio?subject=Speaking%20request">Request this topic <span class="arrow">&rarr;</span></a>
+      <a class="cp-more" href="#">Read the related talk</a>
+    </aside>
+  </div>
+</section>
+<section class="band band-navy stage3d" data-scene="stage">
   <div class="wrap band-head"><div><p class="script-eyebrow light">On the record</p><h2>Any stage, any format</h2></div><p>Keynotes, commencement addresses, panels, trainings, podcasts, and live television, across the US, Ireland, and Europe.</p></div>
-  <div class="wrap venues">
-    <div><h3>Keynotes</h3><ul><li>Commonwealth Prevention Alliance <span>2024</span></li><li>Arkansas Association for Infant Mental Health <span>2024</span></li><li>Nevada Afterschool Network <span>2020</span></li><li>Northern Nevada Women&rsquo;s Summit <span>2017</span></li><li>Great Basin College and Western Nevada College commencements <span>2013</span></li></ul></div>
-    <div><h3>International</h3><ul><li>TEDx Carlow College, Ireland <span>2026</span></li><li>International Conference on Universal Design, Galway <span>2026</span></li><li>LEPH2026, Leeds <span>2026</span></li><li>Development Studies Association of Ireland <span>2026</span></li></ul></div>
-    <div><h3>National stages and media</h3><ul><li>Robert Wood Johnson Foundation, Systems for Action</li><li>National Indian Child Welfare Association</li><li>Association of College and University Auditors</li><li>Fox News and the CNN post-debate spin room</li><li>KTNV 13 congressional debate</li></ul></div>
+  <div class="wrap stage-wrap">
+    <div class="stage-sticky" aria-hidden="true"><canvas></canvas></div>
+    <div class="stage-panels">
+      <article class="stage-panel" data-room="0"><span class="room-num">The keynote hall</span><h3>Keynotes and commencements</h3><ul><li>Commonwealth Prevention Alliance <span>2024</span></li><li>Arkansas Association for Infant Mental Health <span>2024</span></li><li>Nevada Afterschool Network <span>2020</span></li><li>Northern Nevada Women&rsquo;s Summit <span>2017</span></li><li>Great Basin College and Western Nevada College commencements <span>2013</span></li></ul></article>
+      <article class="stage-panel" data-room="1"><span class="room-num">The studio</span><h3>Live television and debate</h3><ul><li>Fox News</li><li>The CNN post-debate spin room</li><li>KTNV 13 congressional debate</li></ul></article>
+      <article class="stage-panel" data-room="2"><span class="room-num">The dais</span><h3>Panels, trainings, and national stages</h3><ul><li>Robert Wood Johnson Foundation, Systems for Action</li><li>National Indian Child Welfare Association</li><li>Association of College and University Auditors</li></ul></article>
+      <article class="stage-panel" data-room="3"><span class="room-num">Any room in the world</span><h3>International</h3><ul><li>TEDx Carlow College, Ireland <span>2026</span></li><li>International Conference on Universal Design, Galway <span>2026</span></li><li>LEPH2026, Leeds <span>2026</span></li><li>Development Studies Association of Ireland <span>2026</span></li></ul><a class="btn" href="#book">Check a date <span class="arrow">&rarr;</span></a></article>
+    </div>
   </div>
 </section>
 <section class="letter-section" style="padding-top:clamp(70px,9vw,120px)">
@@ -230,7 +272,7 @@
   </div>
 </section>
 <section class="band" id="book" style="padding-top:0">
-  <div class="wrap" style="margin-bottom:40px"><div class="form-card"><div style="padding:34px 30px;text-align:center"><p class="script-eyebrow">Request speaking availability</p><p style="max-width:560px;margin:0 auto 22px;color:#4A4F63">Send the date, audience, format, location, and budget.</p><div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><a class="btn dark" href="mailto:info@alimayu.studio?subject=Speaking%20request">Email a speaking request <span class="arrow">&rarr;</span></a><a class="btn ghost-ink" href="https://sessionize.com/allisonalimayu" rel="noopener">View speaker profile on Sessionize</a></div></div></div></div>
+  <div class="wrap" style="margin-bottom:40px"><div class="form-card"><div style="padding:34px 30px;text-align:center"><div class="monogram3d" data-scene="monogram" aria-hidden="true"><canvas></canvas></div><p class="script-eyebrow" style="justify-content:center">Request speaking availability</p><p style="max-width:560px;margin:0 auto 22px;color:#4A4F63">Send the date, audience, format, location, and budget.</p><div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><a class="btn dark" href="mailto:info@alimayu.studio?subject=Speaking%20request">Email a speaking request <span class="arrow">&rarr;</span></a><a class="btn ghost-ink" href="https://sessionize.com/allisonalimayu" rel="noopener">View speaker profile on Sessionize</a></div></div></div></div>
   <div class="wrap paper-grid two">
     <div class="reveal">
       <p class="script-eyebrow">Book Dr. Alimayu</p><h2 style="font-size:clamp(36px,4.6vw,58px)">In person, virtual, or on air</h2>
@@ -266,5 +308,6 @@
 </footer>
 <script src="assets/site.js"></script>
 <script src="assets/ticker.js"></script>
+<script src="assets/studio3d.js"></script>
 </body>
 </html>
