@@ -89,7 +89,7 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .folio-copy p { color: rgba(255,255,255,.85); margin-top: 18px; }
 .folio-meta { font-size: 15px; color: rgba(255,255,255,.7) !important; }
 .folio { position: relative; background: var(--navy); padding: clamp(18px, 2.4vw, 30px); box-shadow: 0 50px 90px -40px rgba(0,0,0,.75), 0 0 0 1px rgba(176,141,87,.6) inset; }
-.folio .corner { position: absolute; width: 34px; height: 34px; border: 1.5px solid var(--gold); }
+.folio .corner { position: absolute; min-width: 0; width: 34px; height: 34px; border: 1.5px solid var(--gold); }
 .folio .tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
 .folio .tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
 .folio .bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
@@ -341,3 +341,10 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .sub-head .text-link { color: var(--gold-soft); white-space: nowrap; }
 .notes-dark h2 { color: #fff; font-size: clamp(32px, 3.6vw, 48px); }
 .notes-dark p { color: rgba(255,255,255,.82); }
+
+/* ---------- Consulting: EveryExpert introduction beside the sessions ---------- */
+.intro-video { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center; margin: 10px 0 clamp(48px, 6vw, 72px); }
+.intro-video .folio-screen { aspect-ratio: 744 / 414; }
+.intro-copy h3 { font-size: clamp(30px, 3vw, 40px); margin: 0 0 12px; }
+.intro-copy p { color: #4A4F63; margin: 0; }
+@media (max-width: 900px) { .intro-video { grid-template-columns: 1fr; } .intro-video .folio { margin-top: 30px; } }
