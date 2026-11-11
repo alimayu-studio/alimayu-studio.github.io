@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/atelier.css">
+<link rel="stylesheet" href="assets/studio3d.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,16 +94,17 @@
       </div>
       <p class="formerly">Formerly Allison Stephens</p>
     </div>
-    <div class="a-window-wrap">
+    <div class="a-window-wrap" data-depth>
       <div class="a-arch">
         <div class="a-window-edge" aria-hidden="true"></div>
         <div class="a-window portrait-window">
-          <div class="pw-glow" aria-hidden="true"></div>
-          <div class="pw-rays" aria-hidden="true"></div>
-          <img class="pw-photo" src="assets/home/cutout-portrait.png" alt="Dr. Allison Alimayu">
+          <div class="pw-glow" aria-hidden="true" data-z="-1.4"></div>
+          <div class="pw-rays" aria-hidden="true" data-z="-2.2"></div>
+          <img class="pw-photo" src="assets/home/cutout-portrait.png" alt="Dr. Allison Alimayu" data-z="1">
+          <canvas class="dust" aria-hidden="true"></canvas>
           <div class="pw-sheen" aria-hidden="true"></div>
         </div>
-        <img class="a-stamp" src="alimayu-seal.png" alt="Alimayu Studio wax seal">
+        <img class="a-stamp" src="alimayu-seal.png" alt="Alimayu Studio wax seal" data-z="2.6">
       </div>
     </div>
   </div>
@@ -128,7 +130,7 @@
       <p>Who gets a seat when the evidence is weighed, and what changes when more people are in the room.</p>
       <p class="folio-meta">February 2026 &middot; 18 minutes</p>
     </div>
-    <div class="folio reveal">
+    <div class="folio" data-screen-in>
       <img class="folio-clasp" src="alimayu-seal.png" alt="">
       <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
       <div class="folio-screen">
@@ -156,7 +158,7 @@
         </div>
       </div>
       <div class="mc-product reveal">
-        <div class="planner-stack" aria-hidden="true">
+        <div class="planner-stack" aria-hidden="true" data-planner>
           <img class="pp p3" src="assets/home/planner-page-resources.jpg" alt="">
           <img class="pp p2" src="assets/home/planner-page-why.jpg" alt="">
           <img class="pp p1" src="assets/home/planner-cover.jpg" alt="">
@@ -283,11 +285,11 @@
       <h2>Three ways to work together</h2>
     </div>
     <div class="envelopes">
-      <a class="envelope reveal" href="speaking.html">
+      <a class="envelope reveal" href="speaking.html" data-tilt="9">
         <div class="env-window"><img src="assets/speaking/still-rj-mic.jpg?v=2" alt="Dr. Allison Alimayu speaking into a microphone at an organizing event" loading="lazy" style="object-position:22% 40%"><span class="env-credit">Photo: Ellen Schmidt<br>Las Vegas Review-Journal</span></div>
         <span class="env-num">i.</span><h3>Speaking</h3><p>200+ engagements, from TEDx to live national television.</p><span class="env-go">See talks and the reel</span>
       </a>
-      <a class="envelope reveal" href="consulting.html">
+      <a class="envelope reveal" href="consulting.html" data-tilt="9">
         <div class="env-window env-soon env-navy">
           <svg viewBox="0 0 220 242" aria-hidden="true" focusable="false">
             <path d="M34 70V186H192" fill="none" stroke="#E7DBC5" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -301,11 +303,12 @@
         </div>
         <span class="env-num">ii.</span><h3>Consulting</h3><p>Strategy sessions, futures sessions, and monthly advisory.</p><span class="env-go">Book a session</span>
       </a>
-      <a class="envelope reveal" href="board-seats.html">
+      <a class="envelope reveal" href="board-seats.html" data-tilt="9">
         <div class="env-window"><img src="assets/home/board-table.jpg?v=2" alt="Board of Regents members seated at a curved boardroom table" loading="lazy" style="object-position:50% 50%"><span class="env-credit">Photo: Jeff Scheid<br>Las Vegas Review-Journal</span></div>
         <span class="env-num">iii.</span><h3>Board service</h3><p>Audit, finance, and regulatory oversight. Bio and deck open instantly.</p><span class="env-go">See the record</span>
       </a>
     </div>
+    <div class="monogram3d" data-scene="monogram" aria-hidden="true"><canvas></canvas></div>
     <div class="signoff reveal">
       <img src="assets/home/signature-navy.png?v=2" alt="Signature of Allison Alimayu">
     </div>
@@ -332,6 +335,7 @@
 <script src="assets/site.js"></script>
 <script src="assets/ticker.js"></script>
 <script src="assets/ledger.js"></script>
+<script src="assets/studio3d.js"></script>
 <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <script>document.querySelector(".preview-drawer")&&document.querySelector(".preview-drawer").addEventListener("toggle",function(){if(this.open&&window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='JotFormIFrame-262918882160060']","https://form.jotform.com/");});</script>
 <script>
