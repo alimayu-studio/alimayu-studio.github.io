@@ -368,3 +368,22 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .ed-pubs b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 500; color: #fff; line-height: 1.2; margin-bottom: 4px; }
 .ed-pubs em { color: var(--gold-soft); }
 @media (max-width: 900px) { .ed-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Inside the studio: one row of doorway cards ---------- */
+.studio-row { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.studio-row .studio-card { padding: 14px 14px 20px; }
+.studio-row .studio-card .sc-img { margin-bottom: 14px; }
+.studio-row .studio-card h3 { font-size: 24px; }
+.studio-row .studio-card p { font-size: 15px; }
+.studio-row .sc-kicker { font-size: 16px; }
+@media (max-width: 1180px) { .studio-row { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) {
+  .studio-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin: 0 calc(var(--gutter) * -1); padding: 6px var(--gutter) 24px; scrollbar-width: none; }
+  .studio-row::-webkit-scrollbar { display: none; }
+  .studio-row .studio-card { flex: 0 0 76%; scroll-snap-align: start; }
+}
+
+/* ---------- Closing: stay connected, folded into the end of the page ---------- */
+.close-connect { text-align: center; margin-top: clamp(64px, 8vw, 96px); padding-top: clamp(40px, 5vw, 60px); border-top: 1px solid var(--rule); }
+.close-connect > p { max-width: 560px; margin: 0 auto 22px; color: #4A4F63; }
+.close-connect .signoff { margin-top: 36px; }
