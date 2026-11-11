@@ -447,7 +447,7 @@ function monogram(root) {
   const gold = new THREE.MeshPhysicalMaterial({ color: 0xE2BE7E, metalness: 1, roughness: .3, clearcoat: .6, clearcoatRoughness: .2, envMapIntensity: 1.6 });
   const A = new THREE.Mesh(geo, gold); scene.add(A);
   const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTexture('rgba(255,236,200,.55)', 'rgba(210,181,133,.22)'), transparent: true, depthWrite: false }));
-  halo.scale.set(6.5, 6.5, 1); halo.position.z = -1.5; scene.add(halo);
+  halo.scale.set(4.2, 4.2, 1); halo.position.z = -1.5; scene.add(halo);
   let tx = 0, ty = 0, rx = 0, ry = 0;
   addEventListener('pointermove', e => {
     const r = canvas.getBoundingClientRect();
