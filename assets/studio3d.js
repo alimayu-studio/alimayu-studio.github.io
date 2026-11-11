@@ -126,7 +126,7 @@
   });
 
   // ---------- 5. Cards that tilt toward the cursor (or the phone's motion) ----------
-  var tilters = $$('[data-tilt]');
+  var tilters = $$('[data-tilt], [data-issue]');
   tilters.forEach(function (card) {
     if (REDUCED) return;
     var max = +card.dataset.tilt || 8;
@@ -165,6 +165,12 @@
     onScroll.push(function () { stack.style.setProperty('--open', (progress(stack, .95, .45) * .62).toFixed(3)); });
     stack.addEventListener('pointerenter', function () { stack.classList.add('peek'); });
     stack.addEventListener('pointerleave', function () { stack.classList.remove('peek'); });
+  });
+
+  // ---------- Studio Notes issue: the cover opens as it scrolls into view ----------
+  $$('[data-issue]').forEach(function (issue) {
+    if (REDUCED) return;
+    onScroll.push(function () { issue.style.setProperty('--open', (progress(issue, .95, .5) * .42).toFixed(3)); });
   });
 
   // ---------- 7. Bookshelf: pull a book, it turns to show the cover and a note ----------
