@@ -335,3 +335,4 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 @media (max-width: 700px) { .legal-areas { columns: 1; } }
 .studio-section .band-head h2 { font-size: clamp(40px, 5vw, 66px); }
 .s3d [data-tilt] .sc-soon { transform: translateZ(40px); }
+.pubs-list em { color: var(--teal); }
