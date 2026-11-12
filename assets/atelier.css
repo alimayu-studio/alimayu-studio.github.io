@@ -401,3 +401,21 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .strip-links .sl-sub { font-family: var(--sans); font-size: 15px; line-height: 1.4; color: rgba(255,255,255,.72); }
 .strip-links a:hover .sl-name { border-color: var(--gold-soft); }
 @media (max-width: 700px) { .strip-links { flex-direction: column; align-items: center; gap: 22px; } }
+
+/* ---------- Inside the studio: finished band ---------- */
+.studio-strip { position: relative; overflow: hidden; padding: clamp(64px, 8vw, 100px) 0; background-color: var(--navy); background-image: radial-gradient(60% 90% at 50% 0%, rgba(205,176,131,.16), transparent 70%), var(--fleck); background-blend-mode: normal, soft-light; }
+.studio-strip::before, .studio-strip::after { content: ""; position: absolute; left: 50%; width: min(1100px, 86%); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(205,176,131,.55), transparent); }
+.studio-strip::before { top: 18px; } .studio-strip::after { bottom: 18px; }
+.strip-title { margin-bottom: clamp(34px, 4vw, 48px); }
+.strip-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 1040px; margin: 0 auto; }
+.strip-links a { max-width: none; padding: 26px clamp(18px, 3vw, 40px) 30px; gap: 10px; position: relative; border-radius: 2px; transition: background .35s, transform .6s cubic-bezier(.2,1.2,.3,1); }
+.strip-links a + a::before { content: ""; position: absolute; left: 0; top: 18%; bottom: 18%; width: 1px; background: linear-gradient(transparent, rgba(205,176,131,.5), transparent); }
+.strip-links a:hover { background: rgba(255,255,255,.04); }
+.strip-links .sl-num { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gold-soft); }
+.strip-links .sl-name { font-size: clamp(28px, 2.8vw, 36px); }
+.strip-links .sl-sub { max-width: 250px; }
+.s3d .strip-links a[data-tilt]::after { display: none; }
+@media (max-width: 700px) {
+  .strip-links { grid-template-columns: 1fr; }
+  .strip-links a + a::before { left: 20%; right: 20%; top: 0; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(205,176,131,.5), transparent); }
+}
