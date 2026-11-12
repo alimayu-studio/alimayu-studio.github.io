@@ -395,3 +395,9 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .strip-links a { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); color: #fff; text-decoration: none; border-bottom: 1px solid rgba(205,176,131,.35); padding-bottom: 4px; transition: color .25s, border-color .25s; }
 .strip-links a:hover { color: var(--gold-soft); border-color: var(--gold-soft); }
 .strip-links .arrow { font-size: .6em; color: var(--gold-soft); }
+.strip-title { color: #fff; font-size: clamp(32px, 3.8vw, 50px); margin: 0 0 28px; }
+.strip-links a { display: flex; flex-direction: column; align-items: center; gap: 6px; border-bottom: 0; padding: 0; max-width: 300px; }
+.strip-links .sl-name { border-bottom: 1px solid rgba(205,176,131,.35); padding-bottom: 4px; }
+.strip-links .sl-sub { font-family: var(--sans); font-size: 15px; line-height: 1.4; color: rgba(255,255,255,.72); }
+.strip-links a:hover .sl-name { border-color: var(--gold-soft); }
+@media (max-width: 700px) { .strip-links { flex-direction: column; align-items: center; gap: 22px; } }
