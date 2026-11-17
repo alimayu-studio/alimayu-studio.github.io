@@ -585,7 +585,14 @@ border-top: 1px solid rgba(176, 141, 87, .35);
 footer a { color: var(--moonmilk); text-decoration-color: var(--gold); text-underline-offset: 3px; }
 footer img { width: 96px; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .45)); height: auto; display: block; margin: 0 auto 10px; }
 
+/* Lab panels link and banner */
+.labs-link { color: var(--rosehip); font-weight: 600; text-underline-offset: 3px; }
+.labs-banner { margin: 56px 0 0; padding: 32px 36px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; transform: rotate(-.4deg); }
+.labs-banner h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 33px; line-height: 1.15; margin: 6px 0 8px; }
+.labs-banner p { font-size: 17.5px; margin: 0; }
+.labs-banner .button { margin-top: 0; }
 @media (max-width: 720px) {
+.labs-banner { grid-template-columns: 1fr; padding: 28px 22px; }
 .lockup .word { font-size: 44px; }
 .lockup .seal { width: 20px; right: -22px; top: 2px; }
 .polaroid img { width: 96px; }
@@ -662,6 +669,7 @@ html { scroll-behavior: auto; }
 <p class="lede">The Postmoon Club is a postpartum health and wellness community. It walks with the mother through the year after birth, one month at a time. Every piece is made for her.</p>
 <a class="button" href="#join">Get the Free Postmoon Map</a>
 <p class="small-note">Free, and made for a phone.</p>
+<p class="small-note"><a class="labs-link" href="postmoon-health.html">New: Postmoon Health, lab panels for the year after birth &rarr;</a></p>
 </div>
 </div>
 </div>
@@ -750,6 +758,14 @@ html { scroll-behavior: auto; }
 <h3>Teas and Soaks</h3>
 <p>Postpartum sitz bath teas for the early months, then mother's soaks made for her alone.</p>
 </div>
+</div>
+<div class="labs-banner paper tape">
+<div>
+<div class="label">Now open</div>
+<h3>Postmoon Health</h3>
+<p>Lab testing, supplements, and telehealth for postpartum recovery. Lab panels are open now: iron, thyroid, blood sugar, mood and energy, and more, drawn at Labcorp and reviewed by a physician. Supplements and telehealth are coming.</p>
+</div>
+<a class="button" href="postmoon-health.html">Shop Postmoon Health</a>
 </div>
 </div>
 </section>
