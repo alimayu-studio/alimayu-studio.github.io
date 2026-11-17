@@ -4,10 +4,7 @@
 // Capital Crossfire (Access Carson City) has no logo file outside Facebook.
 (function () {
   var L = 'assets/logos/';
-  var gentium = document.createElement('link');
-  gentium.rel = 'stylesheet';
-  gentium.href = 'https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&display=swap';
-  document.head.appendChild(gentium);
+  // Gentium Book Plus is self-hosted in assets/fonts/fonts.css, which every page loads.
   var OUTLETS = [
     ['Fox News', L + 'fox-news.svg'],
     ['CNN', L + 'cnn.svg'],
