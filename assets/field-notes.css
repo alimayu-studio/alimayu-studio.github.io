@@ -1,0 +1,41 @@
+/* Field Notes: editorial list, filter bar, and article pages. Uses the Alimayu Studio palette from site.css and atelier.css. */
+.fn-filter { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px; }
+.fn-filter button { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--navy); background: transparent; border: 1.5px solid var(--navy); padding: 8px 16px; cursor: pointer; border-radius: 0; }
+.fn-filter button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+.fn-filter button:hover { border-color: var(--teal); color: var(--teal); }
+.fn-filter button[aria-pressed="true"]:hover { color: #fff; background: var(--teal); border-color: var(--teal); }
+.fn-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.fn-card { background: #FBF7EF; background-image: var(--fiber); background-blend-mode: multiply; padding: 24px 24px 22px; box-shadow: 0 24px 40px -28px rgba(40,30,15,.7), 0 1px 3px rgba(40,30,15,.1); border-top: 3px solid var(--gold); display: flex; flex-direction: column; }
+.fn-card[hidden] { display: none; }
+.fn-tag { font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--teal); margin: 0 0 8px; }
+.fn-card h3 { font-size: 25px; line-height: 1.15; margin: 0 0 10px; color: var(--navy); }
+.fn-card h3 a { text-decoration: none; }
+.fn-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.fn-card p { color: #4A4F63; font-size: 16px; margin: 0 0 14px; }
+.fn-meta { margin-top: auto !important; font-size: 14px !important; color: #6A6F82 !important; }
+@media (max-width: 960px) { .fn-list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .fn-list { grid-template-columns: 1fr; } }
+
+/* Article */
+.fn-article { max-width: 720px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) var(--gutter) clamp(60px, 8vw, 100px); }
+.fn-crumbs { font-size: 14px; margin: 0 0 22px; }
+.fn-crumbs a { color: var(--teal); font-weight: 600; text-decoration: none; }
+.fn-article h1 { font-size: clamp(36px, 5vw, 54px); line-height: 1.08; color: var(--navy); margin: 6px 0 16px; }
+.fn-dek { font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.35; color: var(--navy); margin: 0 0 18px; }
+.fn-byline { font-size: 15px; color: #6A6F82; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin: 0 0 30px; }
+.fn-article h2 { font-size: clamp(28px, 3.4vw, 36px); color: var(--navy); margin: 38px 0 12px; }
+.fn-article p, .fn-article li { color: #2B2F45; font-size: 18.5px; }
+.fn-article ul { padding-left: 22px; margin: 0 0 1em; }
+.fn-article li { margin: 0 0 8px; }
+.fn-article li::marker { color: var(--gold); }
+.fn-article a { color: var(--teal); text-underline-offset: 3px; }
+.fn-note { background: var(--cream); padding: 16px 20px; font-size: 16px !important; margin: 30px 0 0; }
+.fn-callout { margin: 40px 0 0; padding: 26px 28px; background: var(--navy); color: #EDE4D2; }
+.fn-callout p { color: #EDE4D2 !important; margin: 0 0 14px; font-size: 17.5px !important; }
+.fn-callout .script-eyebrow { color: var(--gold-soft); }
+.fn-callout a.btn { margin-top: 4px; }
+.fn-bio { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start; margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--rule); }
+.fn-bio img { width: 64px; height: 64px; }
+.fn-bio p { font-size: 16px !important; color: #4A4F63 !important; margin: 0; }
+.fn-back { display: inline-block; margin-top: 34px; font-weight: 600; color: var(--teal); }
+.fn-callout a.btn { color: var(--navy); }
