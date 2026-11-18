@@ -419,3 +419,111 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
   .strip-links { grid-template-columns: 1fr; }
   .strip-links a + a::before { left: 20%; right: 20%; top: 0; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, transparent, rgba(205,176,131,.5), transparent); }
 }
+
+/* ===== Palette pass (Nov 2026): every kit color gets a job.
+   Navy anchors. Teal = Speaking. Gold = Consulting, calls to action, key numbers. Navy = Board service. Black = Legal expert, one dramatic section at most.
+   Cream = solid resting surface. One accent per section. */
+body.paper { --accent: var(--gold); --accent-light: #CDB083; --accent-ink: var(--black); --teal-light: #7FC4BF; }
+body.track-teal { --accent: var(--teal); --accent-light: #7FC4BF; --accent-ink: #fff; }
+body.track-gold { --accent: var(--gold); --accent-light: #CDB083; --accent-ink: var(--black); }
+body.track-navy { --accent: var(--navy); --accent-light: #CDB083; --accent-ink: #fff; }
+
+/* Titles: navy letterpress instead of faded gold, with a rule in the page color */
+.deboss { color: var(--navy); text-shadow: 0 1px 0 rgba(255, 255, 255, .75), 0 -1px 0 rgba(10, 12, 30, .18); }
+.p-hero h1::after { content: ""; display: block; width: 96px; height: 4px; margin-top: 26px; background: var(--accent); }
+body.track-navy .p-hero h1::after { background: linear-gradient(90deg, var(--navy) 0 72%, var(--gold) 72%); }
+
+/* Current page in the menu carries the page color */
+.nav a[aria-current="page"] { color: var(--accent-light); }
+.nav a[aria-current="page"]::after { transform: scaleX(1); background: var(--accent-light); height: 2px; }
+
+/* Hero buttons in the page color */
+.track-teal .p-hero .btn.dark, .track-teal .reel-end .btn { background: var(--teal); border-color: var(--teal); color: #fff; }
+.track-gold .p-hero .btn.dark { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.track-teal .p-hero .btn.dark:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+.track-gold .p-hero .btn.dark:hover { background: #C29C63; }
+
+/* Solid surfaces */
+.band-cream, .surface-cream { background-color: var(--cream); background-image: var(--fiber); background-blend-mode: multiply; }
+.band-cream .paper-card, .surface-cream .paper-card, .band-cream .form-card { background-color: #FBF7EF; }
+.band-black { background-color: var(--black); color: var(--cream); background-image: radial-gradient(70% 90% at 50% 0%, rgba(176,141,87,.14), transparent 70%), var(--fleck); background-blend-mode: normal, soft-light; }
+.band-black h2, .band-black h3 { color: #fff; }
+.band-black p { color: rgba(231, 219, 197, .82); }
+.band-black .script-eyebrow { color: var(--gold-soft); }
+.band-black .paper-card h3, .band-black .form-card h3 { color: var(--navy); }
+.band-black .paper-card p, .band-black .form-card p { color: #4A4F63; }
+.band-gold { background-color: var(--gold); color: var(--black); background-image: var(--fleck), radial-gradient(900px 500px at 85% 0%, rgba(255,255,255,.16), transparent 60%); background-blend-mode: soft-light, normal; }
+.band-gold h2 { color: var(--black); }
+.band-gold p { color: rgba(23, 23, 23, .82); }
+.band-gold .script-eyebrow, .band-gold .script-eyebrow.light { color: var(--navy); }
+.band-gold .script-eyebrow::after, .band-gold .script-eyebrow::before { color: var(--navy); }
+.band-teal .script-eyebrow { color: var(--cream); }
+.band-teal .notes-grid p, .band-teal .notes-list li { color: rgba(255, 255, 255, .84); }
+.band-teal .notes-list li { border-top-color: rgba(231, 219, 197, .28); }
+.band-teal .notes-list b { color: #fff; }
+
+/* Pinned cards: pins and top edges rotate through teal, gold, navy so a row reads as a set, not clones */
+.paper-grid > .pin:nth-child(3n+1)::before { background: radial-gradient(circle at 35% 35%, #5FB0AB, var(--teal) 55%, var(--teal-deep)); }
+.paper-grid > .pin:nth-child(3n+2)::before { background: radial-gradient(circle at 35% 35%, #E2C696, var(--gold) 55%, #8E6C37); }
+.paper-grid > .pin:nth-child(3n+1) { box-shadow: inset 0 3px 0 var(--teal), 0 24px 40px -28px rgba(40,30,15,.7), 0 1px 3px rgba(40,30,15,.1); }
+.paper-grid > .pin:nth-child(3n+2) { box-shadow: inset 0 3px 0 var(--gold), 0 24px 40px -28px rgba(40,30,15,.7), 0 1px 3px rgba(40,30,15,.1); }
+.paper-grid > .pin:nth-child(3n) { box-shadow: inset 0 3px 0 var(--navy), 0 24px 40px -28px rgba(40,30,15,.7), 0 1px 3px rgba(40,30,15,.1); }
+.paper-grid > .pin:nth-child(3n+1) .num { color: var(--teal); }
+
+/* Home: the four ways to work, each in its own color */
+.envelopes .envelope:nth-child(1) { --c: var(--teal); --c-flap: rgba(47,122,120,.26); }
+.envelopes .envelope:nth-child(2) { --c: var(--gold); --c-flap: rgba(176,141,87,.32); }
+.envelopes .envelope:nth-child(3) { --c: var(--navy); --c-flap: rgba(30,35,70,.2); }
+.envelopes .envelope:nth-child(4) { --c: var(--black); --c-flap: rgba(23,23,23,.2); }
+.envelopes .envelope { border-bottom: 5px solid var(--c); }
+.envelopes .envelope::before { background: linear-gradient(170deg, var(--c-flap) 0 50%, transparent 50%), linear-gradient(-170deg, var(--c-flap) 0 50%, transparent 50%); }
+.envelopes .env-window { box-shadow: 0 0 0 3px #FBF7EF, 0 0 0 5px var(--c); }
+.envelopes .env-num, .envelopes .env-go { color: var(--c); }
+.envelopes .envelope:nth-child(2) .env-go { color: #8A6A38; }
+.env-gold-deep { background: radial-gradient(circle at 50% 40%, #A5814C, #5E4522); }
+.env-black { background: radial-gradient(circle at 50% 40%, #33302C, var(--black)); }
+.studio-strip.strip-black { background-color: var(--black); }
+.close-connect.surface-cream { border-top: 0; padding: clamp(40px, 5vw, 60px) clamp(20px, 4vw, 48px) clamp(32px, 4vw, 48px); box-shadow: inset 0 4px 0 var(--gold), 0 30px 50px -36px rgba(40,30,15,.6); }
+.close-connect .btn.dark { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.close-connect .btn.dark:hover { background: #C29C63; }
+
+/* Speaking: stage labels in teal */
+.track-teal .stage-panel .room-num { color: var(--teal-light); }
+.track-teal .const3d .script-eyebrow, .track-teal .stage3d .script-eyebrow { color: var(--teal-light); }
+
+/* Board: the numbers in gold */
+.track-navy .stats b { color: var(--gold-soft); }
+
+/* Consulting: custom engagements as the gold call to action */
+.custom-gold { background-color: var(--gold) !important; background-image: var(--fleck) !important; background-blend-mode: soft-light !important; }
+.custom-gold h3, .custom-gold p { color: var(--black) !important; }
+.custom-gold .btn.dark { background: var(--black); border-color: var(--black); color: var(--cream); }
+
+/* Masterclasses: Ballot ready gets navy, Data center health keeps teal */
+.mc-arch.arch-navy { background: radial-gradient(120% 80% at 50% 30%, #3A4280, var(--navy) 45%, #11142A 85%); }
+
+/* Field Notes: one color per initiative, kept to the edge and the label */
+.fn-card[data-cat="postmoon"], body.fn-postmoon { --fn: #A4533F; }
+.fn-card[data-cat="civic"], body.fn-civic { --fn: var(--navy); }
+.fn-card[data-cat="datacenter"], body.fn-datacenter { --fn: var(--teal); }
+.fn-card[data-cat="faaith"], body.fn-faaith { --fn: var(--teal-deep); }
+.fn-card[data-cat="medicine"], body.fn-medicine { --fn: #8A6A38; }
+.fn-list .fn-card { border-top: 4px solid var(--fn, var(--gold)); }
+.fn-list .fn-card[data-cat="faaith"] { border-top: 0; box-shadow: inset 0 4px 0 transparent, 0 24px 40px -28px rgba(40,30,15,.7), 0 1px 3px rgba(40,30,15,.1); background-image: linear-gradient(90deg, var(--teal) 0 18%, var(--gold) 18% 22%, var(--navy) 22% 46%, var(--teal) 46% 70%, var(--gold) 70% 74%, var(--navy) 74% 100%), var(--fiber); background-size: 100% 4px, auto; background-repeat: no-repeat, repeat; background-position: top, 0 0; background-blend-mode: normal, multiply; }
+.fn-list .fn-card[data-cat="medicine"] { border-top-color: var(--gold); }
+.fn-list .fn-card .fn-tag { color: var(--fn, var(--teal)); }
+.fn-filter button[data-filter="postmoon"] { --fn: #A4533F; }
+.fn-filter button[data-filter="civic"] { --fn: var(--navy); }
+.fn-filter button[data-filter="datacenter"] { --fn: var(--teal); }
+.fn-filter button[data-filter="faaith"] { --fn: var(--teal-deep); }
+.fn-filter button[data-filter="medicine"] { --fn: #8A6A38; }
+.fn-filter button[data-filter]:not([data-filter="all"]) { border-color: var(--fn); color: var(--fn); }
+.fn-filter button[data-filter]:not([data-filter="all"])::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--fn); margin-right: 8px; vertical-align: 1px; }
+.fn-filter button[data-filter]:not([data-filter="all"])[aria-pressed="true"] { background: var(--fn); border-color: var(--fn); color: #fff; }
+.fn-filter button[data-filter]:not([data-filter="all"])[aria-pressed="true"]::before { background: #fff; }
+.fn-filter button[data-filter]:not([data-filter="all"]):hover { border-color: var(--fn); color: var(--fn); background: rgba(255,255,255,.5); }
+body[class*="fn-"] .fn-article { border-top: 6px solid var(--fn); margin-top: clamp(28px, 4vw, 48px); background: rgba(251, 247, 239, .55); }
+body.fn-faaith .fn-article { border-top: 0; background-image: linear-gradient(90deg, var(--teal) 0 18%, var(--gold) 18% 22%, var(--navy) 22% 46%, var(--teal) 46% 70%, var(--gold) 70% 74%, var(--navy) 74% 100%); background-size: 100% 6px; background-repeat: no-repeat; }
+body[class*="fn-"] .fn-article > .script-eyebrow { color: var(--fn); }
+body[class*="fn-"] .fn-article li::marker { color: var(--fn); }
+body[class*="fn-"] .fn-crumbs a { color: var(--fn); }
