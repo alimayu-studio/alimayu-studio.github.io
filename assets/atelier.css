@@ -73,15 +73,12 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .ticker-mask { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .ticker-track.cards { display: flex; width: max-content; animation: scroll 90s linear infinite; }
 .ticker-track.cards:hover { animation-play-state: paused; }
-.ticker-track.cards ul { display: flex; gap: 12px; list-style: none; margin: 0; padding: 14px 9px; }
-/* Each outlet is a clipping torn from newsprint: ragged edges, faint column rules, ink that sits in the paper */
-.ticker-track.cards li { flex: none; height: 84px; min-width: 156px; padding: 0 28px; display: flex; align-items: center; justify-content: center; background-color: #F1ECE1; background-image: var(--fiber), repeating-linear-gradient(90deg, transparent 0 46px, rgba(30,35,70,.07) 46px 47px); background-blend-mode: multiply; clip-path: var(--clip); filter: drop-shadow(0 10px 8px rgba(0,0,0,.45)); transform: rotate(var(--r, 0deg)); transition: transform .3s; }
-.ticker-track.cards li:nth-child(4n+1) { --clip: polygon(0 4%, 9% 0, 23% 3%, 38% 0, 55% 2%, 71% 0, 86% 3%, 100% 1%, 98% 24%, 100% 47%, 97% 70%, 100% 96%, 84% 100%, 66% 97%, 49% 100%, 31% 97%, 15% 100%, 2% 98%, 0 74%, 3% 49%, 0 26%); --r: .8deg; }
-.ticker-track.cards li:nth-child(4n+2) { --clip: polygon(1% 0, 18% 3%, 34% 0, 50% 4%, 67% 1%, 83% 3%, 100% 0, 97% 21%, 100% 42%, 98% 63%, 100% 84%, 99% 100%, 80% 97%, 62% 100%, 45% 96%, 27% 100%, 10% 97%, 0 100%, 2% 77%, 0 55%, 3% 33%, 0 12%); --r: -1.2deg; }
-.ticker-track.cards li:nth-child(4n+3) { --clip: polygon(0 1%, 14% 4%, 29% 0, 46% 3%, 62% 0, 79% 4%, 97% 0, 100% 18%, 97% 40%, 100% 61%, 97% 82%, 100% 99%, 85% 96%, 69% 100%, 52% 97%, 36% 100%, 20% 96%, 4% 100%, 0 80%, 2% 58%, 0 37%, 3% 17%); --r: .3deg; }
-.ticker-track.cards li:nth-child(4n) { --clip: polygon(2% 2%, 16% 0, 33% 4%, 49% 0, 65% 3%, 82% 0, 100% 3%, 98% 28%, 100% 52%, 97% 77%, 100% 100%, 82% 97%, 65% 100%, 47% 98%, 30% 100%, 13% 97%, 0 99%, 3% 75%, 0 50%, 2% 25%); --r: -.6deg; }
-.ticker-track.cards li:hover { transform: rotate(0) translateY(-4px) scale(1.04); }
-.ticker-track.cards img { height: 36px; width: auto; max-width: 160px; object-fit: contain; mix-blend-mode: multiply; filter: grayscale(.15) contrast(1.05); }
+.ticker-track.cards ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 6px 9px; }
+.ticker-track.cards li { flex: none; height: 78px; min-width: 150px; padding: 0 26px; display: flex; align-items: center; justify-content: center; background: #FBF7EF; background-image: var(--fiber); background-blend-mode: multiply; border-radius: 3px; box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 22px -14px rgba(0,0,0,.7); transform: rotate(var(--r, 0deg)); transition: transform .3s; }
+.ticker-track.cards li:nth-child(3n) { --r: -1.2deg; }
+.ticker-track.cards li:nth-child(3n+1) { --r: .8deg; }
+.ticker-track.cards li:hover { transform: rotate(0) translateY(-4px); }
+.ticker-track.cards img { height: 36px; width: auto; max-width: 160px; object-fit: contain; }
 .ticker-track.cards .wordmark { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--navy); white-space: nowrap; }
 
 /* III. Folio for the TEDx talk */
