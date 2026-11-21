@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/atelier.css">
 <link rel="stylesheet" href="assets/studio3d.css">
+<link rel="stylesheet" href="assets/craft.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -195,8 +196,8 @@
         <button aria-pressed="true" data-lane="ground" style="--c:#171717">Children and families</button>
       </div>
     </div>
-    <div class="tl-scroll"><div class="tl" id="tl" data-only="board"><div class="tl-years" id="tl-years"></div><div class="tl-rows" id="tl-rows"><div class="tl-grid" id="tl-grid"></div></div></div></div>
-    <div class="tl-detail" aria-live="polite"><span class="sw" id="d-sw"></span><div><h3 id="d-title">Choose any line in the ledger</h3><p id="d-text">Each line is a role. Hover or tap to read it.</p></div></div>
+    <div class="book" id="ledger-book" data-only="board" aria-label="The ledger, 2006 to now"></div>
+    <div class="tl-detail" aria-live="polite"><span class="sw" id="d-sw"></span><div><h3 id="d-title">Choose any entry in the ledger</h3><p id="d-text">Each entry is a role. Choose one to read it.</p></div></div>
   </div>
 </section>
 
@@ -233,7 +234,7 @@
   </div>
 </footer>
 <script src="assets/site.js"></script>
-<script src="assets/ledger.js"></script>
+<script src="assets/craft.js"></script>
 <script src="assets/studio3d.js"></script><script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 </body>
 </html>

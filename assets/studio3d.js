@@ -214,7 +214,7 @@
     });
   });
 
-  // ---------- WebGL scenes: stage, constellation, boardroom, monogram ----------
+  // ---------- WebGL scenes: stage, boardroom, monogram ----------
   function webgl() {
     try { var c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); }
     catch (e) { return false; }
@@ -224,31 +224,14 @@
   var modP = null;
   function mod() { return modP || (modP = import(SCENES_URL)); }
   scenes.forEach(function (el) {
-    if (!GL) { el.classList.add('scene-off'); fallback(el); return; }
+    if (!GL) { el.classList.add('scene-off'); return; }
     new IntersectionObserver(function (es, io) {
       if (!es[0].isIntersecting) return;
       io.disconnect();
-      mod().then(function (m) { m.mount(el); if (el.classList.contains('scene-off')) fallback(el); })
-           .catch(function (err) { console.warn('3D unavailable:', err); el.classList.add('scene-off'); fallback(el); });
+      mod().then(function (m) { m.mount(el); })
+           .catch(function (err) { console.warn('3D unavailable:', err); el.classList.add('scene-off'); });
     }, { rootMargin: '600px 0px' }).observe(el);
   });
-
-  // Without WebGL the constellation becomes a list of chips that still fill the panel.
-  function fallback(el) {
-    if (el.dataset.scene !== 'constellation') return;
-    var labels = $$('[data-topic]', el), panel = el.querySelector('.const-panel');
-    function show(i) {
-      var d = labels[i].dataset, name = labels[i].textContent.trim();
-      labels.forEach(function (l, k) { l.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
-      panel.querySelector('.cp-title').textContent = name;
-      panel.querySelector('.cp-hook').textContent = d.hook || '';
-      panel.querySelector('.cp-best').textContent = d.best || '';
-      panel.querySelector('.cp-ask').href = 'mailto:info@alimayu.studio?subject=' + encodeURIComponent('Speaking request: ' + name) + '&body=' + encodeURIComponent('Date:\nAudience:\nFormat:\nLocation:\nBudget:\n');
-      panel.querySelector('.cp-more').href = '#' + (d.card || '');
-    }
-    labels.forEach(function (l, i) { l.addEventListener('click', function () { show(i); }); });
-    show(0);
-  }
 
   request();
 })();

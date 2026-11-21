@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/atelier.css">
 <link rel="stylesheet" href="assets/studio3d.css">
+<link rel="stylesheet" href="assets/craft.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -145,6 +146,7 @@
       <a class="tag t6" href="board-seats.html"><b>Audit and Compliance chair</b>Led the audit and risk redesign; open audit exceptions down 68%</a>
     </div>
   </div>
+  <p class="seats-hint">Pull a note off the board and toss it</p>
 </section>
 
 <!-- V. The ledger: every role, interactive -->
@@ -162,15 +164,10 @@
         <button aria-pressed="true" data-lane="ground" style="--c:#171717">Children and families</button>
       </div>
     </div>
-    <div class="tl-scroll">
-      <div class="tl" id="tl">
-        <div class="tl-years" id="tl-years"></div>
-        <div class="tl-rows" id="tl-rows"><div class="tl-grid" id="tl-grid"></div></div>
-      </div>
-    </div>
+    <div class="book" id="ledger-book" aria-label="The ledger, 2006 to now"></div>
     <div class="tl-detail" aria-live="polite">
       <span class="sw" id="d-sw"></span>
-      <div><h3 id="d-title">Choose any line in the ledger</h3><p id="d-text">Each line is a role. Hover or tap to read it.</p></div>
+      <div><h3 id="d-title">Choose any entry in the ledger</h3><p id="d-text">Each entry is a role. Choose one to read it.</p></div>
     </div>
   </div>
 </section>
@@ -180,11 +177,16 @@
   <div class="wrap">
     <p class="script-eyebrow light">Inside the studio</p>
     <h2 class="strip-title">Where Dr. Alimayu makes her own work</h2>
-    <nav class="strip-links" aria-label="Inside the studio">
-      <a href="initiatives.html" data-tilt="5"><span class="sl-num">i.</span><span class="sl-name">Initiatives <span class="arrow">&rarr;</span></span><span class="sl-sub">The Postmoon Club, ABIDE with FAAITH, and Curation</span></a>
-      <a href="masterclasses.html" data-tilt="5"><span class="sl-num">ii.</span><span class="sl-name">Masterclasses <span class="arrow">&rarr;</span></span><span class="sl-sub">Free masterclasses to watch, with companion resources</span></a>
-      <a href="editorial.html" data-tilt="5"><span class="sl-num">iii.</span><span class="sl-name">Editorial <span class="arrow">&rarr;</span></span><span class="sl-sub">Studio Notes and selected publications</span></a>
-    </nav>
+    <div class="book" aria-label="Inside the studio">
+      <div class="bp cover"><img class="cv-seal" src="alimayu-seal.png" alt=""><p class="pg-kicker">Alimayu Studio</p><h3 class="pg-title">Inside the studio</h3><p class="pg-text">Where Dr. Alimayu makes her own work</p><span class="cv-hint">Turn the page</span></div>
+      <div class="bp"><div class="pg-photo"><img src="assets/img/faaith-family-table.jpg" alt="A family gathered around a kitchen table" loading="lazy"></div></div>
+      <div class="bp chapter"><span class="pg-num-big">i.</span><h3 class="pg-title">Initiatives</h3><p class="pg-text">The Postmoon Club, ABIDE with FAAITH, and Curation.</p><p><a class="pg-link" href="initiatives.html">See the initiatives <span aria-hidden="true">&rarr;</span></a></p><span class="pg-num">2</span></div>
+      <div class="bp"><div class="pg-photo"><img src="assets/home/planner-cover.jpg" alt="The Ballot ready year-before planner" loading="lazy"></div></div>
+      <div class="bp chapter"><span class="pg-num-big">ii.</span><h3 class="pg-title">Masterclasses</h3><p class="pg-text">Free masterclasses to watch, with companion resources.</p><p><a class="pg-link" href="masterclasses.html">See the masterclasses <span aria-hidden="true">&rarr;</span></a></p><span class="pg-num">4</span></div>
+      <div class="bp"><div class="pg-photo"><img src="assets/img/studio-notes-shelf.jpg" alt="A shelf of notebooks and papers in the studio" loading="lazy"></div></div>
+      <div class="bp chapter"><span class="pg-num-big">iii.</span><h3 class="pg-title">Editorial</h3><p class="pg-text">Studio Notes and selected publications.</p><p><a class="pg-link" href="editorial.html">Read the editorial <span aria-hidden="true">&rarr;</span></a></p><span class="pg-num">6</span></div>
+      <div class="bp cover"><img class="cv-seal" src="alimayu-seal.png" alt=""><p class="pg-text">An intellectual atelier for research, policy, education, technology, faith, and impact.</p></div>
+    </div>
   </div>
 </section>
 
@@ -214,12 +216,12 @@
       <p class="script-eyebrow">From the studio</p>
       <h2>Four ways to work together</h2>
     </div>
-    <div class="envelopes">
-      <a class="envelope reveal" href="speaking.html" data-tilt="9">
+    <div class="envelopes hand">
+      <a class="envelope" href="speaking.html" data-tilt="9">
         <div class="env-window"><img src="assets/speaking/still-rj-mic.jpg?v=2" alt="Dr. Allison Alimayu speaking into a microphone at an organizing event" loading="lazy" style="object-position:22% 40%"><span class="env-credit">Photo: Ellen Schmidt<br>Las Vegas Review-Journal</span></div>
         <span class="env-num">i.</span><h3>Speaking</h3><p>200+ engagements, from TEDx to live national television.</p><span class="env-go">See talks and the reel</span>
       </a>
-      <a class="envelope reveal" href="consulting.html" data-tilt="9">
+      <a class="envelope" href="consulting.html" data-tilt="9">
         <div class="env-window env-soon env-gold-deep">
           <svg viewBox="0 0 220 242" aria-hidden="true" focusable="false">
             <path d="M34 70V186H192" fill="none" stroke="#E7DBC5" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -233,11 +235,11 @@
         </div>
         <span class="env-num">ii.</span><h3>Consulting</h3><p>Strategy sessions, futures sessions, and monthly advisory.</p><span class="env-go">Book a session</span>
       </a>
-      <a class="envelope reveal" href="board-seats.html" data-tilt="9">
+      <a class="envelope" href="board-seats.html" data-tilt="9">
         <div class="env-window"><img src="assets/home/board-table.jpg?v=2" alt="Board of Regents members seated at a curved boardroom table" loading="lazy" style="object-position:50% 50%"><span class="env-credit">Photo: Jeff Scheid<br>Las Vegas Review-Journal</span></div>
         <span class="env-num">iii.</span><h3>Board service</h3><p>Audit, finance, and regulatory oversight. Bio and deck open instantly.</p><span class="env-go">See the record</span>
       </a>
-      <a class="envelope reveal" href="consulting.html#legal" data-tilt="9">
+      <a class="envelope" href="consulting.html#legal" data-tilt="9">
         <div class="env-window env-soon env-black">
           <svg viewBox="0 0 220 242" aria-hidden="true" focusable="false">
             <path d="M110 64V190M74 190H146M60 98H160" fill="none" stroke="#E7DBC5" stroke-width="3" stroke-linecap="round"/>
@@ -251,15 +253,32 @@
         <span class="env-num">iv.</span><h3>Legal expert</h3><p>Consulting and expert witness testimony on managed care, health data, and public health.</p><span class="env-go">See areas of expertise</span>
       </a>
     </div>
-    <div class="close-connect surface-cream reveal">
-      <div class="monogram3d" data-scene="monogram" aria-hidden="true"><canvas></canvas></div>
-      <p>Studio Notes by email each quarter, new talks and masterclasses on YouTube, and the work as it happens on LinkedIn.</p>
-      <div class="connect-links">
-        <a class="btn dark" href="editorial.html#subscribe">Get Studio Notes <span class="arrow">&rarr;</span></a>
-        <a class="btn ghost-ink" href="https://www.youtube.com/@alimayustudio?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a>
-        <a class="btn ghost-ink" href="https://www.linkedin.com/in/allisonastephens" rel="noopener">Follow on LinkedIn</a>
+  </div>
+</section>
+
+<!-- VIII. Studio Notes: break the seal to open the letter -->
+<section class="sealed-section">
+  <div class="wrap">
+    <div class="sealed" data-sealed>
+      <div class="env-body">
+        <div class="env-backing" aria-hidden="true"></div>
+        <div class="env-slot">
+        <div class="env-letter" id="studio-letter">
+          <p class="script-eyebrow">From the studio</p>
+          <h2>Studio Notes</h2>
+          <p>Studio Notes by email each quarter, new talks and masterclasses on YouTube, and the work as it happens on LinkedIn.</p>
+          <div class="connect-links">
+            <a class="btn dark" href="editorial.html#subscribe">Get Studio Notes <span class="arrow">&rarr;</span></a>
+            <a class="btn ghost-ink" href="https://www.youtube.com/@alimayustudio?sub_confirmation=1" rel="noopener">Subscribe on YouTube</a>
+            <a class="btn ghost-ink" href="https://www.linkedin.com/in/allisonastephens" rel="noopener">Follow on LinkedIn</a>
+          </div>
+          <div class="signoff"><img src="assets/home/signature-navy.png?v=2" alt="Signature of Allison Alimayu"></div>
+        </div>
+        </div>
+        <div class="env-pocket" aria-hidden="true"></div>
+        <div class="env-flap" aria-hidden="true"></div>
+        <button type="button" class="seal-btn" aria-expanded="false" aria-controls="studio-letter"><span class="half l" aria-hidden="true"></span><span class="half r" aria-hidden="true"></span><span class="seal-label">Break the seal</span></button>
       </div>
-      <div class="signoff"><img src="assets/home/signature-navy.png?v=2" alt="Signature of Allison Alimayu"></div>
     </div>
   </div>
 </section>
@@ -285,12 +304,10 @@
 
 <script src="assets/site.js"></script>
 <script src="assets/ticker.js"></script>
-<script src="assets/ledger.js"></script>
+<script src="assets/craft.js"></script>
 <script src="assets/studio3d.js"></script>
-<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-<script>document.querySelector(".preview-drawer")&&document.querySelector(".preview-drawer").addEventListener("toggle",function(){if(this.open&&window.jotformEmbedHandler)window.jotformEmbedHandler("iframe[id='JotFormIFrame-262918882160060']","https://form.jotform.com/");});</script>
 <script>
-addEventListener('load', function () { var h = document.querySelector('.a-hero'); if (h) h.classList.add('loaded'); });
+(function () { var h = document.querySelector('.a-hero'), img = h && h.querySelector('.pw-photo'); if (!img) return; function on() { h.classList.add('loaded'); } if (img.complete) on(); else img.addEventListener('load', on); })();
 // Scroll choreography for the cut-out stage: words drift, tags float in.
 (function () {
   var stage = document.getElementById('seats');

@@ -1,5 +1,5 @@
 // Alimayu Studio — WebGL scenes. Loaded on demand by studio3d.js.
-// Scenes: stage (speaking), constellation (speaking), boardroom (board service), monogram (closing calls to action).
+// Scenes: stage (speaking), boardroom (board service), monogram (closing calls to action).
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js';
 
 const C = {
@@ -252,108 +252,6 @@ function stage(root) {
   });
 }
 
-// ---------- 2. Topic constellation (speaking page) ----------
-function constellation(root) {
-  const canvas = root.querySelector('canvas');
-  const labels = [...root.querySelectorAll('[data-topic]')];
-  const panel = root.querySelector('.const-panel');
-  const renderer = makeRenderer(canvas);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, 1, .1, 100);
-  camera.position.set(0, 0, 10.5);
-  lights(scene);
-  const world = new THREE.Group(); scene.add(world);
-
-  // Background stars
-  const starGeo = new THREE.BufferGeometry(), N = 420, arr = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) { const v = new THREE.Vector3().randomDirection().multiplyScalar(7 + Math.random() * 9); arr.set([v.x, v.y, v.z], i * 3); }
-  starGeo.setAttribute('position', new THREE.BufferAttribute(arr, 3));
-  const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: C.cream, size: .045, transparent: true, opacity: .55 }));
-  scene.add(stars);
-
-  // Center: a faceted gold core
-  const env = studioEnv(renderer);
-  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(.55, 0), new THREE.MeshStandardMaterial({ color: 0xC9A46C, metalness: 1, roughness: .25, envMap: env, flatShading: true }));
-  world.add(core);
-  const coreGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTexture(), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
-  coreGlow.scale.set(3.2, 3.2, 1); world.add(coreGlow);
-
-  // Topic nodes on a sphere
-  const n = labels.length, R = 3.1, nodes = [];
-  const tex = glowTexture();
-  labels.forEach((el, i) => {
-    const y = 1 - (i + .5) / n * 2, r = Math.sqrt(1 - y * y), th = i * Math.PI * (3 - Math.sqrt(5));
-    const p = new THREE.Vector3(Math.cos(th) * r, y * .82, Math.sin(th) * r).multiplyScalar(R);
-    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
-    s.position.copy(p); s.scale.set(.9, .9, 1); world.add(s);
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(.08, 16, 16), new THREE.MeshBasicMaterial({ color: 0xfff1d6 })); dot.position.copy(p); world.add(dot);
-    nodes.push({ el, p, s });
-  });
-  const lineGeo = new THREE.BufferGeometry(), seg = [];
-  nodes.forEach((a, i) => { seg.push(0, 0, 0, a.p.x, a.p.y, a.p.z); nodes.forEach((b, j) => { if (j > i && a.p.distanceTo(b.p) < R * 1.25) seg.push(a.p.x, a.p.y, a.p.z, b.p.x, b.p.y, b.p.z); }); });
-  lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(seg, 3));
-  world.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: C.goldLight, transparent: true, opacity: .32 })));
-  const orbit = new THREE.Mesh(new THREE.TorusGeometry(R * 1.02, .006, 4, 160), new THREE.MeshBasicMaterial({ color: C.goldLight, transparent: true, opacity: .35 }));
-  orbit.rotation.x = Math.PI / 2.3; world.add(orbit);
-
-  // Rotation state (yaw, pitch) with drag and focus
-  let yaw = .4, pitch = .15, tYaw = yaw, tPitch = pitch, active = -1, dragging = false, lastX = 0, lastY = 0, idle = 0;
-  const wrap = a => Math.atan2(Math.sin(a), Math.cos(a));
-  function focus(i, scroll) {
-    active = i;
-    const d = nodes[i].p;
-    tYaw = Math.atan2(-d.x, d.z);
-    tPitch = Math.atan2(d.y, Math.hypot(d.x, d.z));
-    yaw = tYaw - wrap(tYaw - yaw); // shortest way round
-    labels.forEach((l, k) => l.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
-    const src = nodes[i].el.dataset;
-    panel.querySelector('.cp-title').textContent = nodes[i].el.textContent.trim();
-    panel.querySelector('.cp-hook').textContent = src.hook || '';
-    panel.querySelector('.cp-best').textContent = src.best || '';
-    const ask = panel.querySelector('.cp-ask');
-    ask.href = 'mailto:info@alimayu.studio?subject=' + encodeURIComponent('Speaking request: ' + nodes[i].el.textContent.trim()) + '&body=' + encodeURIComponent('Date:\nAudience:\nFormat:\nLocation:\nBudget:\n');
-    const more = panel.querySelector('.cp-more');
-    more.href = '#' + (src.card || '');
-    panel.classList.remove('flash'); void panel.offsetWidth; panel.classList.add('flash');
-    idle = 0;
-  }
-  labels.forEach((l, i) => l.addEventListener('click', () => focus(i)));
-  canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
-  canvas.addEventListener('pointermove', e => {
-    if (!dragging) return;
-    tYaw += (e.clientX - lastX) * .008; tPitch = clamp(tPitch + (e.clientY - lastY) * .006, -1.1, 1.1);
-    lastX = e.clientX; lastY = e.clientY; idle = 0;
-  });
-  const up = () => { dragging = false; };
-  canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
-  focus(0);
-
-  const v = new THREE.Vector3();
-  loop(canvas, renderer, camera, (dt, time) => {
-    idle += dt;
-    if (!REDUCED && !dragging && idle > 6) tYaw += dt * .12;
-    const k = REDUCED ? 1 : 1 - Math.pow(.004, dt);
-    yaw = lerp(yaw, tYaw, k); pitch = lerp(pitch, tPitch, k);
-    camera.position.z = camera.aspect < 1.1 ? 12.6 : 10.5;
-    world.rotation.set(pitch, yaw, 0, 'XYZ');
-    core.rotation.y = time * .4; core.rotation.x = time * .2;
-    stars.rotation.y = yaw * .15;
-    renderer.render(scene, camera);
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    nodes.forEach((nd, i) => {
-      v.copy(nd.p).applyMatrix4(world.matrixWorld);
-      const depth = clamp((v.z + R) / (2 * R)); // 0 back, 1 front
-      const sc = .55 + depth * .55;
-      nd.s.scale.setScalar((i === active ? 1.5 : .85) * (.7 + depth * .5));
-      v.project(camera);
-      const x = (v.x * .5 + .5) * w, y = (-v.y * .5 + .5) * h;
-      nd.el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${sc.toFixed(3)})`;
-      nd.el.style.opacity = (.35 + depth * .65).toFixed(3);
-      nd.el.style.zIndex = Math.round(depth * 100);
-    });
-  });
-}
-
 // ---------- 3. Boardroom assembly (board service page) ----------
 function boardroom(root) {
   const canvas = root.querySelector('canvas');
@@ -464,7 +362,7 @@ function monogram(root) {
 }
 
 // ---------- boot ----------
-const SCENES = { stage, constellation, boardroom, monogram };
+const SCENES = { stage, boardroom, monogram };
 export function mount(el) {
   if (el.dataset.mounted) return; el.dataset.mounted = '1';
   try { SCENES[el.dataset.scene](el); el.classList.add('scene-live'); }
