@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="assets/studio3d.css">
 <link rel="stylesheet" href="assets/craft.css">
 <link rel="stylesheet" href="assets/finish.css">
+<link rel="stylesheet" href="assets/heroes.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -120,7 +121,11 @@
       <p class="lead-serif">Clear decisions in complex situations. Advice from someone who has worked the payer side, the policy side, and the research side of the same problems.</p>
       <div class="actions"><a class="btn dark" href="#sessions">Book a session <span class="arrow">&rarr;</span></a><a class="btn ghost-ink" href="#advisory">Monthly advisory</a><a class="btn ghost-ink" href="#legal">For attorneys</a></div>
     </div>
-    <img class="stamp-solo" src="alimayu-seal.png" alt="" data-follow>
+    <div class="hx hx-decide" aria-hidden="true">
+      <svg viewBox="0 0 460 420"><g class="dc-strands"></g><path class="dc-main" d="M250 210 L430 210"/><circle class="dc-node" cx="430" cy="210" r="9"/></svg>
+      <span class="dc-l" style="top:9%">Payer</span><span class="dc-l" style="top:44%">Policy</span><span class="dc-l" style="top:80%">Research</span>
+      <span class="dc-end">One clear<br>decision</span>
+    </div>
   </div>
 </section>
 
@@ -225,5 +230,6 @@ q.addEventListener('input',function(){var t=q.value.trim().toLowerCase(),n=0;ite
 count.textContent=t?(n?n+' of 15 areas match.':'No match. Ask anyway at info@alimayu.studio.'):'';});})();
 </script>
 <script src="assets/finish.js"></script>
+<script src="assets/heroes.js"></script>
 </body>
 </html>
