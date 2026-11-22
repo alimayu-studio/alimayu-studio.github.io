@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="assets/craft.css">
 <link rel="stylesheet" href="assets/studio3d.css">
 <link rel="stylesheet" href="assets/finish.css">
+<link rel="stylesheet" href="assets/showroom.css">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -180,15 +181,55 @@
   </div>
 </header>
 <main id="main">
-<section class="p-hero">
-  <div class="wrap p-hero-grid">
-    <div>
+<section class="showroom" data-showroom aria-label="Dr. Alimayu, four ways to work with her">
+  <div class="wrap sr-grid">
+    <div class="sr-copy">
       <p class="script-eyebrow">Formerly Allison Stephens</p>
-      <h1 class="deboss">About Dr. Alimayu</h1>
-      <p class="lead-serif">The futures of children and families are decided in budgets, boardrooms, and evidence reviews. She has worked in all three for more than twenty-five years.</p>
-      
+      <h1 class="sr-title">About Dr. Alimayu</h1>
+      <p class="sr-lead">The futures of children and families are decided in budgets, boardrooms, and evidence reviews. She has worked in all three for more than twenty-five years.</p>
+      <div class="sr-tabs" role="tablist" aria-label="Choose a role">
+        <button type="button" role="tab" data-role="0" aria-selected="true">Speaker</button>
+        <button type="button" role="tab" data-role="1" aria-selected="false">Board director</button>
+        <button type="button" role="tab" data-role="2" aria-selected="false">Researcher</button>
+        <button type="button" role="tab" data-role="3" aria-selected="false">Founder</button>
+      </div>
+      <div class="sr-specs" role="tabpanel" aria-live="polite">
+        <div class="sr-spec is-on" data-spec="0">
+          <p class="sr-name">The speaker</p>
+          <dl><div><dt>200+</dt><dd>Engagements</dd></div><div><dt>TEDx</dt><dd>Carlow, Ireland</dd></div><div><dt>Live TV</dt><dd>CNN and Fox News</dd></div></dl>
+          <a class="sr-go" href="speaking.html">Book a talk <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="sr-spec" data-spec="1">
+          <p class="sr-name">The board director</p>
+          <dl><div><dt>15</dt><dd>Boards, commissions, and councils since 2010</dd></div><div><dt>$25M</dt><dd>Reserves directed as audit chair</dd></div><div><dt>68%</dt><dd>Fewer open audit exceptions</dd></div></dl>
+          <a class="sr-go" href="board-seats.html">See board service <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="sr-spec" data-spec="2">
+          <p class="sr-name">The researcher</p>
+          <dl><div><dt>PhD</dt><dd>Biomedical informatics, Rutgers</dd></div><div><dt>Fulbright</dt><dd>US Scholar</dd></div><div><dt>MEDCAC</dt><dd>Voting member, Medicare</dd></div></dl>
+          <a class="sr-go" href="editorial.html">Read the work <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="sr-spec" data-spec="3">
+          <p class="sr-name">The founder</p>
+          <dl><div><dt>Studio</dt><dd>Alimayu Studio</dd></div><div><dt>Lab</dt><dd>Data Center Health Lab</dd></div><div><dt>Club</dt><dd>The Postmoon Club</dd></div></dl>
+          <a class="sr-go" href="initiatives.html">See the initiatives <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
     </div>
-    
+    <div class="sr-stage" aria-hidden="true">
+      <svg class="sr-lines" viewBox="0 0 800 600" preserveAspectRatio="none">
+        <path d="M-20 120 L260 40 L540 40 L820 120"/><path d="M-20 170 L230 80 L570 80 L820 170"/>
+        <path d="M260 40 L230 80"/><path d="M540 40 L570 80"/><path d="M400 0 L400 60"/>
+        <path d="M-20 600 L250 440 L550 440 L820 600"/><path d="M250 440 L250 400"/><path d="M550 440 L550 400"/>
+        <path d="M60 0 L180 0"/><path d="M620 0 L740 0"/>
+      </svg>
+      <div class="sr-cone"></div>
+      <div class="sr-fog f1"></div><div class="sr-fog f2"></div>
+      <div class="sr-ring"></div>
+      <img class="sr-person" src="assets/home/portrait-372-stage.png" alt="">
+      <img class="sr-reflect" src="assets/home/portrait-372-stage.png" alt="">
+      <div class="sr-floorfog"></div>
+    </div>
   </div>
 </section>
 
@@ -198,7 +239,7 @@
       <div class="a-window-edge" aria-hidden="true"></div>
       <div class="a-window portrait-window" style="aspect-ratio:400/520">
         <div class="pw-glow" aria-hidden="true"></div><div class="pw-rays" aria-hidden="true"></div>
-        <img class="pw-photo" style="opacity:1" src="assets/home/portrait-372.png" alt="Dr. Allison Alimayu">
+        <img class="pw-photo" style="opacity:1" src="assets/home/portrait-378.png" alt="Dr. Allison Alimayu">
         <div class="pw-sheen" aria-hidden="true"></div>
       </div>
       <img class="a-stamp" src="alimayu-seal.png" alt="">
@@ -305,5 +346,6 @@
 <script src="assets/craft.js"></script>
 <script src="assets/studio3d.js"></script>
 <script src="assets/finish.js"></script>
+<script src="assets/showroom.js"></script>
 </body>
 </html>
