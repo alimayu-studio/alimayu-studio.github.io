@@ -481,3 +481,8 @@ body.fn-faaith .fn-article { border-top: 0; background-image: linear-gradient(90
 body[class*="fn-"] .fn-article > .script-eyebrow { color: var(--fn); }
 body[class*="fn-"] .fn-article li::marker { color: var(--fn); }
 body[class*="fn-"] .fn-crumbs a { color: var(--fn); }
+
+/* Field Notes author byline */
+.fn-byline { display: flex; align-items: center; gap: 16px; margin: 4px 0 28px; }
+.fn-byline img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; background: var(--navy); border: 2px solid var(--gold); flex: none; }
+.fn-byline p { margin: 0; font-family: var(--serif); font-size: 19px; line-height: 1.35; color: var(--navy); }
