@@ -198,7 +198,7 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .paper-grid.two { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 900px) { .paper-grid, .paper-grid.two { grid-template-columns: 1fr; } }
 .pin::before { content: ""; position: absolute; top: -9px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #4A5291, var(--navy)); box-shadow: 0 2px 3px rgba(0,0,0,.5); }
-.tilt-l { transform: rotate(-1deg); } .tilt-r { transform: rotate(.8deg); }
+.tilt-l { rotate: -1deg; } .tilt-r { rotate: .8deg; }
 
 /* Embedded forms: every form lives on its page */
 .form-card { background: #FDFAF3; background-image: var(--fiber); background-blend-mode: multiply; padding: 10px; box-shadow: 0 30px 50px -30px rgba(40,30,15,.6), 0 0 0 1px rgba(176,141,87,.45); position: relative; }
@@ -365,7 +365,7 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .strip-title { color: #fff; font-size: clamp(32px, 3.8vw, 50px); margin: 0 0 28px; }
 
 /* ---------- Inside the studio: finished band ---------- */
-.studio-strip { position: relative; overflow: hidden; padding: clamp(64px, 8vw, 100px) 0; background-color: var(--navy); background-image: radial-gradient(60% 90% at 50% 0%, rgba(205,176,131,.16), transparent 70%), var(--fleck); background-blend-mode: normal, soft-light; }
+.studio-strip { position: relative; overflow: clip; padding: clamp(64px, 8vw, 100px) 0; background-color: var(--navy); background-image: radial-gradient(60% 90% at 50% 0%, rgba(205,176,131,.16), transparent 70%), var(--fleck); background-blend-mode: normal, soft-light; }
 .studio-strip::before, .studio-strip::after { content: ""; position: absolute; left: 50%; width: min(1100px, 86%); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(205,176,131,.55), transparent); }
 .studio-strip::before { top: 18px; } .studio-strip::after { bottom: 18px; }
 .strip-title { margin-bottom: clamp(34px, 4vw, 48px); }

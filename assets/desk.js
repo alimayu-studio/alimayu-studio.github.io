@@ -53,3 +53,44 @@
   addEventListener('resize', request);
   update();
 })();
+
+/* Doorways between sections: scroll zooms into one desk object, then fades into the next section's color. */
+(function () {
+  var doors = document.querySelectorAll('[data-door]');
+  if (!doors.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { doors.forEach(function (d) { d.classList.add('still'); }); return; }
+  var queued = false;
+  function origin(d) {
+    // Where the object sits inside the cropped (object-fit: cover) photo, as a point in the box.
+    var img = d.querySelector('img'), box = d.querySelector('.door-sticky');
+    var iw = img.naturalWidth || 1920, ih = img.naturalHeight || 1080, bw = box.clientWidth, bh = box.clientHeight;
+    var k = Math.max(bw / iw, bh / ih), dw = iw * k, dh = ih * k;
+    var ox = (bw - dw) / 2, oy = (bh - dh) / 2;
+    var x = ox + dw * (+d.dataset.x / 100), y = oy + dh * (+d.dataset.y / 100);
+    img.style.transformOrigin = x + 'px ' + y + 'px';
+    d._o = [x, y, bw, bh];
+    d._shift = [bw / 2 - x, bh * .45 - y];   // how far to slide the object toward the center
+  }
+  function update() {
+    queued = false;
+    doors.forEach(function (d) {
+      var r = d.getBoundingClientRect(), span = d.offsetHeight - (innerHeight - 72);
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      var p = Math.min(1, Math.max(0, (72 - r.top) / Math.max(1, span)));
+      var z = p * p, e = Math.min(1, p / .55); e = e * e * (3 - 2 * e);
+      var sh = d._shift || [0, 0], o = d._o || [0, 0, 0, 0], sc = 1 + z * 9;
+      // Slide toward the center, but never so far that the photo's edge shows.
+      var tx = Math.min(o[0] * (sc - 1), Math.max(-(o[2] - o[0]) * (sc - 1), sh[0] * e));
+      var ty = Math.min(o[1] * (sc - 1), Math.max(-(o[3] - o[1]) * (sc - 1), sh[1] * e));
+      d.querySelector('img').style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + sc.toFixed(3) + ')';
+      d.querySelector('.door-label').style.opacity = (p < .15 ? p / .15 : Math.max(0, 1 - (p - .45) / .2)).toFixed(3);
+      d.querySelector('.door-fade').style.opacity = Math.max(0, (p - .62) / .3).toFixed(3);
+    });
+  }
+  function request() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  function setup() { doors.forEach(origin); request(); }
+  doors.forEach(function (d) { var img = d.querySelector('img'); if (!img.complete) img.addEventListener('load', function () { origin(d); }); });
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', setup);
+  setup();
+})();

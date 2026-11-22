@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="assets/studio3d.css">
 <link rel="stylesheet" href="assets/craft.css">
 <link rel="stylesheet" href="assets/desk.css">
+<link rel="stylesheet" href="assets/finish.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -136,6 +137,13 @@
   <div class="ticker-mask"><div class="ticker-track cards" id="ticker"></div></div>
 </section>
 
+<div class="door" data-door data-x="71.7" data-y="68" style="--to:var(--teal)" aria-hidden="true">
+  <div class="door-sticky">
+    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
+    <p class="door-label"><span>From the desk</span>The microphone</p>
+    <div class="door-fade"></div>
+  </div>
+</div>
 <!-- III. TEDx, framed like a folio with a seal clasp -->
 <section class="folio-section" id="tedx">
   <div class="wrap folio-grid">
@@ -155,6 +163,13 @@
   </div>
 </section>
 
+<div class="door" data-door data-x="48.6" data-y="90" style="--to:var(--navy)" aria-hidden="true">
+  <div class="door-sticky">
+    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
+    <p class="door-label"><span>From the desk</span>The board portfolio</p>
+    <div class="door-fade"></div>
+  </div>
+</div>
 <!-- IV. Cut-out: she steps out of the arch, over the three seats -->
 <section class="seats-stage" id="seats">
   <div class="seats-words" aria-hidden="true">
@@ -203,6 +218,13 @@
 </section>
 
 <!-- VI. Inside the studio: one line of doorways -->
+<div class="door" data-door data-x="93.5" data-y="14" style="--to:var(--black)" aria-hidden="true">
+  <div class="door-sticky">
+    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
+    <p class="door-label"><span>From the desk</span>The books</p>
+    <div class="door-fade"></div>
+  </div>
+</div>
 <section class="studio-strip strip-black" id="inside">
   <div class="wrap">
     <p class="script-eyebrow light">Inside the studio</p>
@@ -354,5 +376,6 @@
   addEventListener('scroll', tick, { passive: true }); tick();
 })();
 </script>
+<script src="assets/finish.js"></script>
 </body>
 </html>

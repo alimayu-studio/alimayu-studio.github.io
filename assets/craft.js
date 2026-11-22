@@ -1,6 +1,6 @@
 // Handmade interactions for the atelier: torn-paper section edges, pinned notes that pull off the board,
 // a wax seal that breaks open a letter, page-turning books, the ledger book, the topic deck, and the
-// Postmoon mailer. Every piece respects prefers-reduced-motion and works by keyboard.
+// Postmoon mailer. Books and the deck turn as the page scrolls. Every piece respects prefers-reduced-motion and works by keyboard.
 document.documentElement.classList.add('js');
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -208,7 +208,7 @@ document.documentElement.classList.add('js');
     el.addEventListener('pointerup', function (e) { if (px === null) return; var d = e.clientX - px; px = null; if (Math.abs(d) > 45) go(d < 0 ? 1 : -1); });
     mq.addEventListener('change', build);
     build();
-    el.bookApi = { go: go };
+    el.bookApi = { go: go, cur: function () { return cur; }, max: function () { return mode === 'spread' ? leaves.length : n - 1; } };
   }
 
   // ---------- 5. The ledger, kept as a book of eras ----------
@@ -312,8 +312,74 @@ document.documentElement.classList.add('js');
       setTimeout(function () { show(i, true); }, reduce ? 0 : 520);
     });
     show(0);
+    deck.deckApi = { show: show, count: cards.length };
   })();
 
-  // ---------- 7. The Postmoon mailer spills open ----------
+  // ---------- 7. Scroll turns the books and deals the deck ----------
+  // Each piece pins in place while the page scrolls past it, and scroll position picks the page or card.
+  // Buttons, taps, and arrow keys still work. Visitors who prefer less motion keep the buttons only.
+  function scrub(el, steps, perStep, apply) {
+    if (reduce || steps < 1) return;
+    for (var a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+      var o = getComputedStyle(a).overflowY; if (o === 'hidden' || o === 'auto' || o === 'scroll') a.style.overflow = 'clip';
+    }
+    var holder = document.createElement('div'); holder.className = 'scrub';
+    el.parentNode.insertBefore(holder, el); holder.appendChild(el);
+    el.classList.add('scrub-pin');
+    var last = -1, queued = false;
+    function size() {
+      var h = el.offsetHeight, room = innerHeight - 72;
+      var pinned = h <= room - 8;
+      holder.classList.toggle('pinned', pinned);
+      holder.style.height = pinned ? (h + steps * perStep * innerHeight) + 'px' : '';
+      el.style.top = pinned ? Math.max(84, 72 + (room - h) / 2) + 'px' : '';
+    }
+    function tick() {
+      queued = false;
+      var r = holder.getBoundingClientRect(), p;
+      if (holder.classList.contains('pinned')) {
+        var travel = holder.offsetHeight - el.offsetHeight;
+        p = (parseFloat(el.style.top) - r.top) / Math.max(1, travel);
+      } else {
+        p = (innerHeight * 0.75 - r.top) / Math.max(1, r.height + innerHeight * 0.25);
+      }
+      var i = Math.round(Math.min(1, Math.max(0, p)) * steps);
+      if (i !== last) { last = i; apply(i); }
+    }
+    function request() { if (!queued) { queued = true; requestAnimationFrame(tick); } }
+    size();
+    addEventListener('scroll', request, { passive: true });
+    addEventListener('resize', function () { size(); request(); });
+    tick();
+  }
+
+  function bookScrub(el, around) {
+    var api = el.bookApi; if (!api) return;
+    var target = 0, timer = null;
+    function step() {
+      timer = null;
+      var c = api.cur(); if (c === target) return;
+      api.go(target > c ? 1 : -1);
+      timer = setTimeout(step, 260);
+    }
+    scrub(around || el, api.max(), api.max() > 6 ? 0.32 : 0.5, function (i) { target = Math.min(api.max(), i); if (!timer) step(); });
+  }
+
+  (function () {
+    var lb = document.getElementById('ledger-book'), det = document.querySelector('.tl-detail');
+    if (lb && det && det.previousElementSibling === lb) {
+      var pair = document.createElement('div'); pair.className = 'ledger-pin';
+      lb.parentNode.insertBefore(pair, lb); pair.appendChild(lb); pair.appendChild(det);
+      bookScrub(lb, pair);
+    } else if (lb) bookScrub(lb);
+    $$('.book').forEach(function (el) { if (el.id !== 'ledger-book') bookScrub(el); });
+    var deck = document.querySelector('[data-deck]');
+    if (deck && deck.deckApi) {
+      var wrap = deck.closest('.deck-wrap') || deck;
+      scrub(wrap, deck.deckApi.count - 1, 0.22, function (i) { deck.deckApi.show(i, true); });
+    }
+  })();
+
+  // ---------- 8. The Postmoon mailer spills open ----------
   $$('[data-mailer]').forEach(function (m) { onView(m, function () { m.classList.add('spilled'); }, '0px 0px -25% 0px'); });
 })();
