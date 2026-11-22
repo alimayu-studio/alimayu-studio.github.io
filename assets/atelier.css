@@ -26,13 +26,9 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .btn.ghost-ink { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn.ghost-ink:hover { background: rgba(30, 35, 70, .06); }
 
-/* I. Hero */
-.a-hero { padding: clamp(40px, 6vw, 84px) 0 clamp(36px, 5vw, 64px); position: relative; overflow: hidden; }
-.a-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
-.a-hero h1 { font-size: clamp(64px, 10.4vw, 156px); line-height: .86; font-weight: 600; letter-spacing: -.025em; }
+/* I. Hero text and arch portrait (arch used on About and Speaking) */
 .a-thesis { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 30px); line-height: 1.32; max-width: 30ch; margin: 30px 0 0; color: var(--navy); }
 .formerly { margin-top: 18px; font-size: 15px; color: #6B6556; }
-.a-window-wrap { position: relative; justify-self: end; width: min(100%, 440px); }
 .a-window { position: relative; aspect-ratio: 400 / 520; border-radius: 999px 999px 0 0; overflow: hidden; background: var(--navy); }
 .a-window video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.85) contrast(1.05); }
 /* Animated portrait in the arch: slow push, light rays turning behind her, a foil sheen passing over */
@@ -46,10 +42,9 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 @keyframes breathe { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
 @keyframes sheen { 0% { background-position: 130% 0; } 60%, 100% { background-position: -30% 0; } }
 .js .pw-photo { opacity: 0; }
-.js .loaded .pw-photo, .js .a-hero.loaded .pw-photo { opacity: 1; transition: opacity 1.4s ease .2s; }
+.js .loaded .pw-photo { opacity: 1; transition: opacity 1.4s ease .2s; }
 @media (prefers-reduced-motion: reduce) { .pw-photo, .pw-rays, .pw-glow, .pw-sheen { animation: none; } .js .pw-photo { opacity: 1; } }
 .a-window::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 18px 30px -12px rgba(0, 0, 0, .65), inset 10px 0 24px -14px rgba(0, 0, 0, .5), inset -10px 0 24px -14px rgba(0, 0, 0, .5); background: linear-gradient(180deg, transparent 55%, rgba(30, 35, 70, .55)); }
-.a-window-wrap::before { content: ""; position: absolute; inset: -3px; z-index: -1; background: radial-gradient(closest-side, rgba(255, 255, 255, .7), transparent); filter: blur(12px); }
 .a-arch { position: relative; }
 .a-window-edge { position: absolute; left: -14px; right: -14px; top: -14px; bottom: 0; border: 1px solid var(--gold); border-bottom: 0; border-radius: 999px 999px 0 0; pointer-events: none; }
 .a-stamp { position: absolute; width: 150px; left: -58px; bottom: 54px; filter: drop-shadow(0 10px 14px rgba(20, 15, 10, .45)); }
@@ -60,8 +55,6 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .pillars li { display: flex; align-items: center; gap: 18px; }
 .pillars li + li::before { content: "\2726"; color: var(--gold); font-size: 13px; }
 @media (max-width: 900px) {
-  .a-hero-grid { grid-template-columns: 1fr; }
-  .a-window-wrap { justify-self: center; width: min(86%, 360px); margin-top: 12px; }
   .a-stamp { width: 112px; left: -36px; }
   .a-window-caption { text-align: center; }
   .pillars { justify-content: center; }

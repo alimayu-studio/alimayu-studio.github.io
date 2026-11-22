@@ -1,0 +1,51 @@
+/* Homepage hero: a desk that fills one layer per scroll */
+.desk-hero { position: relative; height: 560vh; background: #F4EEE3; transition: background-color .6s ease; }
+.desk-sticky { position: sticky; top: 72px; height: calc(100vh - 72px); height: calc(100svh - 72px); display: flex; align-items: center; overflow: hidden; }
+.desk-grid { display: grid; grid-template-columns: minmax(300px, 400px) 1fr; gap: clamp(24px, 3.5vw, 56px); align-items: center; width: 100%; max-width: 1440px; }
+.desk-copy { position: relative; min-height: 440px; }
+.desk-count { font-family: var(--serif); font-size: 15px; letter-spacing: .12em; color: var(--muted); display: flex; align-items: center; gap: 6px; margin-bottom: 18px; }
+.desk-num { color: var(--navy); font-weight: 600; }
+.desk-ticks { display: inline-flex; gap: 6px; margin-left: 14px; }
+.desk-ticks i { width: 22px; height: 2px; background: rgba(30, 35, 70, .18); transition: background .4s; }
+.desk-ticks i.on { background: var(--gold); }
+.desk-panel { position: absolute; left: 0; right: 0; top: 40px; opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; pointer-events: none; }
+.desk-panel.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.desk-panel h1 { font-size: clamp(52px, 6.2vw, 92px); line-height: .92; }
+.desk-panel h2 { font-size: clamp(40px, 4.4vw, 64px); line-height: .98; color: var(--navy); }
+.desk-panel .a-thesis { font-size: clamp(19px, 1.7vw, 24px); margin-top: 22px; }
+.desk-panel .actions { margin-top: 26px; }
+.desk-line { font-family: var(--serif); font-size: clamp(21px, 1.9vw, 27px); line-height: 1.32; color: var(--navy); margin: 20px 0 0; max-width: 26ch; }
+.desk-panel .pillars { margin: 26px 0 0; padding-top: 16px; font-size: clamp(18px, 1.6vw, 22px); justify-content: flex-start; }
+.desk-stage { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: 8px; overflow: hidden; background: #3B2618; box-shadow: 0 40px 80px rgba(20, 24, 48, .28), 0 8px 18px rgba(20, 24, 48, .18); }
+.desk-zoom { position: absolute; inset: 0; transform-origin: 50% 45%; will-change: transform; }
+.desk-zoom > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; will-change: opacity; }
+.desk-zoom > img:first-child { opacity: 1; }
+.desk-frame { position: absolute; overflow: hidden; box-shadow: inset 0 3px 8px rgba(0, 0, 0, .35); }
+.desk-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+.desk-frame::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 3px 8px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(0, 0, 0, .12); }
+
+@media (max-width: 900px) {
+  .desk-hero { height: 520vh; }
+  .desk-sticky { align-items: flex-start; padding-top: 18px; }
+  .desk-grid { grid-template-columns: 1fr; gap: 18px; }
+  .desk-copy { min-height: 440px; order: 1; }
+  .desk-stage { order: 2; }
+  .desk-panel { top: 26px; }
+  .desk-panel .actions .btn { padding: 12px 20px; }
+  .desk-panel h1 { font-size: clamp(40px, 11vw, 56px); }
+  .desk-panel h2 { font-size: clamp(32px, 8.6vw, 44px); }
+  .desk-panel .a-thesis { font-size: 18px; margin-top: 14px; }
+  .desk-panel .actions { margin-top: 16px; }
+  .desk-line { font-size: 19px; margin-top: 12px; }
+  .desk-panel .formerly { display: none; }
+}
+
+/* Visitors who prefer less motion see the finished desk and the opening text */
+.desk-hero.still { height: auto; }
+.desk-hero.still .desk-sticky { position: relative; top: 0; height: auto; padding: clamp(40px, 6vw, 84px) 0; }
+.desk-hero.still .desk-panel { position: relative; top: 0; display: none; opacity: 1; transform: none; transition: none; }
+.desk-hero.still .desk-panel[data-layer="1"] { display: block; }
+.desk-hero.still .desk-copy { min-height: 0; }
+.desk-hero.still .desk-zoom > img { opacity: 0; }
+.desk-hero.still .desk-zoom > img:nth-child(6) { opacity: 1; }
+.desk-hero.still .desk-count { display: none; }
