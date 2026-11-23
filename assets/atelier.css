@@ -26,7 +26,12 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .btn.ghost-ink { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn.ghost-ink:hover { background: rgba(30, 35, 70, .06); }
 
-/* I. Hero text and arch portrait (arch used on About and Speaking) */
+/* I. Hero */
+.a-hero { padding: clamp(40px, 6vw, 84px) 0 clamp(36px, 5vw, 64px); position: relative; overflow: hidden; }
+.a-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.a-hero h1 { font-size: clamp(64px, 10.4vw, 156px); line-height: .86; font-weight: 600; letter-spacing: -.025em; }
+.a-window-wrap { position: relative; justify-self: end; width: min(100%, 440px); }
+.a-window-wrap::before { content: ""; position: absolute; inset: -3px; z-index: -1; background: radial-gradient(closest-side, rgba(255, 255, 255, .7), transparent); filter: blur(12px); }
 .a-thesis { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 30px); line-height: 1.32; max-width: 30ch; margin: 30px 0 0; color: var(--navy); }
 .formerly { margin-top: 18px; font-size: 15px; color: #6B6556; }
 .a-window { position: relative; aspect-ratio: 400 / 520; border-radius: 999px 999px 0 0; overflow: hidden; background: var(--navy); }
@@ -55,6 +60,8 @@ body.paper { background-color: var(--paper-1); background-image: var(--fiber), v
 .pillars li { display: flex; align-items: center; gap: 18px; }
 .pillars li + li::before { content: "\2726"; color: var(--gold); font-size: 13px; }
 @media (max-width: 900px) {
+  .a-hero-grid { grid-template-columns: 1fr; }
+  .a-window-wrap { justify-self: center; width: min(86%, 360px); margin-top: 12px; }
   .a-stamp { width: 112px; left: -36px; }
   .a-window-caption { text-align: center; }
   .pillars { justify-content: center; }

@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="assets/atelier.css">
 <link rel="stylesheet" href="assets/studio3d.css">
 <link rel="stylesheet" href="assets/craft.css">
-<link rel="stylesheet" href="assets/desk.css">
 <link rel="stylesheet" href="assets/finish.css">
 <script type="application/ld+json">
 {
@@ -69,65 +68,35 @@
 <main id="main">
 
 <!-- I. The atelier: debossed name, die-cut arch onto real footage, wax seal stamp -->
-<section class="desk-hero" id="top" aria-label="Dr. Allison Alimayu, built in layers">
-  <div class="desk-sticky">
-    <div class="wrap desk-grid">
-      <div class="desk-copy">
-        <div class="desk-count" aria-hidden="true"><span class="desk-num">01</span> / 06<span class="desk-ticks"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-        <div class="desk-panel is-on" data-layer="1">
-          <p class="script-eyebrow">Public interest futurist</p>
-          <h1 class="deboss">Dr. Allison<br>Alimayu</h1>
-          <p class="a-thesis">The futures of children and families are decided in <span class="ink-gold">budgets</span>, <span class="ink-teal">boardrooms</span>, and <span class="ink-navy">evidence reviews</span>. She has a seat in all three, and she works to make those decisions serve the public.</p>
-          <div class="actions">
-            <a class="btn dark" href="#tedx">Watch the TEDx talk <span class="arrow">&rarr;</span></a>
-            <a class="btn ghost-ink" href="speaking.html">Book Dr. Alimayu</a>
-          </div>
-          <p class="formerly">Formerly Allison Stephens</p>
-        </div>
-        <div class="desk-panel" data-layer="2">
-          <p class="script-eyebrow">Educated for the work</p>
-          <h2>Educated for the Work</h2>
-          <p class="desk-line">Degrees in health care, education, and biomedical informatics, plus training from Penn, Yale, and Columbia.</p>
-        </div>
-        <div class="desk-panel" data-layer="3">
-          <p class="script-eyebrow">Health care</p>
-          <h2>25 Years in Health Care</h2>
-          <p class="desk-line">From medical records to managed care, informatics, and health policy.</p>
-        </div>
-        <div class="desk-panel" data-layer="4">
-          <p class="script-eyebrow">The stage</p>
-          <h2>Any Room. Any Stage.</h2>
-          <p class="desk-line">More than 200 engagements, from TEDx to CNN to the statehouse.</p>
-        </div>
-        <div class="desk-panel" data-layer="5">
-          <p class="script-eyebrow">The boardroom</p>
-          <h2>Ready for the Boardroom</h2>
-          <p class="desk-line">Audit, risk, and regulatory oversight at public scale.</p>
-        </div>
-        <div class="desk-panel" data-layer="6">
-          <p class="script-eyebrow">The full desk</p>
-          <h2>Built in Layers</h2>
-          <ul class="pillars" aria-label="Alimayu Studio pillars">
-            <li>Research</li><li>Policy</li><li>Education</li><li>Technology</li><li>Faith</li><li>Impact</li>
-          </ul>
-          <div class="actions">
-            <a class="btn dark" href="speaking.html">Book Dr. Alimayu <span class="arrow">&rarr;</span></a>
-            <a class="btn ghost-ink" href="#tedx">Watch the TEDx talk</a>
-          </div>
-        </div>
+<section class="a-hero">
+  <div class="wrap a-hero-grid">
+    <div class="a-hero-copy">
+      <p class="script-eyebrow">Public interest futurist</p>
+      <h1 class="deboss">Dr. Allison<br>Alimayu</h1>
+      <p class="a-thesis">The futures of children and families are decided in <span class="ink-gold">budgets</span>, <span class="ink-teal">boardrooms</span>, and <span class="ink-navy">evidence reviews</span>. She has a seat in all three, and she works to make those decisions serve the public.</p>
+      <div class="actions">
+        <a class="btn dark" href="#tedx">Watch the TEDx talk <span class="arrow">&rarr;</span></a>
+        <a class="btn ghost-ink" href="speaking.html">Book Dr. Alimayu</a>
       </div>
-      <div class="desk-stage" role="img" aria-label="Overhead photo of a walnut desk that fills one layer at a time: a gold frame holding Dr. Alimayu's portrait, framed diplomas and certificates, an ID badge and a health data tablet, a microphone and speaker badges, a board portfolio and pen, and a camera, books, and coffee.">
-        <div class="desk-zoom">
-          <img src="assets/desk/desk-1.jpg" alt="" decoding="async">
-          <img src="assets/desk/desk-2.jpg" alt="" decoding="async">
-          <img src="assets/desk/desk-3.jpg" alt="" decoding="async">
-          <img src="assets/desk/desk-4.jpg" alt="" decoding="async">
-          <img src="assets/desk/desk-5.jpg" alt="" decoding="async">
-          <img src="assets/desk/desk-6.jpg" alt="" decoding="async">
-          <div class="desk-frame"><img src="assets/desk/desk-portrait.jpg" alt="" decoding="async"></div>
+      <p class="formerly">Formerly Allison Stephens</p>
+    </div>
+    <div class="a-window-wrap">
+      <div class="a-arch">
+        <div class="a-window-edge" aria-hidden="true"></div>
+        <div class="a-window portrait-window">
+          <div class="pw-glow" aria-hidden="true"></div>
+          <div class="pw-rays" aria-hidden="true"></div>
+          <img class="pw-photo" style="opacity:1" src="assets/home/portrait-372.png" alt="Dr. Allison Alimayu">
+          <div class="pw-sheen" aria-hidden="true"></div>
         </div>
+        <img class="a-stamp" src="alimayu-seal.png" alt="Alimayu Studio wax seal">
       </div>
     </div>
+  </div>
+  <div class="wrap">
+    <ul class="pillars" aria-label="Alimayu Studio pillars">
+      <li>Research</li><li>Policy</li><li>Education</li><li>Technology</li><li>Faith</li><li>Impact</li>
+    </ul>
   </div>
 </section>
 
@@ -137,13 +106,6 @@
   <div class="ticker-mask"><div class="ticker-track cards" id="ticker"></div></div>
 </section>
 
-<div class="door" data-door data-x="71.7" data-y="68" style="--to:var(--teal)" aria-hidden="true">
-  <div class="door-sticky">
-    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
-    <p class="door-label"><span>From the desk</span>The microphone</p>
-    <div class="door-fade"></div>
-  </div>
-</div>
 <!-- III. TEDx, framed like a folio with a seal clasp -->
 <section class="folio-section" id="tedx">
   <div class="wrap folio-grid">
@@ -163,13 +125,6 @@
   </div>
 </section>
 
-<div class="door" data-door data-x="48.6" data-y="90" style="--to:var(--navy)" aria-hidden="true">
-  <div class="door-sticky">
-    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
-    <p class="door-label"><span>From the desk</span>The board portfolio</p>
-    <div class="door-fade"></div>
-  </div>
-</div>
 <!-- IV. Cut-out: she steps out of the arch, over the three seats -->
 <section class="seats-stage" id="seats">
   <div class="seats-words" aria-hidden="true">
@@ -218,13 +173,6 @@
 </section>
 
 <!-- VI. Inside the studio: one line of doorways -->
-<div class="door" data-door data-x="93.5" data-y="14" style="--to:var(--black)" aria-hidden="true">
-  <div class="door-sticky">
-    <img src="assets/desk/desk-full.jpg" alt="" loading="lazy" decoding="async">
-    <p class="door-label"><span>From the desk</span>The books</p>
-    <div class="door-fade"></div>
-  </div>
-</div>
 <section class="studio-strip strip-black" id="inside">
   <div class="wrap">
     <p class="script-eyebrow light">Inside the studio</p>
@@ -358,7 +306,6 @@
 <script src="assets/ticker.js"></script>
 <script src="assets/craft.js"></script>
 <script src="assets/studio3d.js"></script>
-<script src="assets/desk.js"></script>
 <script>
 // Scroll choreography for the cut-out stage: words drift, tags float in.
 (function () {

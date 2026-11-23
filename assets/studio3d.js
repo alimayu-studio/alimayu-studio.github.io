@@ -125,12 +125,7 @@
     if (replay) replay.addEventListener('click', function () { video.currentTime = 0; video.play(); });
   });
 
-  // ---------- 5. Paper that responds to touch: cards tilt toward the cursor (or the phone's motion) and catch the light ----------
-  $$('.paper-card, .fn-card, .product.paper, .init-card, .join-card, .hub-card, .night-card, .tl-detail').forEach(function (el) {
-    if (el.hasAttribute('data-tilt')) return;
-    el.setAttribute('data-tilt', '4');
-    if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
-  });
+  // ---------- 5. Feature cards tilt toward the cursor (or the phone's motion) ----------
   var tilters = $$('[data-tilt], [data-issue]');
   tilters.forEach(function (card) {
     if (REDUCED) return;
